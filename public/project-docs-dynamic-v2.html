@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Management API Documentation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f7fa;
+        }
+
+        .container {
+            display: flex;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+            gap: 30px;
+        }
+
+        .main-content {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .toc-sidebar {
+            width: 280px;
+            flex-shrink: 0;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .header-logo {
+            font-size: 1.3em;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .header-menu {
+            display: flex;
+            gap: 8px;
+        }
+
+        .menu-link {
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            transition: all 0.3s;
+            font-size: 0.9em;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .menu-link:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-1px);
+        }
+
+        /* Add padding to body to account for fixed header */
+        body {
+            padding-top: 60px;
+        }
+
+        nav {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 20px;
+            max-height: calc(100vh - 40px);
+            overflow-y: auto;
+            z-index: 100;
+        }
+
+        nav h3 {
+            margin-bottom: 15px;
+            color: #667eea;
+            font-size: 1.1em;
+        }
+
+        nav ul {
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 6px 0;
+        }
+
+        nav ul li a {
+            color: #555;
+            text-decoration: none;
+            padding: 6px 12px;
+            display: block;
+            border-radius: 4px;
+            transition: all 0.3s;
+            font-size: 0.9em;
+            border-left: 3px solid transparent;
+        }
+
+        nav ul li a:hover {
+            background: #f0f0f0;
+            border-left-color: #667eea;
+            color: #667eea;
+            transform: translateX(3px);
+        }
+
+        nav ul li a.active {
+            background: #e7f0ff;
+            color: #667eea;
+            border-left-color: #667eea;
+            font-weight: 600;
+        }
+
+        /* Nested submenu styles */
+        nav ul li ul {
+            margin-left: 15px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+
+        nav ul li ul li {
+            margin: 3px 0;
+        }
+
+        nav ul li ul li a {
+            font-size: 0.85em;
+            padding: 4px 10px;
+            color: #666;
+        }
+
+        nav ul li > a.has-submenu {
+            font-weight: 600;
+            color: #667eea;
+        }
+
+        nav ul li > a.has-submenu::after {
+            content: " ▼";
+            font-size: 0.7em;
+            margin-left: 5px;
+        }
+
+        /* Expandable technical details */
+        .task-card {
+            margin: 15px 0;
+            padding: 15px;
+            background: #f8f9fa;
+            border-left: 4px solid #4CAF50;
+            border-radius: 4px;
+        }
+
+        .task-header {
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .task-header:hover {
+            opacity: 0.9;
+        }
+
+        .expand-icon {
+            float: right;
+            font-size: 0.9em;
+            color: #667eea;
+            transition: transform 0.3s ease;
+        }
+
+        .expand-icon.expanded {
+            transform: rotate(180deg);
+        }
+
+        .technical-details {
+            display: none;
+            margin-top: 15px;
+            padding: 15px;
+            background: white;
+            border-radius: 4px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .technical-details.show {
+            display: block;
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                max-height: 0;
+            }
+            to {
+                opacity: 1;
+                max-height: 2000px;
+            }
+        }
+
+        .tech-section {
+            margin: 10px 0;
+            padding: 10px;
+            background: #f5f7fa;
+            border-left: 3px solid #667eea;
+        }
+
+        .tech-section h5 {
+            margin: 0 0 8px 0;
+            color: #667eea;
+            font-size: 0.95em;
+        }
+
+        .tech-list {
+            margin: 5px 0;
+            padding-left: 20px;
+        }
+
+        .tech-list li {
+            margin: 5px 0;
+            font-size: 0.9em;
+        }
+
+        code.inline {
+            background: #2d3748;
+            color: #a0aec0;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 0.85em;
+        }
+
+        nav ul li > a.has-submenu.collapsed::after {
+            content: " ▶";
+        }
+
+        /* Scrollbar styling for nav */
+        nav::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        nav::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        nav::-webkit-scrollbar-thumb {
+            background: #667eea;
+            border-radius: 10px;
+        }
+
+        nav::-webkit-scrollbar-thumb:hover {
+            background: #764ba2;
+        }
+
+        .content {
+            background: white;
+            padding: 30px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            color: #667eea;
+            margin: 30px 0 20px 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #667eea;
+        }
+
+        h3 {
+            color: #764ba2;
+            margin: 25px 0 15px 0;
+        }
+
+        h4 {
+            color: #555;
+            margin: 20px 0 10px 0;
+        }
+
+        .endpoint {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .method {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 0.85em;
+            margin-right: 10px;
+        }
+
+        .method.get {
+            background: #28a745;
+            color: white;
+        }
+
+        .method.post {
+            background: #007bff;
+            color: white;
+        }
+
+        .method.put {
+            background: #ffc107;
+            color: #333;
+        }
+
+        .method.delete {
+            background: #dc3545;
+            color: white;
+        }
+
+        .endpoint-path {
+            font-family: 'Courier New', monospace;
+            font-size: 1.1em;
+            color: #333;
+        }
+
+        pre {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 15px 0;
+            font-size: 0.9em;
+            line-height: 1.5;
+        }
+
+        code {
+            font-family: 'Courier New', monospace;
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            color: #e83e8c;
+        }
+
+        pre code {
+            background: transparent;
+            padding: 0;
+            color: #f8f8f2;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+
+        .badge.success {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .badge.info {
+            background: #d1ecf1;
+            color: #0c5460;
+        }
+
+        .badge.warning {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        table th,
+        table td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        table th {
+            background: #667eea;
+            color: white;
+            font-weight: 600;
+        }
+
+        table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .info-box {
+            background: #e7f3ff;
+            border-left: 4px solid #2196F3;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .warning-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .success-box {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .model-card {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .model-card h4 {
+            margin-top: 0;
+            color: #667eea;
+        }
+
+        .quick-link {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            margin: 10px 10px 10px 0;
+            transition: all 0.3s;
+        }
+
+        .quick-link:hover {
+            background: #764ba2;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #777;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 1024px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .toc-sidebar {
+                width: 100%;
+                order: -1;
+            }
+
+            nav {
+                position: relative;
+                top: 0;
+                max-height: 400px;
+            }
+
+            body {
+                padding-top: 180px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 10px 15px;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .header-logo {
+                font-size: 1.1em;
+            }
+
+            .header-menu {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .menu-link {
+                font-size: 0.8em;
+                padding: 6px 10px;
+            }
+
+            body {
+                padding-top: 80px;
+            }
+
+            .container {
+                padding: 10px;
+            }
+
+            nav {
+                max-height: 300px;
+            }
+
+            .toc-sidebar {
+                margin-bottom: 20px;
+            }
+        }
+
+        /* Loading animation styles */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(245, 247, 250, 0.95);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .loading-spinner {
+            width: 60px;
+            height: 60px;
+            border: 4px solid #e0e0e0;
+            border-top-color: #667eea;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .loading-text {
+            margin-top: 20px;
+            font-size: 1.1em;
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        .loading-steps {
+            margin-top: 15px;
+            text-align: center;
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .loading-step {
+            margin: 5px 0;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+        .loading-step.active {
+            background: #e7f0ff;
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        .loading-step.complete {
+            color: #28a745;
+        }
+
+        .loading-step.complete::before {
+            content: "✓ ";
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="loading-spinner"></div>
+        <div class="loading-text">Loading Project Documentation...</div>
+        <div class="loading-steps">
+            <div id="step1" class="loading-step">Seeding documentation data</div>
+            <div id="step2" class="loading-step">Updating technical details</div>
+            <div id="step3" class="loading-step">Fetching sprint data</div>
+        </div>
+    </div>
+
+    <header>
+        <div class="header-logo">
+            📊 Project Management API
+        </div>
+        <div class="header-menu">
+            <a href="/" class="menu-link">Home</a>
+            <a href="/api-docs" class="menu-link">Swagger UI</a>
+            <a href="#quick-start" class="menu-link">Quick Start</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <aside class="toc-sidebar">
+            <nav>
+                <h3>📑 Table of Contents</h3>
+                <ul>
+                    <li><a href="#overview">Overview</a></li>
+                    <li><a href="#base-url">Base URL</a></li>
+                    <li><a href="#quick-start">Quick Start</a></li>
+
+                    <li>
+                        <a href="#all-sprints" class="has-submenu" onclick="toggleSubmenu(event, 'sprints-menu')">All Sprints & Tasks</a>
+                        <ul id="sprints-menu">
+                            <!-- Sprint navigation will be populated dynamically -->
+                        </ul>
+                    </li>
+
+                    <li><a href="#sprint-management">Sprint Management API</a></li>
+                    <li><a href="#task-management">Task Management API</a></li>
+                    <li><a href="#sprint-metrics">Sprint Metrics & Analytics</a></li>
+                    <li><a href="#sprint-task-map">Sprint-Task Mapping</a></li>
+                    <li><a href="#data-models">Data Models</a></li>
+                    <li><a href="#examples">Examples</a></li>
+                    <li><a href="#project-vision">Project Vision & Scaling</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <div class="main-content">
+            <div class="content">
+            <section id="overview">
+                <h2>📖 Overview</h2>
+                <p>The Project Management API provides comprehensive endpoints for managing sprints, tasks, and project analytics in an Agile development environment.</p>
+
+                <h3>Key Features</h3>
+                <ul>
+                    <li>✅ Sprint lifecycle management (create, start, complete)</li>
+                    <li>📋 Task tracking with story points and status updates</li>
+                    <li>📊 Real-time sprint metrics and analytics</li>
+                    <li>🚀 Team velocity tracking</li>
+                    <li>📉 Burndown chart data</li>
+                    <li>🔗 Sprint-task relationship mapping</li>
+                </ul>
+            </section>
+
+            <section id="base-url">
+                <h2>🌐 Base URL</h2>
+                <pre><code>http://localhost:3001/api</code></pre>
+                <p><strong>Production:</strong> <code>https://your-domain.com/api</code></p>
+            </section>
+
+            <section id="quick-start">
+                <h2>🚀 Quick Start</h2>
+
+                <div class="success-box">
+                    <h4>✨ Ready to Use!</h4>
+                    <p>The API is running with dynamically loaded sprint and task data.</p>
+                </div>
+
+                <h3>1. Get All Sprints</h3>
+                <pre><code>curl http://localhost:3001/api/sprint-management/sprints</code></pre>
+
+                <h3>2. Get Sprint Metrics</h3>
+                <pre><code>curl http://localhost:3001/api/sprint-metrics/SPRINT-001</code></pre>
+
+                <h3>3. Get Project Summary</h3>
+                <pre><code>curl http://localhost:3001/api/sprint-metrics/summary/all</code></pre>
+            </section>
+
+            <section id="all-sprints">
+                <h2>🗓️ All Sprints & Tasks Breakdown</h2>
+                <p>Complete breakdown of all sprints with tasks. Each sprint includes task details, story points, and implementation descriptions.</p>
+
+                <div id="projectSummary" class="info-box">
+                    <!-- Summary will be populated dynamically -->
+                </div>
+
+                <!-- Sprints will be rendered here dynamically -->
+                <div id="sprintsContainer">
+                    <!-- Dynamic content will be inserted here -->
+                </div>
+            </section>
+
+            <section id="sprint-management">
+                <h2>Sprint Management API</h2>
+                <p>Comprehensive endpoints for managing sprint lifecycle and operations.</p>
+                <!-- Additional static content can be added here -->
+            </section>
+
+            <section id="task-management">
+                <h2>Task Management API</h2>
+                <p>Manage tasks, track progress, and update task details.</p>
+                <!-- Additional static content can be added here -->
+            </section>
+
+            <section id="sprint-metrics">
+                <h2>Sprint Metrics & Analytics</h2>
+                <p>Get detailed metrics and analytics for sprint performance.</p>
+                <!-- Additional static content can be added here -->
+            </section>
+
+            <section id="sprint-task-map">
+                <h2>Sprint-Task Mapping</h2>
+                <p>Manage relationships between sprints and tasks.</p>
+                <!-- Additional static content can be added here -->
+            </section>
+
+            <section id="data-models">
+                <h2>Data Models</h2>
+                <p>Database schema and data model documentation.</p>
+                <!-- Additional static content can be added here -->
+            </section>
+
+            <section id="examples">
+                <h2>Examples</h2>
+                <p>Common usage examples and code snippets.</p>
+                <!-- Additional static content can be added here -->
+            </section>
+
+            <section id="project-vision">
+                <h2>Project Vision & Scaling</h2>
+                <p>Long-term vision and scaling considerations.</p>
+                <!-- Additional static content can be added here -->
+            </section>
+
+            </div>
+
+            <footer>
+                <p>&copy; 2025 Project Management API - Built with ❤️</p>
+                <p>Version 2.0.0 | <a href="https://github.com" style="color: #667eea;">GitHub</a></p>
+            </footer>
+        </div>
+    </div>
+
+    <script>
+        // API base URL
+        const API_BASE = 'http://localhost:3001/api';
+
+        // Loading state management
+        function updateLoadingStep(stepId, state) {
+            const step = document.getElementById(stepId);
+            if (state === 'active') {
+                step.classList.add('active');
+            } else if (state === 'complete') {
+                step.classList.remove('active');
+                step.classList.add('complete');
+            }
+        }
+
+        function hideLoading() {
+            const overlay = document.getElementById('loadingOverlay');
+            overlay.style.opacity = '0';
+            setTimeout(() => {
+                overlay.style.display = 'none';
+            }, 300);
+        }
+
+        // API calls with proper error handling
+        async function seedDocumentation() {
+            updateLoadingStep('step1', 'active');
+            try {
+                const response = await fetch(`${API_BASE}/seed/full-documentation`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' }
+                });
+                if (!response.ok) throw new Error('Failed to seed documentation');
+                updateLoadingStep('step1', 'complete');
+                return await response.json();
+            } catch (error) {
+                console.error('Seed documentation error:', error);
+                updateLoadingStep('step1', 'complete');
+                // Continue anyway - data might already exist
+            }
+        }
+
+        async function updateTechnicalDetails() {
+            updateLoadingStep('step2', 'active');
+            try {
+                const response = await fetch(`${API_BASE}/update-all-technical-details`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' }
+                });
+                if (!response.ok) throw new Error('Failed to update technical details');
+                updateLoadingStep('step2', 'complete');
+                return await response.json();
+            } catch (error) {
+                console.error('Update technical details error:', error);
+                updateLoadingStep('step2', 'complete');
+                // Continue anyway
+            }
+        }
+
+        async function fetchAllTasks() {
+            updateLoadingStep('step3', 'active');
+            try {
+                const response = await fetch(`${API_BASE}/verify-all-tasks`, {
+                    method: 'GET',
+                    headers: { 'Content-Type': 'application/json' }
+                });
+                if (!response.ok) throw new Error('Failed to fetch tasks');
+                updateLoadingStep('step3', 'complete');
+                return await response.json();
+            } catch (error) {
+                console.error('Fetch tasks error:', error);
+                updateLoadingStep('step3', 'complete');
+                throw error;
+            }
+        }
+
+        // Render functions
+        function renderProjectSummary(summary) {
+            const summaryDiv = document.getElementById('projectSummary');
+            summaryDiv.innerHTML = `
+                <strong>📊 Project Overview:</strong>
+                ${summary.totalSprints} Sprints •
+                ${summary.totalTasks} Tasks •
+                Sprint Completion: ${summary.completionPercentage.sprints}% •
+                Task Completion: ${summary.completionPercentage.tasks}%
+            `;
+        }
+
+        function renderSprintNavigation(sprints) {
+            const sprintsMenu = document.getElementById('sprints-menu');
+            sprintsMenu.innerHTML = sprints.map((sprint, index) => {
+                const sprintNum = String(index + 1).padStart(2, '0');
+                return `<li><a href="#sprint-${sprintNum}">Sprint ${sprint.sprintNumber}: ${sprint.sprintName} (${sprint.tasksCount} tasks)</a></li>`;
+            }).join('');
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        function renderTechnicalDetails(task, taskId) {
+            if (!task.technicalDetails) return '';
+
+            const details = task.technicalDetails;
+            let html = '<div class="technical-details" id="details-' + taskId + '">';
+
+            // Tech Stack
+            if (details.techStack) {
+                html += `
+                    <div class="tech-section">
+                        <h5>🏗️ Tech Stack</h5>
+                        <p>${escapeHtml(details.techStack)}</p>
+                    </div>
+                `;
+            }
+
+            // Acceptance Criteria
+            if (details.acceptanceCriteria) {
+                html += `
+                    <div class="tech-section">
+                        <h5>✅ Acceptance Criteria</h5>
+                        <p>${escapeHtml(details.acceptanceCriteria)}</p>
+                    </div>
+                `;
+            }
+
+            // Story Points
+            if (details.storyPoints) {
+                html += `
+                    <div class="tech-section">
+                        <h5>📊 Story Points</h5>
+                        <p>${details.storyPoints} points</p>
+                    </div>
+                `;
+            }
+
+            // Additional technical sections if available
+            if (details.architecture) {
+                html += `
+                    <div class="tech-section">
+                        <h5>🏗️ Architecture</h5>
+                        <p>${escapeHtml(details.architecture)}</p>
+                    </div>
+                `;
+            }
+
+            if (details.database) {
+                html += `
+                    <div class="tech-section">
+                        <h5>💾 Database</h5>
+                        <p>${escapeHtml(details.database)}</p>
+                    </div>
+                `;
+            }
+
+            if (details.security) {
+                html += `
+                    <div class="tech-section">
+                        <h5>🔒 Security</h5>
+                        <p>${escapeHtml(details.security)}</p>
+                    </div>
+                `;
+            }
+
+            if (details.testing) {
+                html += `
+                    <div class="tech-section">
+                        <h5>✅ Testing</h5>
+                        <p>${escapeHtml(details.testing)}</p>
+                    </div>
+                `;
+            }
+
+            html += '</div>';
+            return html;
+        }
+
+        function renderTask(task, taskId) {
+            const borderColor = ['#4CAF50', '#2196F3', '#FF9800', '#9C27B0', '#F44336'][taskId % 5];
+            const storyPoints = task.storyPoints || 0;
+
+            // Get TASK ID from tags (stored as TASK-X.Y)
+            const taskIdLabel = task.tags && task.tags.length > 0 ? task.tags[0] : `TASK-${taskId}`;
+
+            return `
+                <div class="task-card" style="border-left-color: ${borderColor};">
+                    <div class="task-header" onclick="toggleTechnicalDetails('${taskId}')">
+                        <strong>${taskIdLabel}: ${escapeHtml(task.title)}</strong> (${storyPoints} points)
+                        <span class="expand-icon" id="icon-${taskId}">🔽 Technical Details</span>
+                    </div>
+                    <p><strong>What it does:</strong> ${escapeHtml(task.description || task.title)}</p>
+                    ${task.technicalDetails ? `
+                        <p><strong>Tech:</strong> ${escapeHtml(task.technicalDetails.techStack || 'N/A')}</p>
+                        <p><strong>Acceptance Criteria:</strong> ${escapeHtml(task.technicalDetails.acceptanceCriteria || 'N/A')}</p>
+                    ` : ''}
+                    ${renderTechnicalDetails(task, taskId)}
+                </div>
+            `;
+        }
+
+        function renderSprints(sprints) {
+            const container = document.getElementById('sprintsContainer');
+            let html = '';
+
+            sprints.forEach((sprint, index) => {
+                const sprintNum = String(index + 1).padStart(2, '0');
+                const totalPoints = sprint.tasks.reduce((sum, task) => sum + (task.technicalDetails?.storyPoints || 0), 0);
+
+                html += `
+                    <article id="sprint-${sprintNum}" style="margin: 40px 0;">
+                        <h3 style="color: #667eea; font-size: 1.5em;">Sprint ${sprint.sprintNumber}: ${escapeHtml(sprint.sprintName)}</h3>
+                        <p><strong>Story Points:</strong> ${totalPoints} | <strong>Tasks:</strong> ${sprint.tasksCount}</p>
+
+                        <div class="model-card">
+                            <h4>📋 Tasks</h4>
+                            ${sprint.tasks.map((task, taskIndex) => {
+                                const taskId = `${sprint.sprintNumber}-${taskIndex + 1}`;
+                                return renderTask(task, taskId);
+                            }).join('')}
+                        </div>
+                    </article>
+                `;
+            });
+
+            container.innerHTML = html;
+        }
+
+        // Main initialization function
+        async function initializePage() {
+            try {
+                // Step 1: Seed documentation
+                await seedDocumentation();
+
+                // Step 2: Update technical details
+                await updateTechnicalDetails();
+
+                // Step 3: Fetch all tasks
+                const data = await fetchAllTasks();
+
+                // Render the page
+                renderProjectSummary(data.summary);
+                renderSprintNavigation(data.sprints);
+                renderSprints(data.sprints);
+
+                // Hide loading overlay
+                hideLoading();
+            } catch (error) {
+                console.error('Failed to initialize page:', error);
+                hideLoading();
+
+                // Show error message
+                document.getElementById('sprintsContainer').innerHTML = `
+                    <div class="warning-box">
+                        <h4>⚠️ Error Loading Data</h4>
+                        <p>Failed to load project data. Please ensure the API server is running at ${API_BASE}</p>
+                        <p><strong>Error:</strong> ${escapeHtml(error.message)}</p>
+                        <p><a href="#" onclick="location.reload()" class="quick-link">Retry</a></p>
+                    </div>
+                `;
+            }
+        }
+
+        // Smooth scrolling for navigation links
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize the page
+            initializePage();
+
+            // Smooth scrolling
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
+
+        // Toggle submenu function for collapsible sprint navigation
+        function toggleSubmenu(event, menuId) {
+            event.preventDefault();
+            const submenu = document.getElementById(menuId);
+            const link = event.target;
+
+            if (submenu.style.display === 'none' || submenu.style.display === '') {
+                submenu.style.display = 'block';
+                link.innerHTML = link.innerHTML.replace('▼', '▲');
+            } else {
+                submenu.style.display = 'none';
+                link.innerHTML = link.innerHTML.replace('▲', '▼');
+            }
+        }
+
+        // Toggle technical details for task cards
+        function toggleTechnicalDetails(taskId) {
+            const details = document.getElementById('details-' + taskId);
+            const icon = document.getElementById('icon-' + taskId);
+
+            if (details.classList.contains('show')) {
+                details.classList.remove('show');
+                icon.classList.remove('expanded');
+            } else {
+                details.classList.add('show');
+                icon.classList.add('expanded');
+            }
+        }
+    </script>
+</body>
+</html>

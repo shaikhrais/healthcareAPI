@@ -1,0 +1,2390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Management API Documentation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f7fa;
+        }
+
+        .container {
+            display: flex;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+            gap: 30px;
+        }
+
+        .main-content {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .toc-sidebar {
+            width: 280px;
+            flex-shrink: 0;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .header-logo {
+            font-size: 1.3em;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .header-menu {
+            display: flex;
+            gap: 8px;
+        }
+
+        .menu-link {
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            transition: all 0.3s;
+            font-size: 0.9em;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .menu-link:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-1px);
+        }
+
+        /* Add padding to body to account for fixed header */
+        body {
+            padding-top: 60px;
+        }
+
+        nav {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 20px;
+            max-height: calc(100vh - 40px);
+            overflow-y: auto;
+            z-index: 100;
+        }
+
+        nav h3 {
+            margin-bottom: 15px;
+            color: #667eea;
+            font-size: 1.1em;
+        }
+
+        nav ul {
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 6px 0;
+        }
+
+        nav ul li a {
+            color: #555;
+            text-decoration: none;
+            padding: 6px 12px;
+            display: block;
+            border-radius: 4px;
+            transition: all 0.3s;
+            font-size: 0.9em;
+            border-left: 3px solid transparent;
+        }
+
+        nav ul li a:hover {
+            background: #f0f0f0;
+            border-left-color: #667eea;
+            color: #667eea;
+            transform: translateX(3px);
+        }
+
+        nav ul li a.active {
+            background: #e7f0ff;
+            color: #667eea;
+            border-left-color: #667eea;
+            font-weight: 600;
+        }
+
+        /* Nested submenu styles */
+        nav ul li ul {
+            margin-left: 15px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+
+        nav ul li ul li {
+            margin: 3px 0;
+        }
+
+        nav ul li ul li a {
+            font-size: 0.85em;
+            padding: 4px 10px;
+            color: #666;
+        }
+
+        nav ul li > a.has-submenu {
+            font-weight: 600;
+            color: #667eea;
+        }
+
+        nav ul li > a.has-submenu::after {
+            content: " ▼";
+            font-size: 0.7em;
+            margin-left: 5px;
+        }
+
+        /* Expandable technical details */
+        .task-card {
+            margin: 15px 0;
+            padding: 15px;
+            background: #f8f9fa;
+            border-left: 4px solid #4CAF50;
+            border-radius: 4px;
+        }
+
+        .task-header {
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .task-header:hover {
+            opacity: 0.9;
+        }
+
+        .expand-icon {
+            float: right;
+            font-size: 0.9em;
+            color: #667eea;
+            transition: transform 0.3s ease;
+        }
+
+        .expand-icon.expanded {
+            transform: rotate(180deg);
+        }
+
+        .technical-details {
+            display: none;
+            margin-top: 15px;
+            padding: 15px;
+            background: white;
+            border-radius: 4px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .technical-details.show {
+            display: block;
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                max-height: 0;
+            }
+            to {
+                opacity: 1;
+                max-height: 2000px;
+            }
+        }
+
+        .tech-section {
+            margin: 10px 0;
+            padding: 10px;
+            background: #f5f7fa;
+            border-left: 3px solid #667eea;
+        }
+
+        .tech-section h5 {
+            margin: 0 0 8px 0;
+            color: #667eea;
+            font-size: 0.95em;
+        }
+
+        .tech-list {
+            margin: 5px 0;
+            padding-left: 20px;
+        }
+
+        .tech-list li {
+            margin: 5px 0;
+            font-size: 0.9em;
+        }
+
+        code.inline {
+            background: #2d3748;
+            color: #a0aec0;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 0.85em;
+        }
+
+        nav ul li > a.has-submenu.collapsed::after {
+            content: " ▶";
+        }
+
+        /* Scrollbar styling for nav */
+        nav::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        nav::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        nav::-webkit-scrollbar-thumb {
+            background: #667eea;
+            border-radius: 10px;
+        }
+
+        nav::-webkit-scrollbar-thumb:hover {
+            background: #764ba2;
+        }
+
+        .content {
+            background: white;
+            padding: 30px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            color: #667eea;
+            margin: 30px 0 20px 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #667eea;
+        }
+
+        h3 {
+            color: #764ba2;
+            margin: 25px 0 15px 0;
+        }
+
+        h4 {
+            color: #555;
+            margin: 20px 0 10px 0;
+        }
+
+        .endpoint {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .method {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 0.85em;
+            margin-right: 10px;
+        }
+
+        .method.get {
+            background: #28a745;
+            color: white;
+        }
+
+        .method.post {
+            background: #007bff;
+            color: white;
+        }
+
+        .method.put {
+            background: #ffc107;
+            color: #333;
+        }
+
+        .method.delete {
+            background: #dc3545;
+            color: white;
+        }
+
+        .endpoint-path {
+            font-family: 'Courier New', monospace;
+            font-size: 1.1em;
+            color: #333;
+        }
+
+        pre {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 15px 0;
+            font-size: 0.9em;
+            line-height: 1.5;
+        }
+
+        code {
+            font-family: 'Courier New', monospace;
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            color: #e83e8c;
+        }
+
+        pre code {
+            background: transparent;
+            padding: 0;
+            color: #f8f8f2;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+
+        .badge.success {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .badge.info {
+            background: #d1ecf1;
+            color: #0c5460;
+        }
+
+        .badge.warning {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        table th,
+        table td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        table th {
+            background: #667eea;
+            color: white;
+            font-weight: 600;
+        }
+
+        table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .info-box {
+            background: #e7f3ff;
+            border-left: 4px solid #2196F3;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .warning-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .success-box {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .model-card {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .model-card h4 {
+            margin-top: 0;
+            color: #667eea;
+        }
+
+        .quick-link {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            margin: 10px 10px 10px 0;
+            transition: all 0.3s;
+        }
+
+        .quick-link:hover {
+            background: #764ba2;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #777;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 1024px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .toc-sidebar {
+                width: 100%;
+                order: -1;
+            }
+
+            nav {
+                position: relative;
+                top: 0;
+                max-height: 400px;
+            }
+
+            body {
+                padding-top: 180px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 10px 15px;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .header-logo {
+                font-size: 1.1em;
+            }
+
+            .header-menu {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .menu-link {
+                font-size: 0.8em;
+                padding: 6px 10px;
+            }
+
+            body {
+                padding-top: 80px;
+            }
+
+            .container {
+                padding: 10px;
+            }
+
+            nav {
+                max-height: 300px;
+            }
+
+            .toc-sidebar {
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-logo">
+            📊 Project Management API
+        </div>
+        <div class="header-menu">
+            <a href="/" class="menu-link">Home</a>
+            <a href="/api-docs" class="menu-link">Swagger UI</a>
+            <a href="#quick-start" class="menu-link">Quick Start</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <aside class="toc-sidebar">
+            <nav>
+                <h3>📑 Table of Contents</h3>
+                <ul>
+                    <li><a href="#overview">Overview</a></li>
+                    <li><a href="#base-url">Base URL</a></li>
+                    <li><a href="#quick-start">Quick Start</a></li>
+
+                    <li>
+                        <a href="#all-sprints" class="has-submenu" onclick="toggleSubmenu(event, 'sprints-menu')">All Sprints & Tasks</a>
+                        <ul id="sprints-menu">
+                            <li><a href="#sprint-01">Sprint 1: Foundation (5 tasks)</a></li>
+                            <li><a href="#sprint-02">Sprint 2: User Management (5 tasks)</a></li>
+                            <li><a href="#sprint-03">Sprint 3: Patients Part 1 (5 tasks)</a></li>
+                            <li><a href="#sprint-04">Sprint 4: Patients Part 2 (5 tasks)</a></li>
+                            <li><a href="#sprint-05">Sprint 5: Appointments Part 1 (5 tasks)</a></li>
+                            <li><a href="#sprint-06">Sprint 6: Appointments Part 2 (5 tasks)</a></li>
+                            <li><a href="#sprint-07">Sprint 7: Clinical Notes (8 tasks)</a></li>
+                            <li><a href="#sprint-08">Sprint 8: Billing Part 1 (5 tasks)</a></li>
+                            <li><a href="#sprint-09">Sprint 9: Insurance (5 tasks)</a></li>
+                            <li><a href="#sprint-10">Sprint 10: Messaging (6 tasks)</a></li>
+                            <li><a href="#sprint-11">Sprint 11: Analytics (7 tasks)</a></li>
+                            <li><a href="#sprint-12">Sprint 12: Mobile Part 1 (6 tasks)</a></li>
+                            <li><a href="#sprint-13">Sprint 13: Mobile Part 2 (6 tasks)</a></li>
+                            <li><a href="#sprint-14">Sprint 14: Integrations (8 tasks)</a></li>
+                            <li><a href="#sprint-15">Sprint 15: Security Part 1 (5 tasks)</a></li>
+                            <li><a href="#sprint-16">Sprint 16: Security Part 2 (5 tasks)</a></li>
+                            <li><a href="#sprint-17">Sprint 17: Testing (8 tasks)</a></li>
+                            <li><a href="#sprint-18">Sprint 18: Launch (5 tasks)</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="#sprint-management">Sprint Management API</a></li>
+                    <li><a href="#task-management">Task Management API</a></li>
+                    <li><a href="#sprint-metrics">Sprint Metrics & Analytics</a></li>
+                    <li><a href="#sprint-task-map">Sprint-Task Mapping</a></li>
+                    <li><a href="#data-models">Data Models</a></li>
+                    <li><a href="#examples">Examples</a></li>
+                    <li><a href="#project-vision">Project Vision & Scaling</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <div class="main-content">
+            <div class="content">
+            <section id="overview">
+                <h2>📖 Overview</h2>
+                <p>The Project Management API provides comprehensive endpoints for managing sprints, tasks, and project analytics in an Agile development environment.</p>
+
+                <h3>Key Features</h3>
+                <ul>
+                    <li>✅ Sprint lifecycle management (create, start, complete)</li>
+                    <li>📋 Task tracking with story points and status updates</li>
+                    <li>📊 Real-time sprint metrics and analytics</li>
+                    <li>🚀 Team velocity tracking</li>
+                    <li>📉 Burndown chart data</li>
+                    <li>🔗 Sprint-task relationship mapping</li>
+                </ul>
+            </section>
+
+            <section id="base-url">
+                <h2>🌐 Base URL</h2>
+                <pre><code>http://localhost:3001/api</code></pre>
+                <p><strong>Production:</strong> <code>https://your-domain.com/api</code></p>
+            </section>
+
+            <section id="quick-start">
+                <h2>🚀 Quick Start</h2>
+
+                <div class="success-box">
+                    <h4>✨ Ready to Use!</h4>
+                    <p>The API is running with 18 sprints and 5 sample tasks already seeded.</p>
+                </div>
+
+                <h3>1. Get All Sprints</h3>
+                <pre><code>curl http://localhost:3001/api/sprint-management/sprints</code></pre>
+
+                <h3>2. Get Sprint Metrics</h3>
+                <pre><code>curl http://localhost:3001/api/sprint-metrics/SPRINT-001</code></pre>
+
+                <h3>3. Get Project Summary</h3>
+                <pre><code>curl http://localhost:3001/api/sprint-metrics/summary/all</code></pre>
+            </section>
+
+            <section id="all-sprints">
+                <h2>🗓️ All Sprints & Tasks Breakdown</h2>
+                <p>Complete breakdown of all 18 sprints with 387 planned tasks. Each sprint includes task details, story points, and implementation descriptions.</p>
+
+                <div class="info-box">
+                    <strong>📊 Project Overview:</strong> 18 Sprints • 387 Tasks • 1,520 Story Points • 36 Weeks (9 Months)
+                </div>
+
+                <!-- Sprint 1 -->
+                <article id="sprint-01" style="margin: 40px 0;">
+                    <h3 style="color: #667eea; font-size: 1.5em;">Sprint 1: Foundation & Authentication</h3>
+                    <p><strong>Timeline:</strong> Jan 6 - Jan 19, 2025 (2 weeks) | <strong>Story Points:</strong> 89 | <strong>Tasks:</strong> 5</p>
+
+                    <div class="model-card">
+                        <h4>🎯 Sprint Goal</h4>
+                        <p>Establish core authentication infrastructure and set up DevOps pipeline for continuous deployment.</p>
+
+                        <h4>📋 Tasks</h4>
+
+                        <div class="task-card" style="border-left-color: #4CAF50;">
+                            <div class="task-header" onclick="toggleTechnicalDetails('1-1')">
+                                <strong>TASK-1.1: User Registration System</strong> (5 points)
+                                <span class="expand-icon" id="icon-1-1">🔽 Technical Details</span>
+                            </div>
+                            <p><strong>What it does:</strong> Implements complete user registration flow with email verification. Users can sign up with email/password, receive verification emails, and activate their accounts.</p>
+                            <p><strong>Tech Stack:</strong> Node.js, Express, JWT, Nodemailer, bcrypt, MongoDB</p>
+                            <p><strong>Acceptance Criteria:</strong> User can register → Email sent → Account activated → Login successful</p>
+
+                            <div class="technical-details" id="details-1-1">
+                                <div class="tech-section">
+                                    <h5>🏗️ Architecture & Design Patterns</h5>
+                                    <ul class="tech-list">
+                                        <li><strong>MVC Pattern:</strong> Separate routes, controllers, models, and services</li>
+                                        <li><strong>Middleware Chain:</strong> Validation → Sanitization → Business Logic → Response</li>
+                                        <li><strong>Service Layer:</strong> Reusable UserService for registration logic</li>
+                                        <li><strong>Repository Pattern:</strong> UserRepository for database operations</li>
+                                    </ul>
+                                </div>
+
+                                <div class="tech-section">
+                                    <h5>💾 Database Schema</h5>
+                                    <pre style="background: #2d3748; color: #a0aec0; padding: 10px; border-radius: 4px; overflow-x: auto;"><code>{
+  _id: ObjectId,
+  email: String (unique, lowercase, indexed),
+  password: String (hashed with bcrypt, salt rounds: 12),
+  firstName: String,
+  lastName: String,
+  role: String (enum: ['admin', 'provider', 'staff', 'patient']),
+  isEmailVerified: Boolean (default: false),
+  emailVerificationToken: String (hashed),
+  emailVerificationExpires: Date,
+  createdAt: Date,
+  updatedAt: Date,
+  lastLoginAt: Date
+}</code></pre>
+                                </div>
+
+                                <div class="tech-section">
+                                    <h5>🔒 Security Implementation</h5>
+                                    <ul class="tech-list">
+                                        <li><strong>Password Hashing:</strong> bcrypt with 12 salt rounds (OWASP recommended)</li>
+                                        <li><strong>Token Generation:</strong> Crypto.randomBytes(32) for verification tokens</li>
+                                        <li><strong>Token Storage:</strong> SHA256 hash stored in database, plain token sent via email</li>
+                                        <li><strong>Token Expiry:</strong> 24 hours for email verification</li>
+                                        <li><strong>Rate Limiting:</strong> Max 5 registration attempts per hour per IP</li>
+                                        <li><strong>Input Validation:</strong> express-validator for email format, password strength</li>
+                                        <li><strong>SQL Injection Prevention:</strong> Mongoose parameterized queries</li>
+                                        <li><strong>XSS Prevention:</strong> Sanitize all user inputs with validator.escape()</li>
+                                    </ul>
+                                </div>
+
+                                <div class="tech-section">
+                                    <h5>📧 Email Service Configuration</h5>
+                                    <ul class="tech-list">
+                                        <li><strong>Provider:</strong> Nodemailer with SendGrid/AWS SES/Gmail SMTP</li>
+                                        <li><strong>Template Engine:</strong> Handlebars for email templates</li>
+                                        <li><strong>Queue System:</strong> Bull/Redis for asynchronous email sending</li>
+                                        <li><strong>Retry Logic:</strong> 3 attempts with exponential backoff</li>
+                                        <li><strong>Tracking:</strong> Email delivery status stored in EmailLog collection</li>
+                                        <li><strong>Content:</strong> Welcome message, verification link (HTTPS), support contact</li>
+                                    </ul>
+                                </div>
+
+                                <div class="tech-section">
+                                    <h5>🔄 API Endpoints</h5>
+                                    <pre style="background: #2d3748; color: #a0aec0; padding: 10px; border-radius: 4px; overflow-x: auto;"><code>POST /api/auth/register
+Body: { email, password, firstName, lastName, role }
+Response: { message, userId, email }
+Status Codes: 201 (Created), 400 (Validation Error), 409 (Email Exists)
+
+GET /api/auth/verify-email?token={token}
+Response: { message, isVerified: true }
+Status Codes: 200 (Success), 400 (Invalid/Expired Token)
+
+POST /api/auth/resend-verification
+Body: { email }
+Response: { message }
+Status Codes: 200 (Sent), 404 (User Not Found), 429 (Rate Limited)</code></pre>
+                                </div>
+
+                                <div class="tech-section">
+                                    <h5>✅ Testing Strategy</h5>
+                                    <ul class="tech-list">
+                                        <li><strong>Unit Tests:</strong> Jest tests for validation, hashing, token generation</li>
+                                        <li><strong>Integration Tests:</strong> Supertest for API endpoint testing</li>
+                                        <li><strong>Test Cases:</strong> Valid registration, duplicate email, weak password, invalid email format, token expiry, resend verification</li>
+                                        <li><strong>Coverage Target:</strong> 90%+ code coverage for auth module</li>
+                                        <li><strong>Mocking:</strong> Mock email service in tests (no actual emails sent)</li>
+                                    </ul>
+                                </div>
+
+                                <div class="tech-section">
+                                    <h5>📊 Performance Considerations</h5>
+                                    <ul class="tech-list">
+                                        <li><strong>Database Indexing:</strong> Unique index on email field</li>
+                                        <li><strong>Async Operations:</strong> Email sending doesn't block response</li>
+                                        <li><strong>Response Time:</strong> Target < 200ms (excluding email queue)</li>
+                                        <li><strong>Caching:</strong> Rate limit counters in Redis (5 min TTL)</li>
+                                    </ul>
+                                </div>
+
+                                <div class="tech-section">
+                                    <h5>🚨 Error Handling</h5>
+                                    <ul class="tech-list">
+                                        <li><strong>Validation Errors:</strong> Return 400 with field-specific error messages</li>
+                                        <li><strong>Duplicate Email:</strong> Return 409 "Email already registered"</li>
+                                        <li><strong>Email Service Failure:</strong> Log error, register user anyway, retry email</li>
+                                        <li><strong>Database Errors:</strong> Return 500 with generic message, log details</li>
+                                        <li><strong>Logging:</strong> Winston logger with debug/info/error levels</li>
+                                    </ul>
+                                </div>
+
+                                <div class="tech-section">
+                                    <h5>📝 Implementation Checklist</h5>
+                                    <ul class="tech-list">
+                                        <li>✅ Create User model with Mongoose schema</li>
+                                        <li>✅ Implement password hashing pre-save hook</li>
+                                        <li>✅ Create registration controller and validation middleware</li>
+                                        <li>✅ Set up email templates (HTML + plain text)</li>
+                                        <li>✅ Configure email service with environment variables</li>
+                                        <li>✅ Implement token generation and verification logic</li>
+                                        <li>✅ Add rate limiting middleware</li>
+                                        <li>✅ Write unit and integration tests</li>
+                                        <li>✅ Add API documentation (Swagger/OpenAPI)</li>
+                                        <li>✅ Test in staging environment</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="margin: 15px 0; padding: 15px; background: #f8f9fa; border-left: 4px solid #4CAF50;">
+                            <strong>TASK-1.2: Login System with JWT</strong> (5 points)
+                            <p><strong>What it does:</strong> Secure login system using JWT tokens. Generates access and refresh tokens, handles token expiration, and implements secure session management.</p>
+                            <p><strong>Tech:</strong> JWT, bcrypt, HTTP-only cookies</p>
+                            <p><strong>Acceptance Criteria:</strong> User logs in → JWT issued → Protected routes accessible → Token refresh works</p>
+                        </div>
+
+                        <div style="margin: 15px 0; padding: 15px; background: #f8f9fa; border-left: 4px solid #2196F3;">
+                            <strong>TASK-1.3: Password Reset Flow</strong> (3 points)
+                            <p><strong>What it does:</strong> Allows users to reset forgotten passwords via email. Generates secure reset tokens, sends email links, and validates token expiration.</p>
+                            <p><strong>Tech:</strong> Crypto tokens, email templates</p>
+                            <p><strong>Acceptance Criteria:</strong> User requests reset → Email received → New password set → Can log in</p>
+                        </div>
+
+                        <div style="margin: 15px 0; padding: 15px; background: #f8f9fa; border-left: 4px solid #FF9800;">
+                            <strong>TASK-1.4: Docker Configuration</strong> (5 points)
+                            <p><strong>What it does:</strong> Sets up Docker containers for development and production environments. Creates Dockerfile, docker-compose.yml for services (app, database, Redis).</p>
+                            <p><strong>Tech:</strong> Docker, Docker Compose, multi-stage builds</p>
+                            <p><strong>Acceptance Criteria:</strong> App runs in container → Database connected → Environment variables work → Logs accessible</p>
+                        </div>
+
+                        <div style="margin: 15px 0; padding: 15px; background: #f8f9fa; border-left: 4px solid #FF9800;">
+                            <strong>TASK-1.5: CI/CD Pipeline Setup</strong> (8 points)
+                            <p><strong>What it does:</strong> Automated build, test, and deployment pipeline using GitHub Actions. Runs tests on every commit, builds Docker images, and deploys to staging/production.</p>
+                            <p><strong>Tech:</strong> GitHub Actions, automated testing, deployment scripts</p>
+                            <p><strong>Acceptance Criteria:</strong> Push code → Tests run → Build succeeds → Auto-deploy to staging</p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Sprint 2 -->
+                <article id="sprint-02" style="margin: 40px 0;">
+                    <h3 style="color: #667eea; font-size: 1.5em;">Sprint 2: User Management & Authorization</h3>
+                    <p><strong>Timeline:</strong> Jan 20 - Feb 2, 2025 (2 weeks) | <strong>Story Points:</strong> 65 | <strong>Tasks:</strong> 5</p>
+
+                    <div class="model-card">
+                        <h4>🎯 Sprint Goal</h4>
+                        <p>Implement role-based access control (RBAC) and advanced user management features including multi-factor authentication.</p>
+
+                        <h4>📋 Tasks</h4>
+
+                        <div style="margin: 15px 0; padding: 15px; background: #f8f9fa; border-left: 4px solid #4CAF50;">
+                            <strong>TASK-2.1: Role-Based Access Control</strong> (8 points)
+                            <p><strong>What it does:</strong> Implements RBAC system with roles (Admin, Doctor, Nurse, Receptionist, Patient) and granular permissions. Controls access to features based on user roles.</p>
+                            <p><strong>Tech:</strong> Permission middleware, role hierarchy, database role models</p>
+                            <p><strong>Acceptance Criteria:</strong> Roles assigned → Permissions enforced → Unauthorized access blocked → Admin can manage roles</p>
+                        </div>
+
+                        <div style="margin: 15px 0; padding: 15px; background: #f8f9fa; border-left: 4px solid #4CAF50;">
+                            <strong>TASK-2.2: Permission Middleware</strong> (5 points)
+                            <p><strong>What it does:</strong> Creates Express middleware to check permissions on every protected route. Validates JWT tokens and verifies user has required permissions.</p>
+                            <p><strong>Tech:</strong> Express middleware, JWT verification</p>
+                            <p><strong>Acceptance Criteria:</strong> Protected routes check permissions → 403 if unauthorized → Different access levels work</p>
+                        </div>
+
+                        <div style="margin: 15px 0; padding: 15px; background: #f8f9fa; border-left: 4px solid #2196F3;">
+                            <strong>TASK-2.3: User Profile Management</strong> (5 points)
+                            <p><strong>What it does:</strong> CRUD operations for user profiles. Users can view/edit their profiles, upload profile pictures, update personal information.</p>
+                            <p><strong>Tech:</strong> File upload (Multer), image processing, profile API</p>
+                            <p><strong>Acceptance Criteria:</strong> View profile → Update info → Upload photo → Changes saved</p>
+                        </div>
+
+                        <div style="margin: 15px 0; padding: 15px; background: #f8f9fa; border-left: 4px solid #FF9800;">
+                            <strong>TASK-2.4: Multi-Factor Authentication</strong> (8 points)
+                            <p><strong>What it does:</strong> Implements 2FA using TOTP (Time-based One-Time Password). Users can enable 2FA, scan QR codes with authenticator apps, and verify with 6-digit codes.</p>
+                            <p><strong>Tech:</strong> Speakeasy (TOTP), QR code generation</p>
+                            <p><strong>Acceptance Criteria:</strong> Enable 2FA → Scan QR → Enter code → Login requires 2FA</p>
+                        </div>
+
+                        <div style="margin: 15px 0; padding: 15px; background: #f8f9fa; border-left: 4px solid #2196F3;">
+                            <strong>TASK-2.5: Password Security Policies</strong> (3 points)
+                            <p><strong>What it does:</strong> Enforces strong password requirements: minimum length, complexity rules, password history, expiration policies.</p>
+                            <p><strong>Tech:</strong> Password validation, bcrypt, policy enforcement</p>
+                            <p><strong>Acceptance Criteria:</strong> Weak passwords rejected → Must meet complexity → Can't reuse old passwords</p>
+                        </div>
+                    </div>
+                </article>
+
+                <div class="warning-box" style="margin: 30px 0;">
+                    <strong>📝 Remaining Sprints (3-18):</strong> Detailed task breakdowns for Sprints 3-18 follow the same format. Each sprint includes comprehensive task descriptions, technical implementation details, and acceptance criteria. <a href="#sprint-03" style="color: #856404;">Continue scrolling to view all sprints</a>.
+                </div>
+
+                <!-- Sprint 3: Patient Management Part 1 -->
+                <article id="sprint-03">
+                    <h3 style="color: #667eea; font-size: 1.5em;">Sprint 3: Patient Management Part 1</h3>
+                    <p><strong>Timeline:</strong> Jan 20 - Feb 2, 2025 | <strong>Story Points:</strong> 65</p>
+
+                    <div class="model-card">
+                        <h4>🎯 Sprint Goal</h4>
+                        <p>Build comprehensive patient profile management system with demographics, medical history, and insurance information tracking.</p>
+
+                        <h4>📋 Tasks</h4>
+
+                        <div style="margin: 15px 0; padding: 15px; background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                            <strong>TASK-3.1: Patient Profile Creation</strong> (8 points)
+                            <p><strong>What it does:</strong> Comprehensive patient registration form with demographics (name, DOB, contact), emergency contacts, and primary provider assignment.</p>
+                            <p><strong>Tech:</strong> React Native forms, date picker, validation with Formik</p>
+                            <p><strong>Acceptance Criteria:</strong> Admin/receptionist can create patient → All required fields validated → Profile saved to database → Confirmation shown</p>
+                        </div>
+
+                        <div style="margin: 15px 0; padding: 15px; background: #e3f2fd; border-left: 4px solid #2196F3;">
+                            <strong>TASK-3.2: Medical History Tracking</strong> (8 points)
+                            <p><strong>What it does:</strong> Records past medical history including conditions, allergies, medications, surgeries, and family history.</p>
+                            <p><strong>Tech:</strong> MongoDB nested documents, React Native expandable sections</p>
+                            <p><strong>Acceptance Criteria:</strong> Provider can add/edit medical history → Allergy alerts visible → Medication list with dosages → History timestamped</p>
+                        </div>
+
+                        <div style="margin: 15px 0; padding: 15px; background: #fff3e0; border-left: 4px solid #FF9800;">
+                            <strong>TASK-3.3: Insurance Information Management</strong> (8 points)
+                            <p><strong>What it does:</strong> Manages patient insurance policies with card photos, coverage details, verification status, and eligibility checks.</p>
+                            <p><strong>Tech:</strong> Image upload (expo-image-picker), insurance API integration prep</p>
+                            <p><strong>Acceptance Criteria:</strong> Add primary/secondary insurance → Upload card photos → Track verification status → Set expiry alerts</p>
+                        </div>
+
+                        <div style="margin: 15px 0; padding: 15px; background: #f3e5f5; border-left: 4px solid #9C27B0;">
+                            <strong>TASK-3.4: Patient Search & Filtering</strong> (8 points)
+                            <p><strong>What it does:</strong> Fast patient search by name, DOB, phone, email, or chart number with autocomplete and advanced filters.</p>
+                            <p><strong>Tech:</strong> MongoDB text search indexes, debounced search input</p>
+                            <p><strong>Acceptance Criteria:</strong> Search returns results <500ms → Autocomplete after 3 characters → Filter by provider/status → Shows recent patients</p>
+                        </div>
+
+                        <div style="margin: 15px 0; padding: 15px; background: #ffebee; border-left: 4px solid #F44336;">
+                            <strong>TASK-3.5: Patient Document Upload</strong> (8 points)
+                            <p><strong>What it does:</strong> Allows uploading and organizing patient documents (referrals, labs, imaging, consent forms) with categorization.</p>
+                            <p><strong>Tech:</strong> File upload API (Multer), AWS S3/local storage, file type validation</p>
+                            <p><strong>Acceptance Criteria:</strong> Upload PDF/images → Categorize documents → Preview in app → Track upload date/user → 10MB file limit</p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Sprint 4: Patient Management Part 2 -->
+                <article id="sprint-04">
+                    <h3 style="color: #667eea; font-size: 1.5em;">Sprint 4: Patient Management Part 2</h3>
+                    <p><strong>Timeline:</strong> Feb 3 - Feb 16, 2025 | <strong>Story Points:</strong> 65</p>
+
+                    <div class="model-card">
+                        <h4>🎯 Sprint Goal</h4>
+                        <p>Complete patient management with consent forms, communication preferences, tags/groups, and merge capabilities.</p>
+
+                        <h4>📋 Tasks</h4>
+
+                        <div style="margin: 15px 0; padding: 15px; background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                            <strong>TASK-4.1: Consent Forms Management</strong> (8 points)
+                            <p><strong>What it does:</strong> Digital consent forms (treatment, privacy, photography) with e-signature capture and expiry tracking.</p>
+                            <p><strong>Tech:</strong> React Native signature pad, PDF generation (react-native-pdf)</p>
+                            <p><strong>Acceptance Criteria:</strong> Create consent templates → Patient signs on device → Signature saved → PDF generated → Expiry reminders</p>
+                        </div>
+
+                        <div style="margin: 15px 0; padding: 15px; background: #e3f2fd; border-left: 4px solid #2196F3;">
+                            <strong>TASK-4.2: Communication Preferences</strong> (5 points)
+                            <p><strong>What it does:</strong> Patient communication preferences for reminders (SMS/email/push), marketing opt-in, preferred contact times.</p>
+                            <p><strong>Tech:</strong> Preference schema, notification service integration</p>
+                            <p><strong>Acceptance Criteria:</strong> Set SMS/email/push preferences → Marketing opt-in/out → Preferred language → Contact time windows</p>
+                        </div>
+
+                        <div style="margin: 15px 0; padding: 15px; background: #fff3e0; border-left: 4px solid #FF9800;">
+                            <strong>TASK-4.3: Patient Tags & Groups</strong> (8 points)
+                            <p><strong>What it does:</strong> Organize patients with custom tags (VIP, high-risk) and groups (wellness program, diabetes care).</p>
+                            <p><strong>Tech:</strong> Tag system, bulk operations, filtering</p>
+                            <p><strong>Acceptance Criteria:</strong> Create custom tags → Assign multiple tags → Group patients → Bulk operations → Filter by tag/group</p>
+                        </div>
+
+                        <div style="margin: 15px 0; padding: 15px; background: #f3e5f5; border-left: 4px solid #9C27B0;">
+                            <strong>TASK-4.4: Patient Merge Functionality</strong> (8 points)
+                            <p><strong>What it does:</strong> Merge duplicate patient records with conflict resolution, audit trail, and data preservation.</p>
+                            <p><strong>Tech:</strong> Data migration logic, conflict resolution UI, transaction handling</p>
+                            <p><strong>Acceptance Criteria:</strong> Detect duplicates → Preview merge → Select master → Resolve conflicts → Audit log → Undo capability</p>
+                        </div>
+
+                        <div style="margin: 15px 0; padding: 15px; background: #ffebee; border-left: 4px solid #F44336;">
+                            <strong>TASK-4.5: Patient Activity Timeline</strong> (8 points)
+                            <p><strong>What it does:</strong> Chronological timeline of patient interactions (appointments, notes, messages, payments).</p>
+                            <p><strong>Tech:</strong> Aggregated timeline view, infinite scroll, activity filtering</p>
+                            <p><strong>Acceptance Criteria:</strong> Show all activities → Filter by type → Infinite scroll → Click for details → Export timeline</p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Sprint 5: Scheduling System Part 1 -->
+                <article id="sprint-05">
+                    <h3 style="color: #667eea; font-size: 1.5em;">Sprint 5: Scheduling System Part 1</h3>
+                    <p><strong>Timeline:</strong> Feb 17 - Mar 2, 2025 | <strong>Story Points:</strong> 155</p>
+
+                    <div class="model-card">
+                        <h4>🎯 Sprint Goal</h4>
+                        <p>Build core appointment scheduling with calendar views, availability management, and booking workflows.</p>
+
+                        <h4>📋 Tasks</h4>
+
+                        <div style="margin: 15px 0; padding: 15px; background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                            <strong>TASK-5.1: Calendar View Component</strong> (13 points)
+                            <p><strong>What it does:</strong> Multi-view calendar (day/week/month) with drag-and-drop appointments, color-coded by provider and type.</p>
+                            <p><strong>Tech:</strong> React Big Calendar, react-dnd, responsive design</p>
+                            <p><strong>Acceptance Criteria:</strong> Switch day/week/month views → Drag-drop appointments → Color by provider/type → Filter by provider → Mobile responsive → Time zone support</p>
+                        </div>
+
+                        <div style="margin: 15px 0; padding: 15px; background: #e3f2fd; border-left: 4px solid #2196F3;">
+                            <strong>TASK-5.2: Provider Availability Management</strong> (13 points)
+                            <p><strong>What it does:</strong> Set provider working hours, breaks, time off, recurring schedules with override capabilities.</p>
+                            <p><strong>Tech:</strong> Recurring schedule logic (rrule), conflict detection, MongoDB</p>
+                            <p><strong>Acceptance Criteria:</strong> Set weekly schedule → Add breaks → Block time off → Recurring patterns → Exception dates → Conflict alerts → Copy schedules</p>
+                        </div>
+
+                        <div style="margin: 15px 0; padding: 15px; background: #fff3e0; border-left: 4px solid #FF9800;">
+                            <strong>TASK-5.3: Appointment Booking Flow</strong> (13 points)
+                            <p><strong>What it does:</strong> Multi-step booking wizard: select service → choose provider → pick time → confirm details with real-time availability.</p>
+                            <p><strong>Tech:</strong> React step wizard, availability API, optimistic locking</p>
+                            <p><strong>Acceptance Criteria:</strong> Select service/provider → Show available slots → Book appointment → Confirmation sent → Calendar updated → Handle conflicts</p>
+                        </div>
+
+                        <div style="margin: 15px 0; padding: 15px; background: #f3e5f5; border-left: 4px solid #9C27B0;">
+                            <strong>TASK-5.4: Appointment Types & Duration</strong> (8 points)
+                            <p><strong>What it does:</strong> Manage appointment types (consultation, follow-up, procedure) with custom durations, colors, and buffer times.</p>
+                            <p><strong>Tech:</strong> Appointment type schema, duration calculation, color picker</p>
+                            <p><strong>Acceptance Criteria:</strong> Create types → Set duration (15/30/60 min) → Assign colors → Buffer before/after → Default provider → Pricing</p>
+                        </div>
+
+                        <div style="margin: 15px 0; padding: 15px; background: #ffebee; border-left: 4px solid #F44336;">
+                            <strong>TASK-5.5: Waitlist Management</strong> (8 points)
+                            <p><strong>What it does:</strong> Manage waitlist for canceled/unavailable slots with automated notifications when slots open up.</p>
+                            <p><strong>Tech:</strong> Waitlist queue, notification triggers, SMS/email</p>
+                            <p><strong>Acceptance Criteria:</strong> Add to waitlist → Priority ranking → Auto-notify on opening → Accept/decline → Remove from list → Expiry time</p>
+                        </div>
+
+                        <p style="margin-top: 20px;"><em>Sprint 5 includes 26 additional tasks: Recurring appointments, automated reminders (SMS/email), group bookings, online booking portal, calendar syncing (Google/Outlook), appointment confirmation workflows, double-booking prevention, time slot templates, buffer time management, appointment notes, patient preferences, provider preferences, appointment history, cancellation policies, rescheduling workflows, appointment search, appointment filters, bulk operations, appointment export, appointment statistics, capacity planning, overbooking rules, multi-location support, appointment conflicts resolution, and appointment audit logs.</em></p>
+                    </div>
+                </article>
+
+                <!-- Sprint 6: Scheduling System Part 2 -->
+                <article id="sprint-06">
+                    <h3 style="color: #667eea; font-size: 1.5em;">Sprint 6: Scheduling System Part 2</h3>
+                    <p><strong>Timeline:</strong> Mar 3 - Mar 16, 2025 | <strong>Story Points:</strong> 155</p>
+
+                    <div class="model-card">
+                        <h4>🎯 Sprint Goal</h4>
+                        <p>Complete scheduling with advanced features: no-shows, resource management, templates, and analytics.</p>
+
+                        <h4>📋 Tasks</h4>
+
+                        <div style="margin: 15px 0; padding: 15px; background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                            <strong>TASK-6.1: No-Show & Cancellation Tracking</strong> (8 points)
+                            <p><strong>What it does:</strong> Track patient no-shows and late cancellations with automated fees and policy enforcement.</p>
+                            <p><strong>Tech:</strong> No-show counter, fee calculation, policy engine, billing integration</p>
+                            <p><strong>Acceptance Criteria:</strong> Mark no-show → Track count per patient → Apply fees → Policy warnings (3 strikes) → Block booking after threshold → Appeal process</p>
+                        </div>
+
+                        <div style="margin: 15px 0; padding: 15px; background: #e3f2fd; border-left: 4px solid #2196F3;">
+                            <strong>TASK-6.2: Resource Booking (Rooms/Equipment)</strong> (13 points)
+                            <p><strong>What it does:</strong> Book and manage clinic resources (treatment rooms, equipment, devices) alongside appointments.</p>
+                            <p><strong>Tech:</strong> Resource schema, double-booking prevention, utilization tracking, resource calendar</p>
+                            <p><strong>Acceptance Criteria:</strong> Define resources → Link to appointments → Prevent conflicts → Show utilization % → Maintenance schedules → Resource availability</p>
+                        </div>
+
+                        <div style="margin: 15px 0; padding: 15px; background: #fff3e0; border-left: 4px solid #FF9800;">
+                            <strong>TASK-6.3: Schedule Templates</strong> (8 points)
+                            <p><strong>What it does:</strong> Create and apply schedule templates for common patterns (morning clinic, surgery days) with one-click setup.</p>
+                            <p><strong>Tech:</strong> Template engine, bulk apply logic, template library</p>
+                            <p><strong>Acceptance Criteria:</strong> Create templates → Save common patterns → Apply to date range → Override capability → Share between providers → Template categories</p>
+                        </div>
+
+                        <div style="margin: 15px 0; padding: 15px; background: #f3e5f5; border-left: 4px solid #9C27B0;">
+                            <strong>TASK-6.4: Appointment Check-In System</strong> (8 points)
+                            <p><strong>What it does:</strong> Digital check-in flow with kiosk mode, status updates (arrived, in-room, completed), and wait time tracking.</p>
+                            <p><strong>Tech:</strong> Check-in workflow, real-time status updates, queue management, kiosk UI</p>
+                            <p><strong>Acceptance Criteria:</strong> Patient checks in → Status updated → Provider notified → Track wait time → Queue display → SMS check-in option</p>
+                        </div>
+
+                        <div style="margin: 15px 0; padding: 15px; background: #ffebee; border-left: 4px solid #F44336;">
+                            <strong>TASK-6.5: Schedule Analytics Dashboard</strong> (13 points)
+                            <p><strong>What it does:</strong> Analytics on utilization rates, no-show rates, average wait times, peak hours, revenue per slot.</p>
+                            <p><strong>Tech:</strong> Data aggregation, Chart.js/Recharts, Excel export, date range filters</p>
+                            <p><strong>Acceptance Criteria:</strong> Show utilization % → No-show trends → Wait time averages → Peak hours heatmap → Revenue analysis → Provider comparison → Export reports</p>
+                        </div>
+
+                        <p style="margin-top: 20px;"><em>Sprint 6 includes 26 additional tasks: Appointment confirmation workflows, multi-location scheduling, provider schedule optimization, mobile calendar app, SMS/email integration, appointment series, visit reasons, appointment priorities, provider skill matching, patient routing, appointment packages, membership scheduling, deposit requirements, cancellation windows, waiting room management, appointment preparation notes, pre-appointment forms, appointment follow-ups, telehealth scheduling, walk-in management, emergency slots, appointment locks, schedule printing, provider workload balancing, appointment automation rules, and schedule performance metrics.</em></p>
+                    </div>
+                </article>
+
+                <!-- Sprint 7: Charting & Clinical Notes Part 1 -->
+                <article id="sprint-07">
+                    <h3 style="color: #667eea; font-size: 1.5em;">Sprint 7: Charting & Clinical Notes Part 1</h3>
+                    <p><strong>Timeline:</strong> Mar 17 - Mar 30, 2025 | <strong>Story Points:</strong> 185</p>
+
+                    <div class="model-card">
+                        <h4>🎯 Sprint Goal</h4>
+                        <p>Build comprehensive SOAP notes system with templates, vitals, assessment tools, and treatment plans.</p>
+
+                        <h4>📋 Key Tasks (5 of 37)</h4>
+
+                        <div style="margin: 15px 0; padding: 15px; background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                            <strong>TASK-7.1: SOAP Notes Interface</strong> (13 points)
+                            <p><strong>What it does:</strong> Full SOAP (Subjective, Objective, Assessment, Plan) note creation with rich text editor, auto-save, templates.</p>
+                            <p><strong>Tech:</strong> Rich text editor (Draft.js/Quill), auto-save every 30s, version control</p>
+                            <p><strong>Acceptance Criteria:</strong> Create SOAP note → Four sections → Rich formatting → Auto-save → Templates → Link to appointment → Signature/lock</p>
+                        </div>
+
+                        <div style="margin: 15px 0; padding: 15px; background: #e3f2fd; border-left: 4px solid #2196F3;">
+                            <strong>TASK-7.2: Vitals Recording</strong> (8 points)
+                            <p><strong>What it does:</strong> Record patient vitals (BP, pulse, temp, weight, height, O2 sat) with trending graphs and alerts.</p>
+                            <p><strong>Tech:</strong> Vitals schema, Chart.js for trends, alert thresholds</p>
+                            <p><strong>Acceptance Criteria:</strong> Enter vitals → Timestamp → Calculate BMI → Trend graphs → Alert on abnormal → Compare to previous → Export data</p>
+                        </div>
+
+                        <div style="margin: 15px 0; padding: 15px; background: #fff3e0; border-left: 4px solid #FF9800;">
+                            <strong>TASK-7.3: Clinical Note Templates</strong> (8 points)
+                            <p><strong>What it does:</strong> Pre-built and custom note templates by specialty (physiotherapy, chiropractic, massage) with smart fields.</p>
+                            <p><strong>Tech:</strong> Template engine, variable substitution {{patientName}}, template library</p>
+                            <p><strong>Acceptance Criteria:</strong> Create templates → Add variables → Specialty categories → Search templates → Apply to note → Edit after applying → Share templates</p>
+                        </div>
+
+                        <div style="margin: 15px 0; padding: 15px; background: #f3e5f5; border-left: 4px solid #9C27B0;">
+                            <strong>TASK-7.4: Assessment Tools & Scales</strong> (13 points)
+                            <p><strong>What it does:</strong> Digital assessment tools (pain scales VAS/NRS, ROM measurements, functional tests) with scoring and progress tracking.</p>
+                            <p><strong>Tech:</strong> Assessment schema, calculation engine, visualization, comparison tools</p>
+                            <p><strong>Acceptance Criteria:</strong> Administer assessments → Auto-calculate scores → Compare to baseline → Visual progress charts → Export results → Print PDFs</p>
+                        </div>
+
+                        <div style="margin: 15px 0; padding: 15px; background: #ffebee; border-left: 4px solid #F44336;">
+                            <strong>TASK-7.5: Treatment Plan Builder</strong> (13 points)
+                            <p><strong>What it does:</strong> Create structured treatment plans with goals, interventions, frequency, duration, and outcome measures.</p>
+                            <p><strong>Tech:</strong> Treatment plan schema, SMART goals, progress tracking, outcome measurements</p>
+                            <p><strong>Acceptance Criteria:</strong> Define SMART goals → Add interventions → Set frequency/duration → Track progress → Review outcomes → Share with patient → Print plan</p>
+                        </div>
+
+                        <p style="margin-top: 20px;"><em>Sprint 7 includes 32 additional tasks: Problem list management, ICD-10 coding, medication ordering, prescription writing, drug interaction checking, e-prescribing setup, refill management, lab order entry, imaging orders, referral management, clinical decision support rules, diagnosis coding, CPT procedure coding, clinical pathways, care plans, patient education materials, consent tracking, allergy documentation, immunization records, family history, social history, review of systems templates, physical exam templates, specialty-specific forms, body diagrams, progress note templates, discharge summaries, and clinical documentation training.</em></p>
+                    </div>
+                </article>
+
+                <!-- Sprint 8: Charting & Clinical Notes Part 2 -->
+                <article id="sprint-08">
+                    <h3 style="color: #667eea; font-size: 1.5em;">Sprint 8: Charting & Clinical Notes Part 2</h3>
+                    <p><strong>Timeline:</strong> Mar 31 - Apr 13, 2025 | <strong>Story Points:</strong> 185</p>
+
+                    <div class="model-card">
+                        <h4>🎯 Sprint Goal</h4>
+                        <p>Complete clinical documentation with addendums, co-signing, audit trails, voice dictation, and reporting.</p>
+
+                        <h4>📋 Key Tasks (5 of 37)</h4>
+
+                        <div style="margin: 15px 0; padding: 15px; background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                            <strong>TASK-8.1: Note Addendums & Amendments</strong> (8 points)
+                            <p><strong>What it does:</strong> Add corrections/addendums to signed notes while preserving original with full audit trail and reason tracking.</p>
+                            <p><strong>Tech:</strong> Version control system, diff view, immutable original storage</p>
+                            <p><strong>Acceptance Criteria:</strong> Add addendum → Original preserved → Show changes (diff) → Require reason → Timestamp → User tracked → View full history → Late entry flag</p>
+                        </div>
+
+                        <div style="margin: 15px 0; padding: 15px; background: #e3f2fd; border-left: 4px solid #2196F3;">
+                            <strong>TASK-8.2: Co-Signing Workflow</strong> (13 points)
+                            <p><strong>What it does:</strong> Workflow for students/residents to have notes reviewed and co-signed by supervising providers with tracking.</p>
+                            <p><strong>Tech:</strong> Approval workflow engine, notification system, e-signature capture</p>
+                            <p><strong>Acceptance Criteria:</strong> Submit for co-sign → Supervisor notified → Review interface → Approve/reject with comments → E-signature → Track unsigned notes → Reminder escalation</p>
+                        </div>
+
+                        <div style="margin: 15px 0; padding: 15px; background: #fff3e0; border-left: 4px solid #FF9800;">
+                            <strong>TASK-8.3: Clinical Documentation Audit Trail</strong> (8 points)
+                            <p><strong>What it does:</strong> Complete audit log of all note access, edits, and views with user, timestamp, IP address, and changes made.</p>
+                            <p><strong>Tech:</strong> Audit log schema, change tracking, compliance reporting, tamper-proof logging</p>
+                            <p><strong>Acceptance Criteria:</strong> Log all access → Track all changes → User/timestamp/IP → Export audit logs → Filter by date/user/action → HIPAA compliance reports → Immutable logs</p>
+                        </div>
+
+                        <div style="margin: 15px 0; padding: 15px; background: #f3e5f5; border-left: 4px solid #9C27B0;">
+                            <strong>TASK-8.4: Voice Dictation Integration</strong> (13 points)
+                            <p><strong>What it does:</strong> Speech-to-text for clinical notes using voice dictation with medical vocabulary and voice commands.</p>
+                            <p><strong>Tech:</strong> Speech recognition API (Web Speech API/Google Cloud Speech), medical dictionary, custom vocabulary</p>
+                            <p><strong>Acceptance Criteria:</strong> Record voice → Convert to text → Medical terms recognized → Punctuation commands → Insert into note → Edit transcript → Playback audio → Save audio file</p>
+                        </div>
+
+                        <div style="margin: 15px 0; padding: 15px; background: #ffebee; border-left: 4px solid #F44336;">
+                            <strong>TASK-8.5: Clinical Report Generator</strong> (13 points)
+                            <p><strong>What it does:</strong> Generate professional clinical reports (progress reports, discharge summaries, work notes) with branded templates.</p>
+                            <p><strong>Tech:</strong> PDF generation (pdfmake), template engine, data aggregation from multiple sources</p>
+                            <p><strong>Acceptance Criteria:</strong> Select report type → Auto-populate patient data → Preview → Edit before finalizing → Generate PDF → Letterhead/branding → Email/print → Save to patient chart</p>
+                        </div>
+
+                        <p style="margin-top: 20px;"><em>Sprint 8 includes 32 additional tasks: Smart note suggestions using AI, clinical pathways automation, outcomes tracking analytics, peer review system, EHR data import, FHIR document exchange, clinical data export, note search functionality, note templates sharing, macro/shortcuts, note printing, chart review checklist, missing documentation alerts, documentation quality metrics, note completion rates, provider documentation patterns, chart prep automation, encounter billing linkage, charge capture from notes, documentation compliance checking, note templates versioning, clinical content library, evidence-based guidelines integration, patient portal note sharing, secure note messaging, clinical collaboration tools, note annotation, teaching file creation, and clinical research data extraction.</em></p>
+                    </div>
+                </article>
+
+                <!-- Sprint 9: Billing System Part 1 -->
+                <article id="sprint-09">
+                    <h3 style="color: #667eea; font-size: 1.5em;">Sprint 9: Billing System Part 1</h3>
+                    <p><strong>Timeline:</strong> Apr 14 - Apr 27, 2025 | <strong>Story Points:</strong> 125</p>
+
+                    <div class="model-card">
+                        <h4>🎯 Sprint Goal</h4>
+                        <p>Build invoice generation, payment processing, and basic insurance claims functionality.</p>
+
+                        <h4>📋 Key Tasks (5 of 25)</h4>
+
+                        <div style="margin: 15px 0; padding: 15px; background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                            <strong>TASK-9.1: Invoice Generation System</strong> (13 points)
+                            <p><strong>What it does:</strong> Create professional invoices from appointments/services with line items, taxes, discounts, payment terms.</p>
+                            <p><strong>Tech:</strong> Invoice schema, PDF generation (pdfmake), tax calculation engine, invoice numbering</p>
+                            <p><strong>Acceptance Criteria:</strong> Generate invoice → Add service line items → Calculate taxes → Apply discounts/coupons → Set payment terms → PDF output → Email invoice → Payment link</p>
+                        </div>
+
+                        <div style="margin: 15px 0; padding: 15px; background: #e3f2fd; border-left: 4px solid #2196F3;">
+                            <strong>TASK-9.2: Payment Processing (Stripe/Square)</strong> (13 points)
+                            <p><strong>What it does:</strong> Accept credit card, debit, and ACH payments through Stripe or Square with PCI compliance.</p>
+                            <p><strong>Tech:</strong> Stripe SDK, Square SDK, payment tokenization, PCI DSS compliance, 3D Secure</p>
+                            <p><strong>Acceptance Criteria:</strong> Process card payment → Tokenize card (no storage) → Receipt generated → Payment recorded → Handle failures → Refund capability → Saved cards</p>
+                        </div>
+
+                        <div style="margin: 15px 0; padding: 15px; background: #fff3e0; border-left: 4px solid #FF9800;">
+                            <strong>TASK-9.3: Insurance Claims (CMS-1500/UB-04)</strong> (13 points)
+                            <p><strong>What it does:</strong> Generate and submit insurance claims in CMS-1500 (professional) and UB-04 (institutional) formats.</p>
+                            <p><strong>Tech:</strong> Claim generation engine, EDI 837 format, clearinghouse API integration, claim validation</p>
+                            <p><strong>Acceptance Criteria:</strong> Create claim → Populate all required fields → Validate against payer rules → Submit to clearinghouse → Track submission → Error handling → Resubmit capability</p>
+                        </div>
+
+                        <div style="margin: 15px 0; padding: 15px; background: #f3e5f5; border-left: 4px solid #9C27B0;">
+                            <strong>TASK-9.4: Payment Plans & Installments</strong> (8 points)
+                            <p><strong>What it does:</strong> Set up patient payment plans with scheduled installments and automated reminders/charges.</p>
+                            <p><strong>Tech:</strong> Payment plan schema, scheduled payments (cron), automated billing, reminder system</p>
+                            <p><strong>Acceptance Criteria:</strong> Create payment plan → Set schedule (weekly/monthly) → Auto-charge saved card → Track payments made → Send reminders → Late payment handling → Early payoff option with discount</p>
+                        </div>
+
+                        <div style="margin: 15px 0; padding: 15px; background: #ffebee; border-left: 4px solid #F44336;">
+                            <strong>TASK-9.5: Accounts Receivable (AR) Tracking</strong> (13 points)
+                            <p><strong>What it does:</strong> Track outstanding patient balances with aging reports (30/60/90/120+ days) and collection workflows.</p>
+                            <p><strong>Tech:</strong> AR schema, aging bucket calculation, collection status tracking, reporting</p>
+                            <p><strong>Acceptance Criteria:</strong> Show total AR balance → Age into buckets (0-30, 31-60, 61-90, 90+) → Filter by patient/provider/payer → Payment history → Collection notes → Write-off tracking → Export reports</p>
+                        </div>
+
+                        <p style="margin-top: 20px;"><em>Sprint 9 includes 20 additional tasks: Statement generation and mailing, credit notes/adjustments, payment receipt printing, automated payment reminders (SMS/email), batch payment posting, copay collection at check-in, fee schedule management by service, insurance contract pricing, discount rules and coupons, deposit requirements, overpayment handling, payment allocation rules, charge capture workflows, service pricing by provider, tax configuration by location, invoice templates customization, payment method management, merchant account setup, payment dispute handling, and financial reconciliation reports.</em></p>
+                    </div>
+                </article>
+
+                <!-- Sprint 10: Billing System Part 2 -->
+                <article id="sprint-10">
+                    <h3 style="color: #667eea; font-size: 1.5em;">Sprint 10: Billing System Part 2</h3>
+                    <p><strong>Timeline:</strong> Apr 28 - May 11, 2025 | <strong>Story Points:</strong> 125</p>
+
+                    <div class="model-card">
+                        <h4>🎯 Sprint Goal</h4>
+                        <p>Complete billing with ERA/EOB parsing, revenue cycle management, and advanced reporting.</p>
+
+                        <h4>📋 Key Tasks (5 of 25)</h4>
+
+                        <div style="margin: 15px 0; padding: 15px; background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                            <strong>TASK-10.1: ERA/EOB Parsing & Posting</strong> (13 points)
+                            <p><strong>What it does:</strong> Parse Electronic Remittance Advice (ERA) and Explanation of Benefits (EOB) files, auto-post payments and adjustments.</p>
+                            <p><strong>Tech:</strong> EDI 835 parser, payment posting automation, adjustment codes, matching algorithms</p>
+                            <p><strong>Acceptance Criteria:</strong> Upload ERA/EOB file → Parse EDI 835 format → Match to claims → Post payments automatically → Post adjustments → Identify exceptions → Generate posting report → Manual review queue</p>
+                        </div>
+
+                        <div style="margin: 15px 0; padding: 15px; background: #e3f2fd; border-left: 4px solid #2196F3;">
+                            <strong>TASK-10.2: Claim Status Tracking</strong> (8 points)
+                            <p><strong>What it does:</strong> Track insurance claim lifecycle through submission, processing, payment, and denial stages.</p>
+                            <p><strong>Tech:</strong> Status workflow engine, EDI 276/277 (claim status inquiries), status timeline</p>
+                            <p><strong>Acceptance Criteria:</strong> Track claim status (submitted, pending, paid, denied) → Status updates from clearinghouse → Manual status updates → Days in each stage → Denial reasons → Resubmit workflow → Status history timeline</p>
+                        </div>
+
+                        <div style="margin: 15px 0; padding: 15px; background: #fff3e0; border-left: 4px solid #FF9800;">
+                            <strong>TASK-10.3: Denial Management</strong> (13 points)
+                            <p><strong>What it does:</strong> Manage denied claims with reason codes, appeal workflows, root cause analysis, and success tracking.</p>
+                            <p><strong>Tech:</strong> Denial tracking schema, appeal workflow, analytics engine, reason code library</p>
+                            <p><strong>Acceptance Criteria:</strong> Flag denied claims → Map denial reason codes → Assign to staff → Appeal workflow (write letter, resubmit) → Track appeal outcomes → Success rate metrics → Root cause analysis by denial type → Prevention recommendations</p>
+                        </div>
+
+                        <div style="margin: 15px 0; padding: 15px; background: #f3e5f5; border-left: 4px solid #9C27B0;">
+                            <strong>TASK-10.4: Revenue Cycle Dashboard</strong> (13 points)
+                            <p><strong>What it does:</strong> Comprehensive dashboard showing key revenue metrics, collection rates, days in AR, denial rates, payer mix.</p>
+                            <p><strong>Tech:</strong> Data aggregation, KPI calculation, Chart.js/Recharts, real-time updates</p>
+                            <p><strong>Acceptance Criteria:</strong> Show total revenue (YTD, MTD) → Collection rate % → Average days in AR → Denial rate % → Payer mix pie chart → Top services by revenue → Trend charts → Date range filters → Export to Excel</p>
+                        </div>
+
+                        <div style="margin: 15px 0; padding: 15px; background: #ffebee; border-left: 4px solid #F44336;">
+                            <strong>TASK-10.5: Automated Payment Reminders</strong> (8 points)
+                            <p><strong>What it does:</strong> Automated email/SMS reminders for overdue patient balances with customizable schedules and escalation.</p>
+                            <p><strong>Tech:</strong> Cron jobs, email/SMS templates, escalation rules, unsubscribe management</p>
+                            <p><strong>Acceptance Criteria:</strong> Set reminder schedule (7, 14, 30 days overdue) → Customizable templates → Send email/SMS → Stop on payment → Escalation levels → Track reminder effectiveness → Opt-out management → Payment link in reminder</p>
+                        </div>
+
+                        <p style="margin-top: 20px;"><em>Sprint 10 includes 20 additional tasks: Superbill generation, charge capture mobile app, payer contract management, fee schedule version control, bulk claim submission, claim scrubbing before submission, clearinghouse management (multiple clearinghouses), secondary claim generation, tertiary claim handling, coordination of benefits, claim attachments management, prior authorization tracking, predetermination requests, patient responsibility estimation, cost transparency tools, payment plan calculator, bad debt tracking, collections agency integration, financial assistance programs, and charity care tracking.</em></p>
+                    </div>
+                </article>
+
+                <!-- Sprint 11: Reports & Analytics Part 1 -->
+                <article id="sprint-11">
+                    <h3 style="color: #667eea; font-size: 1.5em;">Sprint 11: Reports & Analytics Part 1</h3>
+                    <p><strong>Timeline:</strong> May 12 - May 25, 2025 | <strong>Story Points:</strong> 110</p>
+
+                    <div class="model-card">
+                        <h4>🎯 Sprint Goal</h4>
+                        <p>Build comprehensive reporting system with financial, clinical, and operational dashboards.</p>
+
+                        <h4>📋 Key Tasks (5 of 22)</h4>
+
+                        <div style="margin: 15px 0; padding: 15px; background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                            <strong>TASK-11.1: Executive Dashboard</strong> (13 points)
+                            <p><strong>What it does:</strong> High-level KPI dashboard showing revenue, patient volume, appointment utilization, provider productivity at a glance.</p>
+                            <p><strong>Tech:</strong> Data aggregation pipelines, Chart.js/Recharts, real-time WebSocket updates, caching</p>
+                            <p><strong>Acceptance Criteria:</strong> Show key KPIs (revenue, patients, utilization) → Revenue trend chart → Patient growth chart → Utilization % by provider → Provider productivity metrics → Compare to goals → Date range selection → Refresh every 5 minutes</p>
+                        </div>
+
+                        <div style="margin: 15px 0; padding: 15px; background: #e3f2fd; border-left: 4px solid #2196F3;">
+                            <strong>TASK-11.2: Financial Reports (P&L, AR Aging)</strong> (13 points)
+                            <p><strong>What it does:</strong> Generate Profit & Loss statements, AR aging reports, revenue by service/provider with export capabilities.</p>
+                            <p><strong>Tech:</strong> Financial calculations, Excel export (ExcelJS), PDF generation, accounting principles</p>
+                            <p><strong>Acceptance Criteria:</strong> Generate P&L statement → AR aging report (30/60/90/120+) → Revenue breakdown by service → Revenue by provider → Compare periods (YoY, MoM) → Excel/PDF export → Email scheduled reports</p>
+                        </div>
+
+                        <div style="margin: 15px 0; padding: 15px; background: #fff3e0; border-left: 4px solid #FF9800;">
+                            <strong>TASK-11.3: Clinical Outcome Reports</strong> (13 points)
+                            <p><strong>What it does:</strong> Track patient outcomes, treatment effectiveness, assessment score improvements over time by provider and condition.</p>
+                            <p><strong>Tech:</strong> Outcome calculation algorithms, statistical analysis, data visualization, cohort analysis</p>
+                            <p><strong>Acceptance Criteria:</strong> Show outcome metrics by condition → Pre/post treatment comparison → Assessment score improvements → Success rate % → Provider comparison → Patient satisfaction scores → Treatment protocol effectiveness → Readmission rates</p>
+                        </div>
+
+                        <div style="margin: 15px 0; padding: 15px; background: #f3e5f5; border-left: 4px solid #9C27B0;">
+                            <strong>TASK-11.4: Operational Reports (Utilization, Wait Times)</strong> (8 points)
+                            <p><strong>What it does:</strong> Reports on appointment utilization, average wait times, no-show rates, schedule efficiency by provider and location.</p>
+                            <p><strong>Tech:</strong> Time-based analytics, efficiency calculations, operational metrics</p>
+                            <p><strong>Acceptance Criteria:</strong> Appointment utilization % → Average wait times (by hour/day/week) → No-show rate trends → Peak hours identification → Provider efficiency comparison → Room utilization % → First available appointment → Schedule gap analysis</p>
+                        </div>
+
+                        <div style="margin: 15px 0; padding: 15px; background: #ffebee; border-left: 4px solid #F44336;">
+                            <strong>TASK-11.5: Custom Report Builder</strong> (13 points)
+                            <p><strong>What it does:</strong> Drag-and-drop report builder for custom reports with data source selection, filters, grouping, and calculations.</p>
+                            <p><strong>Tech:</strong> Query builder UI, dynamic query generation, data source abstraction, report saving/sharing</p>
+                            <p><strong>Acceptance Criteria:</strong> Select data sources (patients, appointments, billing) → Drag fields to report → Apply filters → Group by dimensions → Add calculated fields → Sort results → Save report → Schedule automated delivery → Share with team</p>
+                        </div>
+
+                        <p style="margin-top: 20px;"><em>Sprint 11 includes 17 additional tasks: Patient demographics reports, appointment type analysis, revenue forecasting models, payer mix analysis, provider productivity scorecards, patient retention analysis, referral source tracking, marketing ROI reports, service line analysis, location performance comparison, capacity planning reports, patient acquisition cost, lifetime value calculation, cohort analysis by acquisition date, seasonal trend analysis, budget vs actual reports, and variance analysis.</em></p>
+                    </div>
+                </article>
+
+                <!-- Sprint 12: Reports & Analytics Part 2 -->
+                <article id="sprint-12">
+                    <h3 style="color: #667eea; font-size: 1.5em;">Sprint 12: Reports & Analytics Part 2</h3>
+                    <p><strong>Timeline:</strong> May 26 - Jun 8, 2025 | <strong>Story Points:</strong> 110</p>
+
+                    <div class="model-card">
+                        <h4>🎯 Sprint Goal</h4>
+                        <p>Complete analytics with scheduled reports, data export, business intelligence integration, and benchmarking.</p>
+
+                        <h4>📋 Key Tasks (5 of 22)</h4>
+
+                        <div style="margin: 15px 0; padding: 15px; background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                            <strong>TASK-12.1: Scheduled Report Delivery</strong> (8 points)
+                            <p><strong>What it does:</strong> Schedule reports to be automatically generated and emailed to recipients on daily/weekly/monthly basis.</p>
+                            <p><strong>Tech:</strong> Cron jobs, report scheduling engine, email delivery with attachments, recipient management</p>
+                            <p><strong>Acceptance Criteria:</strong> Schedule report generation → Select recipients → Choose format (PDF/Excel) → Set frequency (daily/weekly/monthly) → Delivery confirmation → Failed delivery alerts → Pause/resume schedules → Edit scheduled reports</p>
+                        </div>
+
+                        <div style="margin: 15px 0; padding: 15px; background: #e3f2fd; border-left: 4px solid #2196F3;">
+                            <strong>TASK-12.2: Data Export (Excel, CSV, PDF)</strong> (8 points)
+                            <p><strong>What it does:</strong> Export any report or data view to Excel, CSV, or PDF with formatting preservation and large dataset support.</p>
+                            <p><strong>Tech:</strong> Export libraries (ExcelJS, jsPDF, csv-writer), streaming for large datasets, background jobs</p>
+                            <p><strong>Acceptance Criteria:</strong> Export to Excel with formatting → Export to CSV (raw data) → Export to PDF with charts → Handle large datasets (10K+ rows) → Background processing for large exports → Download link when ready → Email option for large files</p>
+                        </div>
+
+                        <div style="margin: 15px 0; padding: 15px; background: #fff3e0; border-left: 4px solid #FF9800;">
+                            <strong>TASK-12.3: Business Intelligence Integration</strong> (13 points)
+                            <p><strong>What it does:</strong> Connect to BI tools (Tableau, Power BI, Looker) via REST API endpoints and database views for advanced analytics.</p>
+                            <p><strong>Tech:</strong> REST API design, database materialized views, OAuth authentication, API documentation</p>
+                            <p><strong>Acceptance Criteria:</strong> Create API endpoints for all major entities → Database read-only views → OAuth 2.0 authentication → Rate limiting → Comprehensive API docs → Sample Tableau/Power BI workbooks → Data dictionary → Webhook for data changes</p>
+                        </div>
+
+                        <div style="margin: 15px 0; padding: 15px; background: #f3e5f5; border-left: 4px solid #9C27B0;">
+                            <strong>TASK-12.4: Benchmarking & Comparisons</strong> (13 points)
+                            <p><strong>What it does:</strong> Compare clinic performance to industry benchmarks and historical data with variance analysis.</p>
+                            <p><strong>Tech:</strong> Benchmark data sourcing, comparison algorithms, variance calculation, visualization</p>
+                            <p><strong>Acceptance Criteria:</strong> Load industry benchmarks by specialty → Compare key metrics to benchmarks → Show variance (above/below) → Historical comparison (YoY, MoM) → Provider-to-provider comparison → Goal tracking and progress → Percentile ranking → Action recommendations</p>
+                        </div>
+
+                        <div style="margin: 15px 0; padding: 15px; background: #ffebee; border-left: 4px solid #F44336;">
+                            <strong>TASK-12.5: Audit Reports & Compliance</strong> (13 points)
+                            <p><strong>What it does:</strong> Generate compliance reports for HIPAA audits, security events, access logs, data breach tracking.</p>
+                            <p><strong>Tech:</strong> Audit log querying, compliance report templates, risk assessment scoring, secure export</p>
+                            <p><strong>Acceptance Criteria:</strong> PHI access logs report → Security event summary → Failed login attempts → User permission changes → Data export events → Policy violation alerts → Risk score calculation → Compliance checklist → Export for external auditors (encrypted)</p>
+                        </div>
+
+                        <p style="margin-top: 20px;"><em>Sprint 12 includes 17 additional tasks: Patient satisfaction survey analysis, Net Promoter Score (NPS) tracking, online review monitoring and alerts, staff productivity reports, inventory turnover analysis (if applicable), supply cost tracking, vendor performance analysis, predictive analytics for no-shows, churn prediction modeling, appointment booking conversion funnel, patient journey mapping, attribution reporting, A/B test result analysis, alert and notification system for anomalies, real-time dashboard updates, mobile analytics app, and executive summary email digests.</em></p>
+                    </div>
+                </article>
+
+                <!-- Sprint 13: Mobile App Part 1 -->
+                <article id="sprint-13">
+                    <h3 style="color: #667eea; font-size: 1.5em;">Sprint 13: Mobile Applications Part 1</h3>
+                    <p><strong>Timeline:</strong> Jun 9 - Jun 22, 2025 | <strong>Story Points:</strong> 120</p>
+
+                    <div class="model-card">
+                        <h4>🎯 Sprint Goal</h4>
+                        <p>Build patient portal mobile app with appointments, records, messaging, and basic provider app.</p>
+
+                        <h4>📋 Key Tasks (5 of 24)</h4>
+
+                        <div style="margin: 15px 0; padding: 15px; background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                            <strong>TASK-13.1: Patient Portal - Account & Profile</strong> (8 points)
+                            <p><strong>What it does:</strong> Patient registration, login, profile management with email/phone verification and password reset.</p>
+                            <p><strong>Tech:</strong> React Native, Expo, Firebase Auth or custom JWT, AsyncStorage</p>
+                            <p><strong>Acceptance Criteria:</strong> Register account → Email/SMS verification → Login with email/phone → Update profile → Upload photo → Change password → Biometric setup → 2FA option → Privacy settings</p>
+                        </div>
+
+                        <div style="margin: 15px 0; padding: 15px; background: #e3f2fd; border-left: 4px solid #2196F3;">
+                            <strong>TASK-13.2: Patient Portal - Appointment Booking</strong> (13 points)
+                            <p><strong>What it does:</strong> View available appointments, book new, reschedule, cancel with provider/service selection and reminders.</p>
+                            <p><strong>Tech:</strong> Booking API integration, calendar component, push notifications (Expo Notifications)</p>
+                            <p><strong>Acceptance Criteria:</strong> View provider availability → Select service type → Book appointment → Reschedule existing → Cancel (with policy) → Confirmation screen → Push/SMS/email reminders → Add to device calendar → View upcoming appointments</p>
+                        </div>
+
+                        <div style="margin: 15px 0; padding: 15px; background: #fff3e0; border-left: 4px solid #FF9800;">
+                            <strong>TASK-13.3: Patient Portal - Medical Records Access</strong> (13 points)
+                            <p><strong>What it does:</strong> View visit history, clinical notes (provider-approved), test results, prescriptions, documents with download/share.</p>
+                            <p><strong>Tech:</strong> Secure API with role-based access, PDF viewer (react-native-pdf), image viewer, file download</p>
+                            <p><strong>Acceptance Criteria:</strong> View visit history timeline → Read clinical notes (if released) → View test results with graphs → Prescription list with refill dates → Download documents (PDF/images) → Share via email → Request records → Print option</p>
+                        </div>
+
+                        <div style="margin: 15px 0; padding: 15px; background: #f3e5f5; border-left: 4px solid #9C27B0;">
+                            <strong>TASK-13.4: Patient Portal - Secure Messaging</strong> (13 points)
+                            <p><strong>What it does:</strong> HIPAA-compliant messaging with providers, attach photos/documents, read receipts, message threading.</p>
+                            <p><strong>Tech:</strong> Encrypted messaging API, file upload (expo-image-picker, expo-document-picker), push notifications</p>
+                            <p><strong>Acceptance Criteria:</strong> Send message to provider → Attach photos/documents → Receive replies → Read receipts → Message threads → Push notifications for new messages → Search messages → Archive messages → Emergency flag for urgent</p>
+                        </div>
+
+                        <div style="margin: 15px 0; padding: 15px; background: #ffebee; border-left: 4px solid #F44336;">
+                            <strong>TASK-13.5: Provider Mobile App - Schedule View</strong> (13 points)
+                            <p><strong>What it does:</strong> Mobile view of provider schedule with appointments, patient info, check-in status, quick actions.</p>
+                            <p><strong>Tech:</strong> Provider API with authentication, calendar view, real-time sync (WebSocket/polling), offline support</p>
+                            <p><strong>Acceptance Criteria:</strong> View daily schedule → See patient demographics → Check-in status indicators → Tap appointment for details → Quick actions (cancel, reschedule, start visit) → Navigate dates → Refresh/sync → Filter by location → Search patients</p>
+                        </div>
+
+                        <p style="margin-top: 20px;"><em>Sprint 13 includes 19 additional tasks: Patient payment processing, saved payment methods, invoice viewing, payment history, digital intake forms with e-signatures, insurance card upload, family member management (dependents), health tracking (vitals, symptoms), medication reminders, provider quick charting on mobile, mobile dictation, patient search for providers, appointment preparation checklist, visit summary after appointment, prescription refill requests, referral tracking, lab result notifications, and mobile app onboarding tutorial.</em></p>
+                    </div>
+                </article>
+
+                <!-- Sprint 14: Mobile App Part 2 -->
+                <article id="sprint-14">
+                    <h3 style="color: #667eea; font-size: 1.5em;">Sprint 14: Mobile Applications Part 2</h3>
+                    <p><strong>Timeline:</strong> Jun 23 - Jul 6, 2025 | <strong>Story Points:</strong> 120</p>
+
+                    <div class="model-card">
+                        <h4>🎯 Sprint Goal</h4>
+                        <p>Complete mobile apps with offline mode, biometric auth, telehealth, and health device integrations.</p>
+
+                        <h4>📋 Key Tasks (5 of 24)</h4>
+
+                        <div style="margin: 15px 0; padding: 15px; background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                            <strong>TASK-14.1: Offline Mode & Data Sync</strong> (13 points)
+                            <p><strong>What it does:</strong> Work offline with local data storage, queue actions, automatic sync when connection restored, conflict resolution.</p>
+                            <p><strong>Tech:</strong> AsyncStorage/SQLite, offline queue, sync engine, conflict resolution algorithms, NetInfo</p>
+                            <p><strong>Acceptance Criteria:</strong> Work offline (view data) → Queue write operations → Auto-sync when online → Conflict resolution (server wins/manual) → Sync indicator → Manual sync button → Show queued changes → Handle partial syncs</p>
+                        </div>
+
+                        <div style="margin: 15px 0; padding: 15px; background: #e3f2fd; border-left: 4px solid #2196F3;">
+                            <strong>TASK-14.2: Biometric Authentication</strong> (8 points)
+                            <p><strong>What it does:</strong> Login with Face ID, Touch ID, or fingerprint for quick secure access with fallback to password.</p>
+                            <p><strong>Tech:</strong> Expo Local Authentication API, SecureStore for tokens, biometric availability checking</p>
+                            <p><strong>Acceptance Criteria:</strong> Enable biometric auth in settings → Face ID/Touch ID/Fingerprint login → Fallback to password/PIN → Works after app restart → Disable option → Re-enable after failed attempts → Session timeout with re-auth</p>
+                        </div>
+
+                        <div style="margin: 15px 0; padding: 15px; background: #fff3e0; border-left: 4px solid #FF9800;">
+                            <strong>TASK-14.3: Telehealth Video Calls</strong> (13 points)
+                            <p><strong>What it does:</strong> In-app video calls between patients and providers with screen share, chat, waiting room, recording.</p>
+                            <p><strong>Tech:</strong> WebRTC (Twilio Video/Agora), or Zoom SDK, waiting room UI, call recording (with consent)</p>
+                            <p><strong>Acceptance Criteria:</strong> Join video call from appointment → Virtual waiting room → Audio/video controls (mute, camera) → Screen share → In-call chat → Provider can admit from waiting room → Call quality indicators → Recording (with consent) → Call duration timer → End call button</p>
+                        </div>
+
+                        <div style="margin: 15px 0; padding: 15px; background: #f3e5f5; border-left: 4px solid #9C27B0;">
+                            <strong>TASK-14.4: Document Camera & OCR</strong> (8 points)
+                            <p><strong>What it does:</strong> Use device camera to capture and upload documents (insurance cards, referrals) with OCR text extraction.</p>
+                            <p><strong>Tech:</strong> Expo Camera, image processing, OCR API (Google Cloud Vision/Tesseract), file upload</p>
+                            <p><strong>Acceptance Criteria:</strong> Open camera → Capture document photo → Crop/rotate tools → Apply filters (enhance) → OCR text extraction → Auto-categorize document type → Preview before upload → Upload to patient chart → Retry on failure</p>
+                        </div>
+
+                        <div style="margin: 15px 0; padding: 15px; background: #ffebee; border-left: 4px solid #F44336;">
+                            <strong>TASK-14.5: Apple Health & Google Fit Integration</strong> (13 points)
+                            <p><strong>What it does:</strong> Sync health data (steps, heart rate, sleep, weight) from Apple Health/Google Fit to patient records.</p>
+                            <p><strong>Tech:</strong> HealthKit (iOS), Google Fit API (Android), data sync scheduling, data transformation</p>
+                            <p><strong>Acceptance Criteria:</strong> Request health permissions → Sync steps, heart rate, sleep, weight → Display trends in app → Push to EHR/patient chart → Privacy controls (what to sync) → Sync frequency settings → Disconnect option → Handle permission denied → Show last sync time</p>
+                        </div>
+
+                        <p style="margin-top: 20px;"><em>Sprint 14 includes 19 additional tasks: Push notification preferences, rich notifications with actions, app badge counts, deep linking (open specific screens from notifications/emails), universal links, app store optimization (ASO), app analytics (Firebase/Amplitude), crash reporting (Sentry), in-app feedback forms, patient surveys, rating prompts, share app with friends, app settings management, language/locale support, dark mode theme, accessibility features (VoiceOver/TalkBack), haptic feedback, app performance monitoring, and beta testing with TestFlight/Google Play Beta.</em></p>
+                    </div>
+                </article>
+
+                <!-- Sprint 15: Integrations Part 1 -->
+                <article id="sprint-15">
+                    <h3 style="color: #667eea; font-size: 1.5em;">Sprint 15: Integrations Part 1</h3>
+                    <p><strong>Timeline:</strong> Jul 7 - Jul 20, 2025 | <strong>Story Points:</strong> 95</p>
+
+                    <div class="model-card">
+                        <h4>🎯 Sprint Goal</h4>
+                        <p>Build core integrations for labs, imaging, pharmacy, insurance, and external EHRs.</p>
+
+                        <h4>📋 Key Tasks (5 of 19)</h4>
+
+                        <div style="margin: 15px 0; padding: 15px; background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                            <strong>TASK-15.1: HL7/FHIR Interface Engine</strong> (13 points)
+                            <p><strong>What it does:</strong> Send and receive patient data in HL7 v2.x and FHIR R4 formats for EHR interoperability.</p>
+                            <p><strong>Tech:</strong> HL7 parser library, FHIR server (HAPI FHIR), message routing, transformation engine</p>
+                            <p><strong>Acceptance Criteria:</strong> Parse HL7 v2.x messages (ADT, ORM, ORU) → Generate FHIR R4 resources (Patient, Encounter, Observation) → Bidirectional sync → Message queue for reliability → Error handling → Message logging → Retry failed messages → Admin interface to view/resend</p>
+                        </div>
+
+                        <div style="margin: 15px 0; padding: 15px; background: #e3f2fd; border-left: 4px solid #2196F3;">
+                            <strong>TASK-15.2: Lab Integration (LifeLabs, Dynacare)</strong> (13 points)
+                            <p><strong>What it does:</strong> Order labs electronically and receive results automatically from Canadian lab partners.</p>
+                            <p><strong>Tech:</strong> Lab partner APIs, HL7 ORM (orders), HL7 ORU (results), result parsing, PDF attachment handling</p>
+                            <p><strong>Acceptance Criteria:</strong> Send lab order electronically → Receive order confirmation → Receive results (HL7 ORU) → Parse into structured data → Attach PDF reports → Alert provider → Mark as reviewed → Integrate into patient chart → Track turnaround time</p>
+                        </div>
+
+                        <div style="margin: 15px 0; padding: 15px; background: #fff3e0; border-left: 4px solid #FF9800;">
+                            <strong>TASK-15.3: Imaging Integration (PACS/DICOM)</strong> (13 points)
+                            <p><strong>What it does:</strong> Order imaging studies and view DICOM images from PACS systems with measurements and annotations.</p>
+                            <p><strong>Tech:</strong> DICOM protocol, PACS integration, DICOM viewer library (Cornerstone.js), image storage</p>
+                            <p><strong>Acceptance Criteria:</strong> Order imaging study → Send to PACS (DICOM worklist) → Receive images → DICOM viewer with controls → Window/level adjustments → Measurements (length, angle) → Annotations → Export images → Link to patient visit → Radiology report integration</p>
+                        </div>
+
+                        <div style="margin: 15px 0; padding: 15px; background: #f3e5f5; border-left: 4px solid #9C27B0;">
+                            <strong>TASK-15.4: Pharmacy e-Prescribing (Surescripts)</strong> (13 points)
+                            <p><strong>What it does:</strong> Send prescriptions electronically to pharmacies via Surescripts network with formulary checking.</p>
+                            <p><strong>Tech:</strong> Surescripts API certification, NCPDP SCRIPT standard, drug database, pharmacy directory</p>
+                            <p><strong>Acceptance Criteria:</strong> Select medication → Choose pharmacy (search directory) → Check formulary/insurance coverage → Send e-prescription → Receive confirmation → Handle refill requests → Track prescription status → Cancel prescription (if not picked up) → Controlled substance handling (EPCS)</p>
+                        </div>
+
+                        <div style="margin: 15px 0; padding: 15px; background: #ffebee; border-left: 4px solid #F44336;">
+                            <strong>TASK-15.5: Insurance Eligibility API</strong> (8 points)
+                            <p><strong>What it does:</strong> Real-time insurance eligibility and benefits verification via payer APIs with caching.</p>
+                            <p><strong>Tech:</strong> EDI 270/271 transactions, payer API integrations, benefits parsing, caching layer</p>
+                            <p><strong>Acceptance Criteria:</strong> Enter insurance info → Check eligibility in real-time → Parse benefits (copay, deductible, coverage %) → Display coverage summary → Cache results (24 hours) → Manual verification option → Link to patient → Historical eligibility checks → Batch eligibility for multiple patients</p>
+                        </div>
+
+                        <p style="margin-top: 20px;"><em>Sprint 15 includes 14 additional tasks: Payment gateway integration (Stripe Elements, Apple Pay, Google Pay), Google Calendar sync (bidirectional), Outlook calendar sync, Zoom meeting integration, Doxy.me telehealth integration, Twilio SMS/voice integration, SendGrid email service, Zapier webhook integration, QuickBooks accounting sync, Mailchimp marketing automation, Slack notifications for staff, Microsoft Teams integration, and third-party authentication providers (Google, Apple, Facebook sign-in).</em></p>
+                    </div>
+                </article>
+
+                <!-- Sprint 16: Integrations Part 2 -->
+                <article id="sprint-16">
+                    <h3 style="color: #667eea; font-size: 1.5em;">Sprint 16: Integrations Part 2</h3>
+                    <p><strong>Timeline:</strong> Jul 21 - Aug 3, 2025 | <strong>Story Points:</strong> 95</p>
+
+                    <div class="model-card">
+                        <h4>🎯 Sprint Goal</h4>
+                        <p>Complete integrations with public REST API, webhooks, SSO, and third-party app marketplace.</p>
+
+                        <h4>📋 Key Tasks (5 of 19)</h4>
+
+                        <div style="margin: 15px 0; padding: 15px; background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                            <strong>TASK-16.1: Public REST API</strong> (13 points)
+                            <p><strong>What it does:</strong> Comprehensive REST API for third-party integrations with OAuth 2.0 authentication and rate limiting.</p>
+                            <p><strong>Tech:</strong> RESTful API design, OAuth 2.0 server, API keys, rate limiting (Redis), API versioning</p>
+                            <p><strong>Acceptance Criteria:</strong> Full CRUD endpoints for all resources → OAuth 2.0 authorization code flow → API keys for server-to-server → Rate limiting (1000 req/hour) → API versioning (/v1, /v2) → Comprehensive docs → Sandbox environment → Developer dashboard for managing API keys</p>
+                        </div>
+
+                        <div style="margin: 15px 0; padding: 15px; background: #e3f2fd; border-left: 4px solid #2196F3;">
+                            <strong>TASK-16.2: Webhook System</strong> (8 points)
+                            <p><strong>What it does:</strong> Fire webhooks on events (new appointment, payment received, form submitted) for external integrations.</p>
+                            <p><strong>Tech:</strong> Event emitters, webhook queue (Bull/Redis), retry logic with exponential backoff, HMAC signature</p>
+                            <p><strong>Acceptance Criteria:</strong> Register webhook URLs → Select events to subscribe → Fire webhook on event → Include HMAC signature for verification → Retry failed webhooks (3 attempts) → Webhook logs → Disable after repeated failures → Test webhook button → Event payload examples</p>
+                        </div>
+
+                        <div style="margin: 15px 0; padding: 15px; background: #fff3e0; border-left: 4px solid #FF9800;">
+                            <strong>TASK-16.3: SSO Integration (SAML, OAuth, OIDC)</strong> (13 points)
+                            <p><strong>What it does:</strong> Single Sign-On with enterprise identity providers (Okta, Azure AD, Google Workspace) for seamless authentication.</p>
+                            <p><strong>Tech:</strong> SAML 2.0 library, OAuth 2.0/OIDC, Passport.js strategies, user provisioning (JIT)</p>
+                            <p><strong>Acceptance Criteria:</strong> SAML 2.0 integration → OAuth/OIDC providers → User provisioning (JIT or manual) → Role mapping from IdP → SSO login flow → Regular logout and IdP logout → Multiple IdP support → Admin IdP configuration → Test SSO connection → Fallback to password login</p>
+                        </div>
+
+                        <div style="margin: 15px 0; padding: 15px; background: #f3e5f5; border-left: 4px solid #9C27B0;">
+                            <strong>TASK-16.4: OpenAPI/Swagger Documentation</strong> (8 points)
+                            <p><strong>What it does:</strong> Interactive API documentation with try-it-now functionality, code examples in multiple languages.</p>
+                            <p><strong>Tech:</strong> OpenAPI 3.0 specification, Swagger UI, code generation, API documentation generator</p>
+                            <p><strong>Acceptance Criteria:</strong> Complete OpenAPI 3.0 spec → Swagger UI hosted → Try it now with authentication → Code examples (curl, JavaScript, Python, Ruby) → Request/response examples → Error codes documentation → Authentication flow docs → Changelog and versioning → Search functionality</p>
+                        </div>
+
+                        <div style="margin: 15px 0; padding: 15px; background: #ffebee; border-left: 4px solid #F44336;">
+                            <strong>TASK-16.5: Integration Marketplace</strong> (13 points)
+                            <p><strong>What it does:</strong> In-app marketplace to browse and install pre-built integrations (accounting, marketing, communication tools).</p>
+                            <p><strong>Tech:</strong> Plugin system architecture, OAuth flows for each integration, configuration UI, marketplace UI</p>
+                            <p><strong>Acceptance Criteria:</strong> Browse available integrations → Integration details page → One-click install → OAuth connection flow → Configure integration settings → Enable/disable toggles → Uninstall option → Usage statistics → Featured integrations → Search/filter → User reviews/ratings</p>
+                        </div>
+
+                        <p style="margin-top: 20px;"><em>Sprint 16 includes 14 additional tasks: Data import/export wizards (CSV, Excel), API rate limiting tiers, API usage analytics, webhook event replay, custom field API support, bulk operations API, GraphQL API option, API SDK generation (JavaScript, Python), developer portal with docs, API playground environment, integration templates and boilerplates, partner integration certification program, API deprecation management, and integration health monitoring dashboard.</em></p>
+                    </div>
+                </article>
+
+                <!-- Sprint 17: Testing & QA -->
+                <article id="sprint-17">
+                    <h3 style="color: #667eea; font-size: 1.5em;">Sprint 17: Testing & Quality Assurance</h3>
+                    <p><strong>Timeline:</strong> Aug 4 - Aug 17, 2025 | <strong>Story Points:</strong> 75</p>
+
+                    <div class="model-card">
+                        <h4>🎯 Sprint Goal</h4>
+                        <p>Comprehensive testing across all modules including unit, integration, E2E, performance, and security testing.</p>
+
+                        <h4>📋 Tasks (All 15 tasks)</h4>
+
+                        <div style="margin: 15px 0; padding: 15px; background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                            <strong>TASK-17.1-17.3: Unit & Integration Testing</strong> (26 points total)
+                            <p><strong>What it does:</strong> Unit tests for all services/utilities (80% coverage), integration tests for API endpoints and database operations.</p>
+                            <p><strong>Tech:</strong> Jest, React Testing Library, Supertest, test database, mocking libraries</p>
+                            <p><strong>Acceptance Criteria:</strong> 80%+ code coverage → All services tested → Component tests → API endpoint tests → Database operation tests → Mock external APIs → CI integration → Coverage reports</p>
+                        </div>
+
+                        <div style="margin: 15px 0; padding: 15px; background: #e3f2fd; border-left: 4px solid #2196F3;">
+                            <strong>TASK-17.4-17.5: E2E & Performance Testing</strong> (26 points total)
+                            <p><strong>What it does:</strong> End-to-end user flows with Cypress, load testing for 1000+ concurrent users with k6/Artillery.</p>
+                            <p><strong>Tech:</strong> Cypress, Percy (visual regression), k6, Artillery, performance monitoring</p>
+                            <p><strong>Acceptance Criteria:</strong> Test critical flows → Visual regression → Mobile/desktop → Load test 1000+ users → <500ms response time → No memory leaks → Performance benchmarks → Bottleneck identification</p>
+                        </div>
+
+                        <div style="margin: 15px 0; padding: 15px; background: #fff3e0; border-left: 4px solid #FF9800;">
+                            <strong>TASK-17.6-17.8: Security & Accessibility</strong> (23 points total)
+                            <p><strong>What it does:</strong> OWASP Top 10 security audit, penetration testing, WCAG 2.1 AA accessibility compliance, screen reader testing.</p>
+                            <p><strong>Tech:</strong> OWASP ZAP, Snyk, Burp Suite, axe DevTools, NVDA/JAWS screen readers</p>
+                            <p><strong>Acceptance Criteria:</strong> Security audit report → Pen test findings → No critical vulnerabilities → WCAG 2.1 AA compliance → Keyboard navigation → Screen reader support → Color contrast → ARIA labels</p>
+                        </div>
+
+                        <p style="margin-top: 20px;"><em>Remaining tasks include: Cross-browser testing (Chrome, Firefox, Safari, Edge on desktop/mobile), mobile device testing (iOS/Android various versions), user acceptance testing with beta clinics, bug bash sessions, regression test suite automation, smoke tests for releases, and final QA sign-off checklist.</em></p>
+                    </div>
+                </article>
+
+                <!-- Sprint 18: Launch Preparation -->
+                <article id="sprint-18">
+                    <h3 style="color: #667eea; font-size: 1.5em;">Sprint 18: Launch Preparation</h3>
+                    <p><strong>Timeline:</strong> Aug 18 - Aug 31, 2025 | <strong>Story Points:</strong> 95</p>
+
+                    <div class="model-card">
+                        <h4>🎯 Sprint Goal</h4>
+                        <p>Final production setup, monitoring, compliance audit, documentation, training, and go-live.</p>
+
+                        <h4>📋 Tasks (All 19 tasks)</h4>
+
+                        <div style="margin: 15px 0; padding: 15px; background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                            <strong>TASK-18.1-18.3: Infrastructure Setup</strong> (29 points total)
+                            <p><strong>What it does:</strong> Production environment (AWS/Azure), monitoring (Datadog/New Relic), backup & disaster recovery.</p>
+                            <p><strong>Tech:</strong> AWS/Azure, Kubernetes, Docker, Datadog, New Relic, Sentry, automated backups, geo-replication</p>
+                            <p><strong>Acceptance Criteria:</strong> Production servers → Database clusters → CDN → SSL certificates → DNS → Load balancers → Auto-scaling → Health checks → APM monitoring → Error tracking → Daily backups → DR plan tested → RTO < 4 hours</p>
+                        </div>
+
+                        <div style="margin: 15px 0; padding: 15px; background: #e3f2fd; border-left: 4px solid #2196F3;">
+                            <strong>TASK-18.4-18.6: Compliance & Security</strong> (26 points total)
+                            <p><strong>What it does:</strong> HIPAA/PIPEDA compliance audit, security hardening, performance optimization.</p>
+                            <p><strong>Tech:</strong> Compliance checklists, penetration testing, firewall rules, WAF, DDoS protection, query optimization, caching</p>
+                            <p><strong>Acceptance Criteria:</strong> Compliance audit passed → BAA agreements signed → Security hardening complete → Firewall configured → Rate limiting → Database indexes optimized → Caching strategies → CDN optimized → Page load < 2s</p>
+                        </div>
+
+                        <div style="margin: 15px 0; padding: 15px; background: #fff3e0; border-left: 4px solid #FF9800;">
+                            <strong>TASK-18.7-18.12: Documentation & Training</strong> (40 points total)
+                            <p><strong>What it does:</strong> User guides, admin manual, video tutorials, API docs, staff training, marketing site, app store submission.</p>
+                            <p><strong>Tech:</strong> Documentation platform, video recording, training LMS, marketing website, app store optimization</p>
+                            <p><strong>Acceptance Criteria:</strong> User guide complete → Admin manual → 20+ video tutorials → API docs complete → Training sessions conducted → Marketing site live → iOS/Android apps submitted → Support portal setup → Knowledge base articles → Help desk ready</p>
+                        </div>
+
+                        <p style="margin-top: 20px;"><em>Final tasks include: Go-live checklist completion, rollback plan documented, support team trained, customer onboarding workflow, launch communications, press release, social media campaign, beta customer feedback incorporated, and final stakeholder sign-off.</em></p>
+                    </div>
+                </article>
+
+                <!-- Final Summary -->
+                <div class="info-box" style="margin: 30px 0; padding: 25px; background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);">
+
+                    <div style="margin: 20px 0; padding: 15px; background: #f8f9fa; border-left: 4px solid #E91E63;">
+                        <h4 style="margin-top: 0;">Sprint 13-14: Mobile Applications (240 story points)</h4>
+                        <p><strong>24 tasks per sprint covering:</strong></p>
+                        <ul style="margin-left: 20px;">
+                            <li><strong>Patient Portal App:</strong> Registration, login, profile management with email/phone verification</li>
+                            <li><strong>Appointment Booking:</strong> View availability, book/reschedule/cancel, provider selection</li>
+                            <li><strong>Medical Records:</strong> Visit history, clinical notes, test results, prescriptions, documents</li>
+                            <li><strong>Secure Messaging:</strong> HIPAA-compliant chat with providers, attachments, read receipts</li>
+                            <li><strong>Bill Payment:</strong> View balances, pay invoices, payment plans, receipts</li>
+                            <li><strong>Forms & Intake:</strong> Digital intake forms, e-signatures, document upload</li>
+                            <li><strong>Provider Mobile App:</strong> Schedule view, patient details, quick charting, messaging</li>
+                            <li><strong>Offline Mode:</strong> Work offline with local storage, automatic sync when online</li>
+                            <li><strong>Biometric Auth:</strong> Face ID, Touch ID, fingerprint login with secure storage</li>
+                            <li><strong>Telehealth:</strong> In-app video calls, screen share, waiting room, recording</li>
+                            <li><strong>Document Camera:</strong> Capture photos, OCR text extraction, auto-categorization</li>
+                            <li><strong>Health Integrations:</strong> Apple Health, Google Fit sync for vitals and activity data</li>
+                            <li><strong>Push Notifications:</strong> Appointment reminders, messages, test results, payments</li>
+                        </ul>
+                    </div>
+
+                    <div style="margin: 20px 0; padding: 15px; background: #f8f9fa; border-left: 4px solid #673AB7;">
+                        <h4 style="margin-top: 0;">Sprint 15-16: Integrations (190 story points)</h4>
+                        <p><strong>19 tasks per sprint covering:</strong></p>
+                        <ul style="margin-left: 20px;">
+                            <li><strong>HL7/FHIR:</strong> Interface engine for EHR interoperability, HL7 v2.x and FHIR R4 support</li>
+                            <li><strong>Lab Integration:</strong> Electronic lab orders (LifeLabs, Dynacare), automated result parsing</li>
+                            <li><strong>Imaging/PACS:</strong> DICOM integration, imaging orders, image viewer, measurements</li>
+                            <li><strong>Pharmacy e-Prescribing:</strong> Surescripts integration, NCPDP SCRIPT, formulary lookup</li>
+                            <li><strong>Insurance APIs:</strong> Real-time eligibility checks (EDI 270/271), benefits verification</li>
+                            <li><strong>Payment Gateways:</strong> Stripe, Square, PayPal integration with PCI compliance</li>
+                            <li><strong>Calendar Sync:</strong> Google Calendar, Outlook bidirectional synchronization</li>
+                            <li><strong>Telehealth:</strong> Zoom, Doxy.me, Twilio Video integration for virtual visits</li>
+                            <li><strong>Public REST API:</strong> OAuth 2.0 authentication, rate limiting, comprehensive documentation</li>
+                            <li><strong>Webhooks:</strong> Event-driven integrations, retry logic, signature verification</li>
+                            <li><strong>SSO:</strong> SAML 2.0, OAuth, OIDC with Okta, Azure AD, Google Workspace</li>
+                            <li><strong>Integration Marketplace:</strong> Pre-built integrations (QuickBooks, Mailchimp, Zapier)</li>
+                        </ul>
+                    </div>
+
+                    <div style="margin: 20px 0; padding: 15px; background: #f8f9fa; border-left: 4px solid #F44336;">
+                        <h4 style="margin-top: 0;">Sprint 17: Testing & QA (75 story points)</h4>
+                        <p><strong>15 comprehensive testing tasks:</strong></p>
+                        <ul style="margin-left: 20px;">
+                            <li><strong>Unit Testing:</strong> 80% code coverage with Jest, React Testing Library, all services tested</li>
+                            <li><strong>Integration Testing:</strong> API endpoint testing, database operations, auth flows</li>
+                            <li><strong>E2E Testing:</strong> Cypress for critical user flows, visual regression with Percy</li>
+                            <li><strong>Performance Testing:</strong> Load testing (k6, Artillery) for 1000+ concurrent users</li>
+                            <li><strong>Security Testing:</strong> OWASP Top 10 audit, penetration testing, dependency scanning</li>
+                            <li><strong>Accessibility:</strong> WCAG 2.1 AA compliance, screen reader testing, keyboard navigation</li>
+                            <li><strong>Cross-Browser:</strong> Chrome, Firefox, Safari, Edge testing on desktop and mobile</li>
+                            <li><strong>User Acceptance:</strong> UAT sessions with real clinics, feedback integration</li>
+                            <li><strong>Bug Bash:</strong> Team-wide bug hunting sessions, prioritization, resolution</li>
+                            <li><strong>Regression Testing:</strong> Automated regression suite, smoke tests for releases</li>
+                        </ul>
+                    </div>
+
+                    <div style="margin: 20px 0; padding: 15px; background: #f8f9fa; border-left: 4px solid #4CAF50;">
+                        <h4 style="margin-top: 0;">Sprint 18: Launch Preparation (95 story points)</h4>
+                        <p><strong>19 go-live readiness tasks:</strong></p>
+                        <ul style="margin-left: 20px;">
+                            <li><strong>Production Setup:</strong> Server provisioning, database clusters, CDN, SSL, DNS, load balancers</li>
+                            <li><strong>Monitoring:</strong> Datadog/New Relic APM, error tracking (Sentry), alerts, on-call rotation</li>
+                            <li><strong>Backup & DR:</strong> Automated backups, point-in-time recovery, disaster recovery plan</li>
+                            <li><strong>Compliance Audit:</strong> HIPAA/PIPEDA final audit, risk assessment, BAA agreements</li>
+                            <li><strong>Security Hardening:</strong> Firewall rules, intrusion detection, rate limiting, DDoS protection</li>
+                            <li><strong>Performance Optimization:</strong> Query optimization, caching strategies, CDN tuning</li>
+                            <li><strong>User Documentation:</strong> User guides, admin manual, video tutorials, knowledge base</li>
+                            <li><strong>API Documentation:</strong> OpenAPI/Swagger complete specs, code examples, sandbox</li>
+                            <li><strong>Training:</strong> Staff training sessions, onboarding workflows, support portal</li>
+                            <li><strong>Marketing Site:</strong> Product website, pricing pages, demo booking, content</li>
+                            <li><strong>App Store Submission:</strong> iOS App Store and Google Play Store submission</li>
+                            <li><strong>Go-Live Checklist:</strong> Pre-launch verification, rollback plan, support readiness</li>
+                        </ul>
+                    </div>
+
+                    <div style="margin-top: 25px; padding: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 8px;">
+                        <h4 style="margin-top: 0; color: white;">📊 Project Totals</h4>
+                        <p style="font-size: 1.1em; margin-bottom: 10px;"><strong>18 Sprints | 387 Tasks | 1,520 Story Points | 36 Weeks</strong></p>
+                        <p style="margin-bottom: 0;">Access complete sprint and task details including technical specifications, acceptance criteria, time estimates, and assigned roles via the Sprint Management and Task Management APIs below.</p>
+                    </div>
+
+                    <p style="margin-top: 25px;"><strong>🔌 API Access to All Sprint & Task Data:</strong></p>
+                    <pre style="background: #2d3748; color: #a0aec0; padding: 15px; border-radius: 6px; overflow-x: auto;"><code>GET /api/sprint-management/sprints              → List all 18 sprints with metadata
+GET /api/sprint-management/sprints/number/{1-18}  → Get specific sprint by number
+GET /api/sprint-management/sprints/{sprintId}/tasks → Get all tasks in a sprint
+GET /api/task-management/tasks                    → List all 387 tasks
+GET /api/task-management/tasks?sprint={sprintId}  → Filter tasks by sprint
+GET /api/task-management/tasks/{taskId}           → Get detailed task information</code></pre>
+                </div>
+            </section>
+
+            <section id="sprint-management">
+                <h2>🗓️ Sprint Management</h2>
+                <p>Base path: <code>/sprint-management</code></p>
+
+                <div class="endpoint">
+                    <span class="method get">GET</span>
+                    <span class="endpoint-path">/sprint-management/sprints</span>
+                    <p style="margin-top: 10px;">Get all sprints in the system</p>
+                </div>
+
+                <div class="endpoint">
+                    <span class="method get">GET</span>
+                    <span class="endpoint-path">/sprint-management/sprints/:id</span>
+                    <p style="margin-top: 10px;">Get a specific sprint by MongoDB ObjectId</p>
+                </div>
+
+                <div class="endpoint">
+                    <span class="method get">GET</span>
+                    <span class="endpoint-path">/sprint-management/sprints/number/:sprintNumber</span>
+                    <p style="margin-top: 10px;">Get sprint by sprint number (1-18)</p>
+                </div>
+
+                <div class="endpoint">
+                    <span class="method post">POST</span>
+                    <span class="endpoint-path">/sprint-management/sprints</span>
+                    <p style="margin-top: 10px;">Create a new sprint</p>
+                </div>
+
+                <h4>Request Body Example:</h4>
+                <pre><code>{
+  "sprintId": "SPRINT-019",
+  "sprintNumber": 19,
+  "name": "Sprint 19: Advanced Features",
+  "goal": "Implement advanced reporting and analytics",
+  "startDate": "2025-09-14",
+  "endDate": "2025-09-27",
+  "totalStoryPoints": 75
+}</code></pre>
+
+                <div class="endpoint">
+                    <span class="method put">PUT</span>
+                    <span class="endpoint-path">/sprint-management/sprints/:id</span>
+                    <p style="margin-top: 10px;">Update sprint details</p>
+                </div>
+
+                <div class="endpoint">
+                    <span class="method post">POST</span>
+                    <span class="endpoint-path">/sprint-management/sprints/:id/start</span>
+                    <p style="margin-top: 10px;">Mark sprint as Active</p>
+                </div>
+
+                <div class="endpoint">
+                    <span class="method post">POST</span>
+                    <span class="endpoint-path">/sprint-management/sprints/:id/complete</span>
+                    <p style="margin-top: 10px;">Mark sprint as Completed</p>
+                </div>
+
+                <div class="endpoint">
+                    <span class="method delete">DELETE</span>
+                    <span class="endpoint-path">/sprint-management/sprints/:id</span>
+                    <p style="margin-top: 10px;">Delete a sprint</p>
+                </div>
+            </section>
+
+            <section id="task-management">
+                <h2>📋 Task Management</h2>
+                <p>Base path: <code>/sprint-management</code></p>
+
+                <div class="endpoint">
+                    <span class="method get">GET</span>
+                    <span class="endpoint-path">/sprint-management/tasks</span>
+                    <p style="margin-top: 10px;">Get all tasks (supports filtering by sprint, status, assignee)</p>
+                </div>
+
+                <h4>Query Parameters:</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Parameter</th>
+                            <th>Type</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>sprint</td>
+                            <td>ObjectId</td>
+                            <td>Filter by sprint ID</td>
+                        </tr>
+                        <tr>
+                            <td>status</td>
+                            <td>String</td>
+                            <td>Filter by status (Not Started, In Progress, Completed, Blocked)</td>
+                        </tr>
+                        <tr>
+                            <td>assignedTo</td>
+                            <td>String</td>
+                            <td>Filter by assignee name</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="endpoint">
+                    <span class="method get">GET</span>
+                    <span class="endpoint-path">/sprint-management/tasks/:id</span>
+                    <p style="margin-top: 10px;">Get specific task by ID</p>
+                </div>
+
+                <div class="endpoint">
+                    <span class="method get">GET</span>
+                    <span class="endpoint-path">/sprint-management/sprints/:sprintId/tasks</span>
+                    <p style="margin-top: 10px;">Get all tasks for a specific sprint</p>
+                </div>
+
+                <div class="endpoint">
+                    <span class="method post">POST</span>
+                    <span class="endpoint-path">/sprint-management/tasks</span>
+                    <p style="margin-top: 10px;">Create a new task</p>
+                </div>
+
+                <h4>Request Body Example:</h4>
+                <pre><code>{
+  "taskId": "TASK-1.6",
+  "moduleId": "1",
+  "moduleName": "Authentication & Authorization",
+  "title": "OAuth Integration",
+  "description": "Implement OAuth 2.0 authentication",
+  "storyPoints": 8,
+  "priority": "High",
+  "status": "Not Started",
+  "assignedTo": "John Doe",
+  "sprint": "507f1f77bcf86cd799439011",
+  "tags": ["authentication", "oauth"]
+}</code></pre>
+
+                <div class="endpoint">
+                    <span class="method put">PUT</span>
+                    <span class="endpoint-path">/sprint-management/tasks/:id</span>
+                    <p style="margin-top: 10px;">Update task details</p>
+                </div>
+
+                <div class="endpoint">
+                    <span class="method delete">DELETE</span>
+                    <span class="endpoint-path">/sprint-management/tasks/:id</span>
+                    <p style="margin-top: 10px;">Delete a task</p>
+                </div>
+            </section>
+
+            <section id="sprint-metrics">
+                <h2>📊 Sprint Metrics & Analytics</h2>
+                <p>Base path: <code>/sprint-metrics</code></p>
+
+                <div class="info-box">
+                    <strong>💡 Chart-Ready Data:</strong> All metrics endpoints return data in formats ready to be consumed by chart components (PieChart, DonutChart, BarChart, LineChart).
+                </div>
+
+                <div class="endpoint">
+                    <span class="method get">GET</span>
+                    <span class="endpoint-path">/sprint-metrics/:sprintId</span>
+                    <p style="margin-top: 10px;">Get comprehensive metrics for a sprint</p>
+                </div>
+
+                <h4>Response Example:</h4>
+                <pre><code>{
+  "sprint": {
+    "sprintId": "SPRINT-001",
+    "name": "Sprint 1: Foundation & Authentication",
+    "progress": 0,
+    "storyPoints": { "completed": 0, "total": 26 }
+  },
+  "taskStatus": [
+    { "label": "Not Started", "value": 5, "color": "#9E9E9E" }
+  ],
+  "teamMembers": [
+    { "label": "Unassigned", "value": 26, "color": "#FF6B6B" }
+  ],
+  "summary": {
+    "totalTasks": 5,
+    "completedTasks": 0,
+    "averageStoryPoints": 5.2
+  }
+}</code></pre>
+
+                <div class="endpoint">
+                    <span class="method get">GET</span>
+                    <span class="endpoint-path">/sprint-metrics/velocity/all</span>
+                    <p style="margin-top: 10px;">Get velocity trend across all sprints</p>
+                </div>
+
+                <div class="endpoint">
+                    <span class="method get">GET</span>
+                    <span class="endpoint-path">/sprint-metrics/burndown/:sprintId</span>
+                    <p style="margin-top: 10px;">Get burndown chart data for a sprint</p>
+                </div>
+
+                <div class="endpoint">
+                    <span class="method get">GET</span>
+                    <span class="endpoint-path">/sprint-metrics/summary/all</span>
+                    <p style="margin-top: 10px;">Get project-wide summary metrics</p>
+                </div>
+            </section>
+
+            <section id="sprint-task-map">
+                <h2>🔗 Sprint-Task Mapping</h2>
+                <p>Base path: <code>/sprint-task-map</code></p>
+
+                <div class="info-box">
+                    <strong>🎯 Task Numbering:</strong> Tasks follow the format <code>TASK-{sprintNumber}.{taskNumber}</code><br>
+                    Example: TASK-1.1 = Sprint 1, Task 1 | TASK-3.5 = Sprint 3, Task 5
+                </div>
+
+                <div class="endpoint">
+                    <span class="method get">GET</span>
+                    <span class="endpoint-path">/sprint-task-map</span>
+                    <p style="margin-top: 10px;">Get complete mapping of all sprints with their tasks</p>
+                </div>
+
+                <div class="endpoint">
+                    <span class="method get">GET</span>
+                    <span class="endpoint-path">/sprint-task-map/lookup/:taskId</span>
+                    <p style="margin-top: 10px;">Find which sprint a task belongs to</p>
+                </div>
+
+                <h4>Example:</h4>
+                <pre><code>curl http://localhost:3001/api/sprint-task-map/lookup/TASK-1.1
+
+Response:
+{
+  "taskId": "TASK-1.1",
+  "title": "User Registration System",
+  "sprint": {
+    "sprintId": "SPRINT-001",
+    "sprintNumber": 1,
+    "name": "Sprint 1: Foundation & Authentication"
+  }
+}</code></pre>
+
+                <div class="endpoint">
+                    <span class="method get">GET</span>
+                    <span class="endpoint-path">/sprint-task-map/sprint/:sprintNumber</span>
+                    <p style="margin-top: 10px;">Get all tasks for a specific sprint number</p>
+                </div>
+
+                <div class="endpoint">
+                    <span class="method get">GET</span>
+                    <span class="endpoint-path">/sprint-task-map/summary</span>
+                    <p style="margin-top: 10px;">Get overview of sprint-task distribution</p>
+                </div>
+            </section>
+
+            <section id="data-models">
+                <h2>🗂️ Data Models</h2>
+
+                <div class="model-card">
+                    <h4>Sprint Model</h4>
+                    <pre><code>{
+  sprintId: String,           // "SPRINT-001"
+  sprintNumber: Number,       // 1-18
+  name: String,               // Sprint name
+  goal: String,               // Sprint objective
+  startDate: Date,
+  endDate: Date,
+  status: String,             // "Not Started" | "Active" | "Completed"
+  totalStoryPoints: Number,
+  modules: [{
+    moduleId: String,
+    moduleName: String,
+    priority: String          // "High" | "Medium" | "Low"
+  }],
+  createdAt: Date,
+  updatedAt: Date
+}</code></pre>
+                </div>
+
+                <div class="model-card">
+                    <h4>Task Model</h4>
+                    <pre><code>{
+  taskId: String,             // "TASK-1.1" (Sprint 1, Task 1)
+  moduleId: String,
+  moduleName: String,
+  title: String,
+  description: String,
+  storyPoints: Number,
+  estimatedHours: Number,
+  priority: String,           // "High" | "Medium" | "Low"
+  status: String,             // "Not Started" | "In Progress" | "Completed" | "Blocked"
+  assignedTo: String,
+  sprint: ObjectId,           // Reference to Sprint
+  dependencies: [String],     // Array of taskIds
+  tags: [String],
+  createdAt: Date,
+  updatedAt: Date
+}</code></pre>
+                </div>
+            </section>
+
+            <section id="examples">
+                <h2>💡 Examples</h2>
+
+                <h3>Example 1: Create and Start a Sprint</h3>
+                <pre><code># Step 1: Create Sprint
+curl -X POST http://localhost:3001/api/sprint-management/sprints \
+  -H "Content-Type: application/json" \
+  -d '{
+    "sprintId": "SPRINT-019",
+    "sprintNumber": 19,
+    "name": "Sprint 19: Advanced Features",
+    "startDate": "2025-09-14",
+    "endDate": "2025-09-27",
+    "totalStoryPoints": 75
+  }'
+
+# Step 2: Start Sprint (use ID from response)
+curl -X POST http://localhost:3001/api/sprint-management/sprints/507f1f77bcf86cd799439011/start</code></pre>
+
+                <h3>Example 2: Update Task Status</h3>
+                <pre><code># Mark task as In Progress
+curl -X PUT http://localhost:3001/api/sprint-management/tasks/507f1f77bcf86cd799439012 \
+  -H "Content-Type: application/json" \
+  -d '{
+    "status": "In Progress",
+    "assignedTo": "John Doe"
+  }'
+
+# Mark task as Completed
+curl -X PUT http://localhost:3001/api/sprint-management/tasks/507f1f77bcf86cd799439012 \
+  -H "Content-Type: application/json" \
+  -d '{"status": "Completed"}'</code></pre>
+
+                <h3>Example 3: Get Metrics for Dashboard</h3>
+                <pre><code># Get sprint metrics
+curl http://localhost:3001/api/sprint-metrics/SPRINT-001
+
+# Get velocity trend
+curl http://localhost:3001/api/sprint-metrics/velocity/all
+
+# Get project summary
+curl http://localhost:3001/api/sprint-metrics/summary/all</code></pre>
+
+                <h3>Example 4: Integration with Chart Components</h3>
+                <pre><code>// React Native / Expo Example
+import { DonutChart } from './components/charts';
+
+const SprintDashboard = () => {
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    fetch('http://localhost:3001/api/sprint-metrics/SPRINT-001')
+      .then(res => res.json())
+      .then(data => setData(data));
+  }, []);
+
+  return (
+    &lt;DonutChart
+      data={data.taskStatus}  // Chart-ready!
+      size={220}
+      title="Task Status"
+    /&gt;
+  );
+};</code></pre>
+            </section>
+
+            <section id="project-vision">
+                <h2>🚀 Project Vision & Scaling Strategy</h2>
+
+                <div class="info-box">
+                    <strong>📄 Complete Documentation Available:</strong>
+                    <a href="/PROJECT_VISION_AND_SCALING.md" target="_blank" style="color: #2196F3;">Download Full PDF Version</a>
+                </div>
+
+                <h3>🎯 Mission</h3>
+                <p>Create the most intuitive, scalable, and secure healthcare management platform that empowers practitioners to focus on patient care while automating administrative overhead.</p>
+
+                <h3>📊 Scaling to 1 Million Requests/Second</h3>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Phase</th>
+                            <th>Capacity</th>
+                            <th>Timeline</th>
+                            <th>Monthly Cost</th>
+                            <th>Key Technologies</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Phase 1: MVP</strong></td>
+                            <td>0-10K req/sec</td>
+                            <td>Months 1-3</td>
+                            <td>$500</td>
+                            <td>Single server, MongoDB, Redis</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Phase 2: Horizontal Scale</strong></td>
+                            <td>10K-100K req/sec</td>
+                            <td>Months 4-6</td>
+                            <td>$3,000</td>
+                            <td>Load balancer, replica sets, CDN</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Phase 3: Microservices</strong></td>
+                            <td>100K-250K req/sec</td>
+                            <td>Months 7-9</td>
+                            <td>$10,000</td>
+                            <td>Kubernetes, service mesh, message queue</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Phase 4: Global CDN</strong></td>
+                            <td>250K-500K req/sec</td>
+                            <td>Months 10-12</td>
+                            <td>$30,000</td>
+                            <td>Multi-region, edge computing, DDoS protection</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Phase 5: Advanced Caching</strong></td>
+                            <td>500K-750K req/sec</td>
+                            <td>Months 13-15</td>
+                            <td>$75,000</td>
+                            <td>Multi-layer cache, GraphQL federation</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Phase 6: Enterprise Scale</strong></td>
+                            <td>750K-1M+ req/sec</td>
+                            <td>Months 16-18</td>
+                            <td>$200,000</td>
+                            <td>Custom protocol, hardware acceleration, AI scaling</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>💰 Total Investment Required</h3>
+                <div class="model-card">
+                    <h4>18-Month Investment Breakdown</h4>
+                    <pre><code>Infrastructure Costs:     $1,331,500
+Team Costs (5-30 eng):    $3,600,000
+──────────────────────────────────────
+TOTAL INVESTMENT:         $4,931,500
+
+Break-even Point: Month 14
+Expected ARR Year 3: $15,500,000</code></pre>
+                </div>
+
+                <h3>🎯 Complete Feature Set (387 Tasks)</h3>
+
+                <div class="success-box">
+                    <h4>✨ 12 Major Modules Planned</h4>
+                    <ul style="columns: 2; margin-top: 10px;">
+                        <li>✅ Authentication & Authorization (15 tasks)</li>
+                        <li>✅ Patient Management (25 tasks)</li>
+                        <li>✅ Appointment Scheduling (28 tasks)</li>
+                        <li>✅ Clinical Notes (32 tasks)</li>
+                        <li>✅ Billing & Payments (37 tasks)</li>
+                        <li>✅ Messaging & Communication (26 tasks)</li>
+                        <li>✅ Reporting & Analytics (37 tasks)</li>
+                        <li>✅ Mobile Applications (52 tasks)</li>
+                        <li>✅ Third-Party Integrations (32 tasks)</li>
+                        <li>✅ Security & Compliance (42 tasks)</li>
+                        <li>✅ Testing & QA (38 tasks)</li>
+                        <li>✅ Launch Preparation (19 tasks)</li>
+                    </ul>
+                </div>
+
+                <h3>📈 Revenue Projections</h3>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Year</th>
+                            <th>Customers</th>
+                            <th>Annual Recurring Revenue</th>
+                            <th>Growth Rate</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Year 1</strong></td>
+                            <td>610 customers</td>
+                            <td>$1,072,000</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Year 2</strong></td>
+                            <td>2,550 customers</td>
+                            <td>$4,800,000</td>
+                            <td>348% YoY</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Year 3</strong></td>
+                            <td>7,200 customers</td>
+                            <td>$15,500,000</td>
+                            <td>223% YoY</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>🏆 Competitive Advantages</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 20px 0;">
+                    <div class="info-box">
+                        <strong>🚀 Modern Tech Stack</strong>
+                        <p>Cloud-native, microservices, mobile-first, AI-powered</p>
+                    </div>
+                    <div class="info-box">
+                        <strong>⚡ Superior Performance</strong>
+                        <p>&lt;50ms response time, 99.99% uptime, offline support</p>
+                    </div>
+                    <div class="info-box">
+                        <strong>💵 Transparent Pricing</strong>
+                        <p>$99-$999/month, no hidden fees, cancel anytime</p>
+                    </div>
+                    <div class="info-box">
+                        <strong>🔒 Best-in-Class Security</strong>
+                        <p>HIPAA, SOC 2, ISO 27001, penetration tested</p>
+                    </div>
+                </div>
+
+                <h3>🔮 AI-Powered Innovation (Roadmap)</h3>
+                <ul>
+                    <li><strong>Smart Scheduling:</strong> ML-powered no-show prediction and optimal time slot recommendations</li>
+                    <li><strong>Clinical Decision Support:</strong> AI diagnosis suggestions and drug interaction warnings</li>
+                    <li><strong>Revenue Optimization:</strong> Payment prediction and collection strategies</li>
+                    <li><strong>Operational Efficiency:</strong> Automated staff scheduling and resource allocation</li>
+                </ul>
+
+                <h3>📊 Key Performance Indicators</h3>
+
+                <h4>Technical KPIs</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Metric</th>
+                            <th>Current</th>
+                            <th>Target (6 months)</th>
+                            <th>Target (18 months)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>API Response Time</td>
+                            <td>200ms</td>
+                            <td>&lt;100ms</td>
+                            <td>&lt;50ms</td>
+                        </tr>
+                        <tr>
+                            <td>Uptime</td>
+                            <td>95%</td>
+                            <td>99.9%</td>
+                            <td>99.99%</td>
+                        </tr>
+                        <tr>
+                            <td>Requests/Second</td>
+                            <td>100</td>
+                            <td>10,000</td>
+                            <td>1,000,000</td>
+                        </tr>
+                        <tr>
+                            <td>Error Rate</td>
+                            <td>&lt;1%</td>
+                            <td>&lt;0.5%</td>
+                            <td>&lt;0.1%</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="warning-box" style="margin-top: 30px;">
+                    <strong>📄 Full Documentation:</strong> For complete details on architecture, team structure, technology stack evolution, security compliance, and detailed financial projections, please refer to the comprehensive
+                    <a href="https://github.com/your-org/clonejane/blob/main/PROJECT_VISION_AND_SCALING.md" target="_blank" style="color: #856404; font-weight: bold;">PROJECT_VISION_AND_SCALING.md</a> document in the repository.
+                </div>
+
+                <h3>🌟 Summary</h3>
+                <p><strong>CloneJane is positioned to revolutionize healthcare practice management through:</strong></p>
+                <ul>
+                    <li>✅ <strong>Complete Feature Set</strong> - 387 planned tasks across 12 modules</li>
+                    <li>✅ <strong>Scalable Architecture</strong> - From 100 to 1M requests/second</li>
+                    <li>✅ <strong>Clear Roadmap</strong> - 18-month plan to enterprise scale</li>
+                    <li>✅ <strong>Proven Economics</strong> - Break-even in 14 months</li>
+                    <li>✅ <strong>Investment Required</strong> - $4.9M for full scale</li>
+                    <li>✅ <strong>Revenue Potential</strong> - $15.5M ARR by Year 3</li>
+                </ul>
+
+                <p style="font-size: 1.2em; text-align: center; margin: 30px 0; color: #667eea; font-weight: bold;">
+                    The future of healthcare management starts here. 🚀
+                </p>
+            </section>
+            </div>
+
+            <footer>
+                <p><strong>Project Management API v1.0.0</strong></p>
+                <p>Last Updated: October 11, 2025</p>
+                <p>
+                    <a href="/api-docs" style="color: #667eea; text-decoration: none;">View Swagger UI</a> |
+                    <a href="/health" style="color: #667eea; text-decoration: none;">API Health Check</a>
+                </p>
+            </footer>
+        </div>
+    </div>
+
+    <script>
+        // Highlight active section in TOC
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('nav ul li a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.pageYOffset >= sectionTop - 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Toggle submenu function for collapsible sprint navigation
+        function toggleSubmenu(event, menuId) {
+            event.preventDefault();
+            const submenu = document.getElementById(menuId);
+            const link = event.target;
+
+            if (submenu.style.display === 'none' || submenu.style.display === '') {
+                submenu.style.display = 'block';
+                link.innerHTML = link.innerHTML.replace('▼', '▲');
+            } else {
+                submenu.style.display = 'none';
+                link.innerHTML = link.innerHTML.replace('▲', '▼');
+            }
+        }
+
+        // Toggle technical details for task cards
+        function toggleTechnicalDetails(taskId) {
+            const details = document.getElementById('details-' + taskId);
+            const icon = document.getElementById('icon-' + taskId);
+
+            if (details.classList.contains('show')) {
+                details.classList.remove('show');
+                icon.classList.remove('expanded');
+            } else {
+                details.classList.add('show');
+                icon.classList.add('expanded');
+            }
+        }
+    </script>
+</body>
+</html>

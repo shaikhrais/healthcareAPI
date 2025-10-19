@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExpoJane - Enhanced Task & Sprint Tracker</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        header {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 1.1em;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2em;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 0.85em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 5px;
+        }
+
+        .sprint-container {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .sprint-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f0f0f0;
+            cursor: pointer;
+        }
+
+        .sprint-title h2 {
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .sprint-meta {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+
+        .status-badges {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .badge {
+            padding: 5px 12px;
+            border-radius: 16px;
+            font-size: 0.75em;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        /* Sprint Status Badges */
+        .badge.status-planning { background: #e3f2fd; color: #1976d2; }
+        .badge.status-active { background: #e8f5e9; color: #388e3c; }
+        .badge.status-completed { background: #f3e5f5; color: #7b1fa2; }
+        .badge.status-cancelled { background: #ffebee; color: #c62828; }
+
+        /* Execution Status Badges */
+        .badge.exec-pending { background: #fff3e0; color: #e65100; }
+        .badge.exec-executing { background: #e1f5fe; color: #0277bd; }
+        .badge.exec-executed { background: #e8f5e9; color: #2e7d32; }
+        .badge.exec-failed { background: #ffebee; color: #c62828; }
+        .badge.exec-blocked { background: #fce4ec; color: #880e4f; }
+
+        /* Flag Badges */
+        .flag-badge {
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.7em;
+            font-weight: 600;
+        }
+
+        .flag-blocked { background: #ffebee; color: #c62828; }
+        .flag-urgent { background: #ff9800; color: white; }
+        .flag-at-risk { background: #ffa726; color: white; }
+        .flag-needs-review { background: #29b6f6; color: white; }
+
+        .health-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-left: 8px;
+        }
+
+        .health-green { background: #4caf50; }
+        .health-yellow { background: #ffc107; }
+        .health-red { background: #f44336; }
+
+        .tasks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .task-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s;
+        }
+
+        .task-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .task-card.blocked {
+            border-left-color: #c62828;
+            background: #ffebee;
+        }
+
+        .task-card.executing {
+            border-left-color: #0277bd;
+            background: #e1f5fe;
+        }
+
+        .task-card.executed {
+            border-left-color: #2e7d32;
+            background: #e8f5e9;
+        }
+
+        .task-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+
+        .task-id {
+            font-weight: bold;
+            color: #667eea;
+            font-size: 0.85em;
+        }
+
+        .task-title {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 1.05em;
+        }
+
+        .task-description {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .task-flags {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            margin-bottom: 10px;
+        }
+
+        .progress-section {
+            margin: 15px 0;
+            padding: 12px;
+            background: white;
+            border-radius: 6px;
+        }
+
+        .progress-label {
+            font-size: 0.8em;
+            color: #666;
+            margin-bottom: 6px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e0e0e0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            transition: width 0.3s;
+        }
+
+        .task-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .quality-metrics {
+            display: flex;
+            gap: 12px;
+            font-size: 0.8em;
+        }
+
+        .metric {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .metric-icon {
+            width: 16px;
+            height: 16px;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 50px;
+            color: white;
+            font-size: 1.2em;
+        }
+
+        .error {
+            background: #ffebee;
+            color: #c62828;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .collapsed .tasks-grid {
+            display: none;
+        }
+
+        .toggle-icon {
+            transition: transform 0.3s;
+        }
+
+        .collapsed .toggle-icon {
+            transform: rotate(-90deg);
+        }
+
+        .filters {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .filter-group label {
+            font-size: 0.85em;
+            color: #666;
+            font-weight: 600;
+        }
+
+        select, input {
+            padding: 8px 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚀 ExpoJane - Enhanced Task Tracker</h1>
+            <p class="subtitle">Complete Sprint & Task Management with Execution Status Tracking</p>
+        </header>
+
+        <div class="stats-grid" id="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number" id="total-sprints">-</div>
+                <div class="stat-label">Total Sprints</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="total-tasks">-</div>
+                <div class="stat-label">Total Tasks</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="completed-tasks">-</div>
+                <div class="stat-label">Completed</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="executing-tasks">-</div>
+                <div class="stat-label">Executing</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="blocked-tasks">-</div>
+                <div class="stat-label">Blocked</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="completion-rate">-</div>
+                <div class="stat-label">Completion Rate</div>
+            </div>
+        </div>
+
+        <div class="filters">
+            <div class="filter-group">
+                <label>Search</label>
+                <input type="text" id="search" placeholder="Search tasks or sprints..." style="width: 300px;" />
+            </div>
+            <div class="filter-group">
+                <label>Status</label>
+                <select id="status-filter">
+                    <option value="all">All Statuses</option>
+                    <option value="planning">Planning</option>
+                    <option value="active">Active</option>
+                    <option value="completed">Completed</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>Execution Status</label>
+                <select id="execution-filter">
+                    <option value="all">All</option>
+                    <option value="pending">Pending</option>
+                    <option value="executing">Executing</option>
+                    <option value="executed">Executed</option>
+                    <option value="blocked">Blocked</option>
+                    <option value="failed">Failed</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>Show Only</label>
+                <select id="flag-filter">
+                    <option value="all">All Tasks</option>
+                    <option value="blocked">Blocked</option>
+                    <option value="urgent">Urgent</option>
+                    <option value="needs-review">Needs Review</option>
+                </select>
+            </div>
+        </div>
+
+        <div id="loading" class="loading">Loading enhanced data...</div>
+        <div id="error" class="error" style="display: none;"></div>
+        <div id="sprints-container"></div>
+    </div>
+
+    <script>
+        let allSprints = [];
+        let allTasks = [];
+
+        async function loadData() {
+            try {
+                const [statsRes, sprintsRes, tasksRes] = await Promise.all([
+                    fetch('/api/public-sprints/stats'),
+                    fetch('/api/public-sprints/all'),
+                    fetch('/api/public-sprints/tasks/all')
+                ]);
+
+                const statsData = await statsRes.json();
+                const sprintsData = await sprintsRes.json();
+                const tasksData = await tasksRes.json();
+
+                if (statsData.success) {
+                    document.getElementById('total-sprints').textContent = statsData.stats.totalSprints;
+                    document.getElementById('total-tasks').textContent = statsData.stats.totalTasks;
+                    document.getElementById('completed-tasks').textContent = statsData.stats.completedTasks;
+                    document.getElementById('completion-rate').textContent = statsData.stats.completionPercentage + '%';
+                }
+
+                allSprints = sprintsData.sprints || [];
+                allTasks = tasksData.tasks || [];
+
+                // Calculate execution stats
+                const executingTasks = allTasks.filter(t => t.executionStatus === 'executing').length;
+                const blockedTasks = allTasks.filter(t => t.flags?.isBlocked || t.executionStatus === 'blocked').length;
+
+                document.getElementById('executing-tasks').textContent = executingTasks;
+                document.getElementById('blocked-tasks').textContent = blockedTasks;
+
+                renderSprints();
+                document.getElementById('loading').style.display = 'none';
+            } catch (error) {
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('error').style.display = 'block';
+                document.getElementById('error').textContent = 'Error loading data: ' + error.message;
+            }
+        }
+
+        function renderSprints() {
+            const container = document.getElementById('sprints-container');
+            const searchTerm = document.getElementById('search').value.toLowerCase();
+            const statusFilter = document.getElementById('status-filter').value;
+            const execFilter = document.getElementById('execution-filter').value;
+            const flagFilter = document.getElementById('flag-filter').value;
+
+            let filteredSprints = allSprints.filter(sprint => {
+                const matchesSearch = sprint.name.toLowerCase().includes(searchTerm) ||
+                                    sprint.description?.toLowerCase().includes(searchTerm);
+                const matchesStatus = statusFilter === 'all' || sprint.status === statusFilter;
+                return matchesSearch && matchesStatus;
+            });
+
+            container.innerHTML = filteredSprints.map(sprint => {
+                let sprintTasks = allTasks.filter(t => t.sprint?.sprintNumber === sprint.sprintNumber);
+
+                // Apply filters to tasks
+                if (execFilter !== 'all') {
+                    sprintTasks = sprintTasks.filter(t => t.executionStatus === execFilter);
+                }
+                if (flagFilter === 'blocked') {
+                    sprintTasks = sprintTasks.filter(t => t.flags?.isBlocked);
+                } else if (flagFilter === 'urgent') {
+                    sprintTasks = sprintTasks.filter(t => t.flags?.isUrgent);
+                } else if (flagFilter === 'needs-review') {
+                    sprintTasks = sprintTasks.filter(t => t.flags?.needsReview);
+                }
+
+                const flags = sprint.flags || {};
+                const execStatus = sprint.executionStatus || 'pending';
+
+                return `
+                    <div class="sprint-container">
+                        <div class="sprint-header" onclick="toggleSprint(this)">
+                            <div class="sprint-title">
+                                <h2>
+                                    Sprint ${sprint.sprintNumber}: ${sprint.name}
+                                    <span class="health-indicator health-${sprint.healthStatus}"></span>
+                                </h2>
+                                <div class="sprint-meta">${sprint.description || 'No description'}</div>
+                                <div class="status-badges">
+                                    <span class="badge status-${sprint.status}">${sprint.status}</span>
+                                    <span class="badge exec-${execStatus}">${execStatus}</span>
+                                    ${flags.isBlocked ? '<span class="flag-badge flag-blocked">BLOCKED</span>' : ''}
+                                    ${flags.isAtRisk ? '<span class="flag-badge flag-at-risk">AT RISK</span>' : ''}
+                                    ${flags.needsAttention ? '<span class="flag-badge flag-urgent">NEEDS ATTENTION</span>' : ''}
+                                </div>
+                            </div>
+                            <div class="status-badges">
+                                <span class="badge">${sprintTasks.length} tasks</span>
+                                <span class="badge">${sprint.completedTasks} ✓</span>
+                                <span class="badge">${sprint.blockedTasks} 🚫</span>
+                                <span class="toggle-icon">▼</span>
+                            </div>
+                        </div>
+                        <div class="tasks-grid">
+                            ${sprintTasks.map(task => renderTask(task)).join('')}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function renderTask(task) {
+            const flags = task.flags || {};
+            const progress = task.progressTracking?.percentComplete || 0;
+            const quality = task.qualityMetrics || {};
+            const execStatus = task.executionStatus || 'pending';
+
+            let cardClass = 'task-card';
+            if (flags.isBlocked || execStatus === 'blocked') cardClass += ' blocked';
+            else if (execStatus === 'executing') cardClass += ' executing';
+            else if (execStatus === 'executed') cardClass += ' executed';
+
+            return `
+                <div class="${cardClass}">
+                    <div class="task-header">
+                        <div class="task-id">${task.taskId || 'No ID'}</div>
+                        <span class="badge exec-${execStatus}">${execStatus}</span>
+                    </div>
+                    <div class="task-title">${task.title}</div>
+                    <div class="task-description">${task.description || 'No description'}</div>
+
+                    <div class="task-flags">
+                        ${flags.isBlocked ? '<span class="flag-badge flag-blocked">🚫 BLOCKED</span>' : ''}
+                        ${flags.isUrgent ? '<span class="flag-badge flag-urgent">⚡ URGENT</span>' : ''}
+                        ${flags.needsReview ? '<span class="flag-badge flag-needs-review">👁️ REVIEW</span>' : ''}
+                        ${flags.hasIssues ? '<span class="flag-badge flag-blocked">⚠️ ISSUES</span>' : ''}
+                        ${flags.isStarred ? '<span class="flag-badge" style="background: #ffd700; color: #000;">⭐ STARRED</span>' : ''}
+                    </div>
+
+                    ${progress > 0 ? `
+                    <div class="progress-section">
+                        <div class="progress-label">Progress: ${progress}%</div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: ${progress}%"></div>
+                        </div>
+                    </div>
+                    ` : ''}
+
+                    ${task.blockingInfo?.isBlocked ? `
+                    <div class="progress-section" style="background: #ffebee;">
+                        <div class="progress-label" style="color: #c62828;">
+                            🚫 Blocked: ${task.blockingInfo.blockingReason || 'Dependency not met'}
+                        </div>
+                    </div>
+                    ` : ''}
+
+                    <div class="task-footer">
+                        <div class="quality-metrics">
+                            ${quality.codeReviewStatus && quality.codeReviewStatus !== 'not-started' ?
+                                `<div class="metric">📋 ${quality.codeReviewStatus}</div>` : ''}
+                            ${quality.testingStatus && quality.testingStatus !== 'not-started' ?
+                                `<div class="metric">🧪 ${quality.testingStatus}</div>` : ''}
+                            ${quality.bugsFound ? `<div class="metric">🐛 ${quality.bugsFound}</div>` : ''}
+                        </div>
+                        <span class="badge">${task.storyPoints || 0} pts</span>
+                    </div>
+                </div>
+            `;
+        }
+
+        function toggleSprint(header) {
+            header.parentElement.classList.toggle('collapsed');
+        }
+
+        // Event listeners
+        document.getElementById('search').addEventListener('input', renderSprints);
+        document.getElementById('status-filter').addEventListener('change', renderSprints);
+        document.getElementById('execution-filter').addEventListener('change', renderSprints);
+        document.getElementById('flag-filter').addEventListener('change', renderSprints);
+
+        // Load data
+        loadData();
+    </script>
+</body>
+</html>

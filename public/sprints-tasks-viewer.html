@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExpoJane - Sprints & Tasks Viewer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        header {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 1.1em;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .controls {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .search-box {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 12px 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: border-color 0.3s;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .filter-select {
+            padding: 12px 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1em;
+            background: white;
+            cursor: pointer;
+        }
+
+        .view-toggle {
+            display: flex;
+            gap: 10px;
+        }
+
+        .view-btn {
+            padding: 10px 20px;
+            border: 2px solid #667eea;
+            background: white;
+            color: #667eea;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .view-btn.active {
+            background: #667eea;
+            color: white;
+        }
+
+        .sprint-container {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .sprint-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f0f0f0;
+            cursor: pointer;
+        }
+
+        .sprint-title {
+            flex: 1;
+        }
+
+        .sprint-title h2 {
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .sprint-meta {
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .sprint-badges {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .badge {
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+
+        .badge.status-planned { background: #e3f2fd; color: #1976d2; }
+        .badge.status-active { background: #e8f5e9; color: #388e3c; }
+        .badge.status-completed { background: #f3e5f5; color: #7b1fa2; }
+
+        .task-count {
+            background: #f5f5f5;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            color: #666;
+        }
+
+        .tasks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .task-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .task-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+        }
+
+        .task-id {
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 8px;
+            font-size: 0.9em;
+        }
+
+        .task-title {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .task-description {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .task-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .priority {
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.75em;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .priority-critical { background: #ffebee; color: #c62828; }
+        .priority-high { background: #fff3e0; color: #e65100; }
+        .priority-medium { background: #e3f2fd; color: #1565c0; }
+        .priority-low { background: #f1f8e9; color: #558b2f; }
+
+        .story-points {
+            background: #667eea;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 50px;
+            color: white;
+            font-size: 1.2em;
+        }
+
+        .error {
+            background: #ffebee;
+            color: #c62828;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .collapsed .tasks-grid {
+            display: none;
+        }
+
+        .toggle-icon {
+            transition: transform 0.3s;
+        }
+
+        .collapsed .toggle-icon {
+            transform: rotate(-90deg);
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e0e0e0;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            transition: width 0.3s;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚀 ExpoJane Project</h1>
+            <p class="subtitle">Complete Sprint & Task Management System</p>
+        </header>
+
+        <div class="stats-grid" id="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number" id="total-sprints">-</div>
+                <div class="stat-label">Total Sprints</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="total-tasks">-</div>
+                <div class="stat-label">Total Tasks</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="completed-tasks">-</div>
+                <div class="stat-label">Completed</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="total-points">-</div>
+                <div class="stat-label">Story Points</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="completion-rate">-</div>
+                <div class="stat-label">Completion Rate</div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <div class="search-box">
+                <input type="text" id="search" placeholder="Search tasks or sprints..." />
+            </div>
+            <select class="filter-select" id="status-filter">
+                <option value="all">All Statuses</option>
+                <option value="planned">Planned</option>
+                <option value="active">Active</option>
+                <option value="completed">Completed</option>
+            </select>
+            <div class="view-toggle">
+                <button class="view-btn active" data-view="expanded">Expanded</button>
+                <button class="view-btn" data-view="collapsed">Collapsed</button>
+            </div>
+        </div>
+
+        <div id="loading" class="loading">Loading sprints and tasks...</div>
+        <div id="error" class="error" style="display: none;"></div>
+        <div id="sprints-container"></div>
+    </div>
+
+    <script>
+        let allSprints = [];
+        let allTasks = [];
+
+        async function loadData() {
+            try {
+                // Load stats
+                const statsRes = await fetch('/api/public-sprints/stats');
+                const statsData = await statsRes.json();
+
+                if (statsData.success) {
+                    document.getElementById('total-sprints').textContent = statsData.stats.totalSprints;
+                    document.getElementById('total-tasks').textContent = statsData.stats.totalTasks;
+                    document.getElementById('completed-tasks').textContent = statsData.stats.completedTasks;
+                    document.getElementById('total-points').textContent = statsData.stats.totalStoryPoints;
+                    document.getElementById('completion-rate').textContent = statsData.stats.completionPercentage + '%';
+                }
+
+                // Load sprints
+                const sprintsRes = await fetch('/api/public-sprints/all');
+                const sprintsData = await sprintsRes.json();
+
+                if (!sprintsData.success) {
+                    throw new Error('Failed to load sprints');
+                }
+
+                allSprints = sprintsData.sprints;
+
+                // Load all tasks
+                const tasksRes = await fetch('/api/public-sprints/tasks/all');
+                const tasksData = await tasksRes.json();
+
+                if (!tasksData.success) {
+                    throw new Error('Failed to load tasks');
+                }
+
+                allTasks = tasksData.tasks;
+
+                renderSprints();
+                document.getElementById('loading').style.display = 'none';
+            } catch (error) {
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('error').style.display = 'block';
+                document.getElementById('error').textContent = 'Error loading data: ' + error.message;
+            }
+        }
+
+        function renderSprints() {
+            const container = document.getElementById('sprints-container');
+            const searchTerm = document.getElementById('search').value.toLowerCase();
+            const statusFilter = document.getElementById('status-filter').value;
+
+            let filteredSprints = allSprints.filter(sprint => {
+                const matchesSearch = sprint.name.toLowerCase().includes(searchTerm) ||
+                                    sprint.description?.toLowerCase().includes(searchTerm);
+                const matchesStatus = statusFilter === 'all' || sprint.status === statusFilter;
+                return matchesSearch && matchesStatus;
+            });
+
+            container.innerHTML = filteredSprints.map(sprint => {
+                const sprintTasks = allTasks.filter(t => t.sprint?.sprintNumber === sprint.sprintNumber);
+                const completedTasks = sprintTasks.filter(t => t.status === 'completed').length;
+                const completionRate = sprintTasks.length > 0 ? Math.round((completedTasks / sprintTasks.length) * 100) : 0;
+
+                return `
+                    <div class="sprint-container">
+                        <div class="sprint-header" onclick="toggleSprint(this)">
+                            <div class="sprint-title">
+                                <h2>Sprint ${sprint.sprintNumber}: ${sprint.name}</h2>
+                                <div class="sprint-meta">
+                                    ${sprint.description || 'No description'}
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: ${completionRate}%"></div>
+                                </div>
+                            </div>
+                            <div class="sprint-badges">
+                                <span class="badge status-${sprint.status}">${sprint.status}</span>
+                                <span class="task-count">${sprintTasks.length} tasks</span>
+                                <span class="story-points">${sprint.storyPoints} pts</span>
+                                <span class="toggle-icon">▼</span>
+                            </div>
+                        </div>
+                        <div class="tasks-grid">
+                            ${sprintTasks.map(task => `
+                                <div class="task-card">
+                                    <div class="task-id">${task.taskId}</div>
+                                    <div class="task-title">${task.title}</div>
+                                    <div class="task-description">${task.description || 'No description available'}</div>
+                                    <div class="task-footer">
+                                        <span class="priority priority-${task.priority || 'medium'}">${task.priority || 'medium'}</span>
+                                        <span class="story-points">${task.storyPoints || 0} pts</span>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function toggleSprint(header) {
+            header.parentElement.classList.toggle('collapsed');
+        }
+
+        // Event listeners
+        document.getElementById('search').addEventListener('input', renderSprints);
+        document.getElementById('status-filter').addEventListener('change', renderSprints);
+
+        document.querySelectorAll('.view-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.view-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const view = btn.dataset.view;
+                const containers = document.querySelectorAll('.sprint-container');
+                containers.forEach(c => {
+                    if (view === 'collapsed') {
+                        c.classList.add('collapsed');
+                    } else {
+                        c.classList.remove('collapsed');
+                    }
+                });
+            });
+        });
+
+        // Load data on page load
+        loadData();
+    </script>
+</body>
+</html>
