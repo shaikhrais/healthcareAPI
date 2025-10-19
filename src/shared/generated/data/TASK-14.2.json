@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-14.2",
+  "taskId": "TASK-14.2",
+  "moduleId": "14",
+  "moduleName": "Mobile",
+  "title": "Biometric Auth",
+  "description": "Face/Touch ID login.",
+  "storyPoints": 8,
+  "estimatedHours": null,
+  "priority": "Medium",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-014",
+  "sprintNumber": 14,
+  "dependencies": [],
+  "tags": [],
+  "tech": "",
+  "acceptanceCriteria": "",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-13T01:35:14.910Z",
+  "completedAt": "2025-10-14T02:45:01.314Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:45:01.314Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

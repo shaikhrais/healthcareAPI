@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-11.18",
+  "taskId": "TASK-11.18",
+  "moduleId": "11",
+  "moduleName": "Analytics & Reporting",
+  "title": "Lifetime value calculation",
+  "description": "Implements: Lifetime value calculation.",
+  "storyPoints": 8,
+  "estimatedHours": null,
+  "priority": "Medium",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-011",
+  "sprintNumber": 11,
+  "dependencies": [],
+  "tags": ["analytics-&-reporting"],
+  "tech": "",
+  "acceptanceCriteria": "",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-12T19:36:30.093Z",
+  "completedAt": "2025-10-14T02:45:33.993Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:45:33.993Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

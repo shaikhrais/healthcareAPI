@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-5.11",
+  "taskId": "TASK-5.11",
+  "moduleId": "5",
+  "moduleName": "Scheduling",
+  "title": "Appointment confirmation workflows",
+  "description": "Implements: Appointment confirmation workflows.",
+  "storyPoints": 8,
+  "estimatedHours": null,
+  "priority": "Medium",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-005",
+  "sprintNumber": 5,
+  "dependencies": [],
+  "tags": ["scheduling"],
+  "tech": "",
+  "acceptanceCriteria": "",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-13T09:50:25.634Z",
+  "completedAt": "2025-10-14T02:45:07.658Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:45:07.658Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-5.8",
+  "taskId": "TASK-5.8",
+  "moduleId": "5",
+  "moduleName": "Scheduling",
+  "title": "Group bookings",
+  "description": "Implements: Group bookings.",
+  "storyPoints": 8,
+  "estimatedHours": null,
+  "priority": "Medium",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-005",
+  "sprintNumber": 5,
+  "dependencies": [],
+  "tags": ["scheduling"],
+  "tech": "",
+  "acceptanceCriteria": "",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-12T15:47:27.644Z",
+  "completedAt": "2025-10-14T02:45:07.160Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:45:07.160Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

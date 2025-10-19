@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-2.3",
+  "taskId": "TASK-2.3",
+  "moduleId": "2",
+  "moduleName": "User Management & RBAC",
+  "title": "User Profile Management",
+  "description": "CRUD, avatar upload.",
+  "storyPoints": 5,
+  "estimatedHours": null,
+  "priority": "Medium",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-002",
+  "sprintNumber": 2,
+  "dependencies": [],
+  "tags": [],
+  "tech": "Multer, image processing",
+  "acceptanceCriteria": "View/update profile; photo persists",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-13T07:56:38.207Z",
+  "completedAt": "2025-10-14T02:44:51.858Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:44:51.858Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

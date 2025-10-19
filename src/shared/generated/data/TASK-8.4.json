@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-8.4",
+  "taskId": "TASK-8.4",
+  "moduleId": "8",
+  "moduleName": "Clinical Notes",
+  "title": "Voice Dictation Integration",
+  "description": "Speech-to-text with med vocab.",
+  "storyPoints": 13,
+  "estimatedHours": null,
+  "priority": "Medium",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-008",
+  "sprintNumber": 8,
+  "dependencies": [],
+  "tags": [],
+  "tech": "",
+  "acceptanceCriteria": "",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-12T15:47:27.644Z",
+  "completedAt": "2025-10-14T02:44:56.847Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:44:56.847Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

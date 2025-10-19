@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-1.6",
+  "taskId": "TASK-1.6",
+  "moduleId": "1",
+  "moduleName": "Authentication & DevOps",
+  "title": "Session Revocation Endpoint",
+  "description": "Add capability: Session Revocation Endpoint.",
+  "storyPoints": 3,
+  "estimatedHours": null,
+  "priority": "Medium",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-001",
+  "sprintNumber": 1,
+  "dependencies": [],
+  "tags": ["foundation"],
+  "tech": "",
+  "acceptanceCriteria": "",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-12T16:13:51.214Z",
+  "completedAt": "2025-10-14T02:45:50.542Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:45:50.542Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-18.13",
+  "taskId": "TASK-18.13",
+  "moduleId": "18",
+  "moduleName": "Launch",
+  "title": "Support Readiness",
+  "description": "Help desk tooling & SLAs ready.",
+  "storyPoints": 5,
+  "estimatedHours": null,
+  "priority": "Medium",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-018",
+  "sprintNumber": 18,
+  "dependencies": [],
+  "tags": ["launch"],
+  "tech": "",
+  "acceptanceCriteria": "",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-13T06:52:13.489Z",
+  "completedAt": "2025-10-14T02:45:49.407Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:45:49.407Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

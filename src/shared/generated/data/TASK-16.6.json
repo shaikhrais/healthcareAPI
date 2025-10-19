@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-16.6",
+  "taskId": "TASK-16.6",
+  "moduleId": "16",
+  "moduleName": "Integrations",
+  "title": "Data import wizard (CSV/Excel)",
+  "description": "Implements: Data import wizard (CSV/Excel).",
+  "storyPoints": 8,
+  "estimatedHours": null,
+  "priority": "Medium",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-016",
+  "sprintNumber": 16,
+  "dependencies": [],
+  "tags": ["integrations"],
+  "tech": "",
+  "acceptanceCriteria": "",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-13T05:18:32.757Z",
+  "completedAt": "2025-10-14T02:45:45.993Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:45:45.993Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

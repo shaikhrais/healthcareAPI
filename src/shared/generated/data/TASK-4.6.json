@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-4.6",
+  "taskId": "TASK-4.6",
+  "moduleId": "4",
+  "moduleName": "Patient Management",
+  "title": "Audit Log for Auth Events",
+  "description": "Add capability: Audit Log for Auth Events.",
+  "storyPoints": 3,
+  "estimatedHours": null,
+  "priority": "Medium",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-004",
+  "sprintNumber": 4,
+  "dependencies": [],
+  "tags": ["foundation"],
+  "tech": "",
+  "acceptanceCriteria": "",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-13T09:20:46.246Z",
+  "completedAt": "2025-10-14T02:45:51.040Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:45:51.040Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-2.6",
+  "taskId": "TASK-2.6",
+  "moduleId": "2",
+  "moduleName": "User Management & RBAC",
+  "title": "JWT Blacklist/Allowlist",
+  "description": "Add capability: JWT Blacklist/Allowlist.",
+  "storyPoints": 3,
+  "estimatedHours": null,
+  "priority": "Medium",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-002",
+  "sprintNumber": 2,
+  "dependencies": [],
+  "tags": ["foundation"],
+  "tech": "",
+  "acceptanceCriteria": "",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-13T08:08:47.174Z",
+  "completedAt": "2025-10-14T02:45:50.708Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:45:50.708Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

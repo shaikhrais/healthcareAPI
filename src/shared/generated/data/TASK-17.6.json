@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-17.6",
+  "taskId": "TASK-17.6",
+  "moduleId": "17",
+  "moduleName": "Testing & QA",
+  "title": "Accessibility Testing",
+  "description": "WCAG 2.1 AA.",
+  "storyPoints": 8,
+  "estimatedHours": null,
+  "priority": "Medium",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-017",
+  "sprintNumber": 17,
+  "dependencies": [],
+  "tags": [],
+  "tech": "",
+  "acceptanceCriteria": "",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-13T06:17:07.569Z",
+  "completedAt": "2025-10-14T02:45:04.380Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:45:04.380Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

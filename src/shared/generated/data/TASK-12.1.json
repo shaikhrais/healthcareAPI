@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-12.1",
+  "taskId": "TASK-12.1",
+  "moduleId": "12",
+  "moduleName": "Analytics & Reporting",
+  "title": "Scheduled Report Delivery",
+  "description": "Email reports on cadence.",
+  "storyPoints": 8,
+  "estimatedHours": null,
+  "priority": "Medium",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-012",
+  "sprintNumber": 12,
+  "dependencies": [],
+  "tags": [],
+  "tech": "",
+  "acceptanceCriteria": "",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-12T20:41:31.521Z",
+  "completedAt": "2025-10-14T02:44:59.592Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:44:59.592Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-4.2",
+  "taskId": "TASK-4.2",
+  "moduleId": "4",
+  "moduleName": "Patient Management",
+  "title": "Communication Preferences",
+  "description": "SMS/email/push; language; time windows.",
+  "storyPoints": 5,
+  "estimatedHours": null,
+  "priority": "Medium",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-004",
+  "sprintNumber": 4,
+  "dependencies": [],
+  "tags": [],
+  "tech": "",
+  "acceptanceCriteria": "Prefs saved; respected by system",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-13T09:02:41.469Z",
+  "completedAt": "2025-10-14T02:44:53.284Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:44:53.284Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

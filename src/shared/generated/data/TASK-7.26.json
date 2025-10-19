@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-7.26",
+  "taskId": "TASK-7.26",
+  "moduleId": "7",
+  "moduleName": "Clinical Notes",
+  "title": "Social history",
+  "description": "Implements: Social history.",
+  "storyPoints": 8,
+  "estimatedHours": null,
+  "priority": "Medium",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-007",
+  "sprintNumber": 7,
+  "dependencies": [],
+  "tags": ["clinical-notes"],
+  "tech": "",
+  "acceptanceCriteria": "",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-12T15:47:27.644Z",
+  "completedAt": "2025-10-14T02:45:18.444Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:45:18.444Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

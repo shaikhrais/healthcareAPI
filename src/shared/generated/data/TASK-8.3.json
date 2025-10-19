@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-8.3",
+  "taskId": "TASK-8.3",
+  "moduleId": "8",
+  "moduleName": "Clinical Notes",
+  "title": "Documentation Audit Trail",
+  "description": "Access/edit/view logging.",
+  "storyPoints": 8,
+  "estimatedHours": null,
+  "priority": "High",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-008",
+  "sprintNumber": 8,
+  "dependencies": [],
+  "tags": [],
+  "tech": "",
+  "acceptanceCriteria": "",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-12T15:47:27.644Z",
+  "completedAt": "2025-10-14T02:44:56.691Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:44:56.691Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

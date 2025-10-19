@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-3.6",
+  "taskId": "TASK-3.6",
+  "moduleId": "3",
+  "moduleName": "Patient Management",
+  "title": "Email Templates & Branding",
+  "description": "Add capability: Email Templates & Branding.",
+  "storyPoints": 3,
+  "estimatedHours": null,
+  "priority": "Medium",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-003",
+  "sprintNumber": 3,
+  "dependencies": [],
+  "tags": ["foundation"],
+  "tech": "",
+  "acceptanceCriteria": "",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-13T08:38:47.617Z",
+  "completedAt": "2025-10-14T02:45:50.873Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:45:50.873Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

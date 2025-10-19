@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-15.6",
+  "taskId": "TASK-15.6",
+  "moduleId": "15",
+  "moduleName": "Integrations",
+  "title": "Payment gateways (Stripe/Apple Pay/Google Pay)",
+  "description": "Implements: Payment gateways (Stripe/Apple Pay/Google Pay).",
+  "storyPoints": 8,
+  "estimatedHours": null,
+  "priority": "Medium",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-015",
+  "sprintNumber": 15,
+  "dependencies": [],
+  "tags": ["integrations"],
+  "tech": "",
+  "acceptanceCriteria": "",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-13T03:44:23.350Z",
+  "completedAt": "2025-10-14T02:45:43.691Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:45:43.691Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

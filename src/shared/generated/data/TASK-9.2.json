@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-9.2",
+  "taskId": "TASK-9.2",
+  "moduleId": "9",
+  "moduleName": "Billing & Payments",
+  "title": "Payment Processing",
+  "description": "Stripe/Square; PCI compliance.",
+  "storyPoints": 13,
+  "estimatedHours": null,
+  "priority": "High",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-009",
+  "sprintNumber": 9,
+  "dependencies": [],
+  "tags": [],
+  "tech": "",
+  "acceptanceCriteria": "",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-12T15:47:27.644Z",
+  "completedAt": "2025-10-14T02:44:57.322Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:44:57.322Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

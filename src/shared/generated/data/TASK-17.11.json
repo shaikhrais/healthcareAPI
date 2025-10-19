@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-17.11",
+  "taskId": "TASK-17.11",
+  "moduleId": "17",
+  "moduleName": "Testing & QA",
+  "title": "Mobile Device Lab Tests",
+  "description": "Physical iOS/Android device passes.",
+  "storyPoints": 5,
+  "estimatedHours": null,
+  "priority": "Medium",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-017",
+  "sprintNumber": 17,
+  "dependencies": [],
+  "tags": ["qa", "testing"],
+  "tech": "",
+  "acceptanceCriteria": "",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-13T05:47:53.526Z",
+  "completedAt": "2025-10-14T02:45:48.593Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:45:48.593Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

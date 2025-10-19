@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-16.4",
+  "taskId": "TASK-16.4",
+  "moduleId": "16",
+  "moduleName": "Integrations",
+  "title": "OpenAPI/Swagger Docs",
+  "description": "Interactive docs & samples.",
+  "storyPoints": 8,
+  "estimatedHours": null,
+  "priority": "Medium",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-016",
+  "sprintNumber": 16,
+  "dependencies": [],
+  "tags": [],
+  "tech": "",
+  "acceptanceCriteria": "",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-13T05:06:45.292Z",
+  "completedAt": "2025-10-14T02:45:03.245Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:45:03.245Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

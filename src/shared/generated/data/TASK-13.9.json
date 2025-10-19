@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-13.9",
+  "taskId": "TASK-13.9",
+  "moduleId": "13",
+  "moduleName": "Mobile",
+  "title": "Digital intake forms",
+  "description": "Implements: Digital intake forms.",
+  "storyPoints": 8,
+  "estimatedHours": null,
+  "priority": "Medium",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-013",
+  "sprintNumber": 13,
+  "dependencies": [],
+  "tags": ["mobile"],
+  "tech": "",
+  "acceptanceCriteria": "",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-13T00:25:29.741Z",
+  "completedAt": "2025-10-14T02:45:38.070Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:45:38.070Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

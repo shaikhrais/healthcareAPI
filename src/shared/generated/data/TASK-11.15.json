@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-11.15",
+  "taskId": "TASK-11.15",
+  "moduleId": "11",
+  "moduleName": "Analytics & Reporting",
+  "title": "Location performance comparison",
+  "description": "Implements: Location performance comparison.",
+  "storyPoints": 8,
+  "estimatedHours": null,
+  "priority": "Medium",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-011",
+  "sprintNumber": 11,
+  "dependencies": [],
+  "tags": ["analytics-&-reporting"],
+  "tech": "",
+  "acceptanceCriteria": "",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-12T19:18:42.603Z",
+  "completedAt": "2025-10-14T02:45:33.522Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:45:33.522Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

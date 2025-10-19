@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-11.11",
+  "taskId": "TASK-11.11",
+  "moduleId": "11",
+  "moduleName": "Analytics & Reporting",
+  "title": "Patient retention analysis",
+  "description": "Implements: Patient retention analysis.",
+  "storyPoints": 8,
+  "estimatedHours": null,
+  "priority": "Medium",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-011",
+  "sprintNumber": 11,
+  "dependencies": [],
+  "tags": ["analytics-&-reporting"],
+  "tech": "",
+  "acceptanceCriteria": "",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-12T18:48:33.355Z",
+  "completedAt": "2025-10-14T02:45:32.872Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:45:32.872Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

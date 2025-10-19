@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-14.12",
+  "taskId": "TASK-14.12",
+  "moduleId": "14",
+  "moduleName": "Mobile",
+  "title": "Crash reporting (Sentry)",
+  "description": "Implements: Crash reporting (Sentry).",
+  "storyPoints": 8,
+  "estimatedHours": null,
+  "priority": "Medium",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-014",
+  "sprintNumber": 14,
+  "dependencies": [],
+  "tags": ["mobile"],
+  "tech": "",
+  "acceptanceCriteria": "",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-13T00:43:10.863Z",
+  "completedAt": "2025-10-14T02:45:41.607Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:45:41.607Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

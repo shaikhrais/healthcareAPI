@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-16.18",
+  "taskId": "TASK-16.18",
+  "moduleId": "16",
+  "moduleName": "Integrations",
+  "title": "API deprecation management",
+  "description": "Implements: API deprecation management.",
+  "storyPoints": 8,
+  "estimatedHours": null,
+  "priority": "Medium",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-016",
+  "sprintNumber": 16,
+  "dependencies": [],
+  "tags": ["integrations"],
+  "tech": "",
+  "acceptanceCriteria": "",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-13T04:55:00.000Z",
+  "completedAt": "2025-10-14T02:45:47.949Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:45:47.949Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

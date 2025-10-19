@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-17.12",
+  "taskId": "TASK-17.12",
+  "moduleId": "17",
+  "moduleName": "Testing & QA",
+  "title": "Beta Clinic UAT Sessions",
+  "description": "UAT with feedback loop.",
+  "storyPoints": 5,
+  "estimatedHours": null,
+  "priority": "Medium",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-017",
+  "sprintNumber": 17,
+  "dependencies": [],
+  "tags": ["qa", "testing"],
+  "tech": "",
+  "acceptanceCriteria": "",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-13T05:53:44.598Z",
+  "completedAt": "2025-10-14T02:45:48.759Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:45:48.759Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-13.24",
+  "taskId": "TASK-13.24",
+  "moduleId": "13",
+  "moduleName": "Mobile",
+  "title": "Dark mode & theming",
+  "description": "Implements: Dark mode & theming.",
+  "storyPoints": 8,
+  "estimatedHours": null,
+  "priority": "Medium",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-013",
+  "sprintNumber": 13,
+  "dependencies": [],
+  "tags": ["mobile"],
+  "tech": "",
+  "acceptanceCriteria": "",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-13T00:02:03.488Z",
+  "completedAt": "2025-10-14T02:45:40.473Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:45:40.473Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

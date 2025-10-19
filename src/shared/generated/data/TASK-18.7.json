@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-18.7",
+  "taskId": "TASK-18.7",
+  "moduleId": "18",
+  "moduleName": "Launch",
+  "title": "User Documentation",
+  "description": "Guides, manuals, videos.",
+  "storyPoints": 7,
+  "estimatedHours": null,
+  "priority": "Medium",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-018",
+  "sprintNumber": 18,
+  "dependencies": [],
+  "tags": [],
+  "tech": "",
+  "acceptanceCriteria": "",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-13T07:38:48.322Z",
+  "completedAt": "2025-10-14T02:45:05.874Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:45:05.874Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

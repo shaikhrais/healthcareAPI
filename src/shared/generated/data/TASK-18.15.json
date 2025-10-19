@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-18.15",
+  "taskId": "TASK-18.15",
+  "moduleId": "18",
+  "moduleName": "Launch",
+  "title": "Go-Live Dry Run",
+  "description": "Full end-to-end rehearsal.",
+  "storyPoints": 5,
+  "estimatedHours": null,
+  "priority": "Medium",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-018",
+  "sprintNumber": 18,
+  "dependencies": [],
+  "tags": ["launch"],
+  "tech": "",
+  "acceptanceCriteria": "",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-13T07:03:52.448Z",
+  "completedAt": "2025-10-14T02:45:49.726Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:45:49.726Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

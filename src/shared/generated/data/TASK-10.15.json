@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-10.15",
+  "taskId": "TASK-10.15",
+  "moduleId": "10",
+  "moduleName": "Billing & Payments",
+  "title": "Coordination of benefits",
+  "description": "Implements: Coordination of benefits.",
+  "storyPoints": 8,
+  "estimatedHours": null,
+  "priority": "Medium",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-010",
+  "sprintNumber": 10,
+  "dependencies": [],
+  "tags": ["billing-&-payments"],
+  "tech": "",
+  "acceptanceCriteria": "",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-12T17:05:28.512Z",
+  "completedAt": "2025-10-14T02:45:30.224Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:45:30.224Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

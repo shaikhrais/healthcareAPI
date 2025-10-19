@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-5.3",
+  "taskId": "TASK-5.3",
+  "moduleId": "5",
+  "moduleName": "Scheduling",
+  "title": "Appointment Booking Flow",
+  "description": "Service->provider->time wizard.",
+  "storyPoints": 13,
+  "estimatedHours": null,
+  "priority": "High",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-005",
+  "sprintNumber": 5,
+  "dependencies": [],
+  "tags": [],
+  "tech": "",
+  "acceptanceCriteria": "Pick slot -> confirm -> notify",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-12T15:47:27.644Z",
+  "completedAt": "2025-10-14T02:44:54.255Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:44:54.255Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

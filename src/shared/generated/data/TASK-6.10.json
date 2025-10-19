@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-6.10",
+  "taskId": "TASK-6.10",
+  "moduleId": "6",
+  "moduleName": "Scheduling",
+  "title": "SMS/email integration",
+  "description": "Implements: SMS/email integration.",
+  "storyPoints": 8,
+  "estimatedHours": null,
+  "priority": "Medium",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-006",
+  "sprintNumber": 6,
+  "dependencies": [],
+  "tags": ["scheduling"],
+  "tech": "",
+  "acceptanceCriteria": "",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-12T15:47:27.644Z",
+  "completedAt": "2025-10-14T02:45:11.651Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:45:11.651Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

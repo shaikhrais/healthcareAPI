@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-14.6",
+  "taskId": "TASK-14.6",
+  "moduleId": "14",
+  "moduleName": "Mobile",
+  "title": "Push notification preferences",
+  "description": "Implements: Push notification preferences.",
+  "storyPoints": 8,
+  "estimatedHours": null,
+  "priority": "Medium",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-014",
+  "sprintNumber": 14,
+  "dependencies": [],
+  "tags": ["mobile"],
+  "tech": "",
+  "acceptanceCriteria": "",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-13T02:22:03.717Z",
+  "completedAt": "2025-10-14T02:45:40.625Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:45:40.625Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

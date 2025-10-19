@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-16.7",
+  "taskId": "TASK-16.7",
+  "moduleId": "16",
+  "moduleName": "Integrations",
+  "title": "API rate limiting tiers",
+  "description": "Implements: API rate limiting tiers.",
+  "storyPoints": 8,
+  "estimatedHours": null,
+  "priority": "Medium",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-016",
+  "sprintNumber": 16,
+  "dependencies": [],
+  "tags": ["integrations"],
+  "tech": "",
+  "acceptanceCriteria": "",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-13T05:24:26.099Z",
+  "completedAt": "2025-10-14T02:45:46.154Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:45:46.154Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

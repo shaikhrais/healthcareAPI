@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-2.8",
+  "taskId": "TASK-2.8",
+  "moduleId": "2",
+  "moduleName": "User Management & RBAC",
+  "title": "Health Check & Readiness Probes",
+  "description": "Add capability: Health Check & Readiness Probes.",
+  "storyPoints": 3,
+  "estimatedHours": null,
+  "priority": "Medium",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-002",
+  "sprintNumber": 2,
+  "dependencies": [],
+  "tags": ["foundation"],
+  "tech": "",
+  "acceptanceCriteria": "",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-13T08:20:44.240Z",
+  "completedAt": "2025-10-14T02:45:52.009Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:45:52.009Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

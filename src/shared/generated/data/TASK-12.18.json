@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-12.18",
+  "taskId": "TASK-12.18",
+  "moduleId": "12",
+  "moduleName": "Analytics & Reporting",
+  "title": "A/B test analysis",
+  "description": "Implements: A/B test analysis.",
+  "storyPoints": 8,
+  "estimatedHours": null,
+  "priority": "Medium",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-012",
+  "sprintNumber": 12,
+  "dependencies": [],
+  "tags": ["analytics-&-reporting"],
+  "tech": "",
+  "acceptanceCriteria": "",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-12T21:34:50.010Z",
+  "completedAt": "2025-10-14T02:45:36.791Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:45:36.791Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

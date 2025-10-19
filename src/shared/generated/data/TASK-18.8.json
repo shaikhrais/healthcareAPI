@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-18.8",
+  "taskId": "TASK-18.8",
+  "moduleId": "18",
+  "moduleName": "Launch",
+  "title": "API Documentation",
+  "description": "OpenAPI + sandbox.",
+  "storyPoints": 7,
+  "estimatedHours": null,
+  "priority": "Medium",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-018",
+  "sprintNumber": 18,
+  "dependencies": [],
+  "tags": [],
+  "tech": "",
+  "acceptanceCriteria": "",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-13T07:44:34.633Z",
+  "completedAt": "2025-10-14T02:45:06.036Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:45:06.036Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

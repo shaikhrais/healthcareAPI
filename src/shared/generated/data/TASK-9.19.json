@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-9.19",
+  "taskId": "TASK-9.19",
+  "moduleId": "9",
+  "moduleName": "Billing & Payments",
+  "title": "Service pricing by provider",
+  "description": "Implements: Service pricing by provider.",
+  "storyPoints": 8,
+  "estimatedHours": null,
+  "priority": "Medium",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-009",
+  "sprintNumber": 9,
+  "dependencies": [],
+  "tags": ["billing-&-payments"],
+  "tech": "",
+  "acceptanceCriteria": "",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-12T15:47:27.644Z",
+  "completedAt": "2025-10-14T02:45:27.626Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:45:27.626Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

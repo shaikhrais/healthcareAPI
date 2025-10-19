@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-12.16",
+  "taskId": "TASK-12.16",
+  "moduleId": "12",
+  "moduleName": "Analytics & Reporting",
+  "title": "Patient journey mapping",
+  "description": "Implements: Patient journey mapping.",
+  "storyPoints": 8,
+  "estimatedHours": null,
+  "priority": "Medium",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-012",
+  "sprintNumber": 12,
+  "dependencies": [],
+  "tags": ["analytics-&-reporting"],
+  "tech": "",
+  "acceptanceCriteria": "",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-12T21:23:02.961Z",
+  "completedAt": "2025-10-14T02:45:36.475Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:45:36.475Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

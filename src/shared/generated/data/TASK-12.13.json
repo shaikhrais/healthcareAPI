@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-12.13",
+  "taskId": "TASK-12.13",
+  "moduleId": "12",
+  "moduleName": "Analytics & Reporting",
+  "title": "No-show prediction modeling",
+  "description": "Implements: No-show prediction modeling.",
+  "storyPoints": 8,
+  "estimatedHours": null,
+  "priority": "Medium",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-012",
+  "sprintNumber": 12,
+  "dependencies": [],
+  "tags": ["analytics-&-reporting"],
+  "tech": "",
+  "acceptanceCriteria": "",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-12T21:05:15.701Z",
+  "completedAt": "2025-10-14T02:45:35.975Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:45:35.975Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

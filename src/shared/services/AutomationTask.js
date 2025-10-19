@@ -1,0 +1,656 @@
+const mongoose = require('mongoose');
+
+// eslint-disable-next-line no-unused-vars
+/**
+ * Automation Task Model
+ * Represents a task for AI agents to autonomously implement
+ */
+const automationTaskSchema = new mongoose.Schema(
+  {
+    // Task Identification
+    taskId: {
+      type: String,
+      required: true,
+      unique: true,
+      index: true,
+    },
+    taskName: {
+      type: String,
+      required: true,
+    },
+
+    // Task Type & Classification
+    taskType: {
+      type: String,
+      enum: [
+        'feature-implementation', // Implement new feature
+        'bug-fix', // Fix bug
+        'refactoring', // Refactor code
+        'optimization', // Optimize performance
+        'testing', // Write tests
+        'documentation', // Generate docs
+        'architecture', // Design architecture
+        'integration', // Integrate components
+        'deployment', // Deploy code
+        'analysis', // Analyze codebase
+      ],
+      required: true,
+      index: true,
+    },
+
+    complexity: {
+      type: String,
+      enum: ['trivial', 'simple', 'moderate', 'complex', 'advanced'],
+      required: true,
+      index: true,
+    },
+
+    priority: {
+      type: String,
+      enum: ['low', 'medium', 'high', 'critical'],
+      default: 'medium',
+      index: true,
+    },
+
+    // Task Input (The Idea/Requirement)
+    input: {
+      // Natural language description
+      description: {
+        type: String,
+        required: true,
+      },
+
+      // User's thought process
+      thoughtProcess: {
+        type: String,
+      },
+
+      // Specific requirements
+      requirements: [
+        {
+          requirement: String,
+          priority: {
+            type: String,
+            enum: ['must-have', 'should-have', 'nice-to-have'],
+          },
+        },
+      ],
+
+      // Expected behavior
+      expectedBehavior: String,
+
+      // Acceptance criteria
+      acceptanceCriteria: [String],
+
+      // Reference materials
+      references: [
+        {
+          type: String, // URLs, file paths, etc.
+          description: String,
+        },
+      ],
+
+      // Similar examples
+      examples: [String],
+
+      // Constraints
+      constraints: [
+        {
+          type: String, // 'performance', 'security', 'compatibility', etc.
+          description: String,
+        },
+      ],
+    },
+
+    // Technical Specifications
+    technicalSpec: {
+      targetLanguage: {
+        type: String,
+        enum: ['javascript', 'typescript', 'python', 'java', 'go', 'sql', 'other'],
+      },
+      framework: String,
+      targetFiles: [String], // Files to create/modify
+      dependencies: [String], // Required packages/modules
+
+      architecture: {
+        pattern: String, // MVC, REST, Microservices, etc.
+        components: [String],
+        integrationPoints: [String],
+      },
+
+      database: {
+        required: Boolean,
+        type: String, // MongoDB, PostgreSQL, etc.
+        operations: [String], // CRUD operations needed
+      },
+
+      api: {
+        required: Boolean,
+        type: String, // REST, GraphQL, etc.
+        endpoints: [
+          {
+            method: String,
+            path: String,
+            description: String,
+          },
+        ],
+      },
+
+      frontend: {
+        required: Boolean,
+        framework: String,
+        components: [String],
+      },
+    },
+
+    // Agent Assignment
+    assignedAgent: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'AutomationAgent',
+      index: true,
+    },
+    assignedAt: Date,
+
+    // Supporting agents for complex tasks
+    supportingAgents: [
+      {
+        agent: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: 'AutomationAgent',
+        },
+        role: String,
+        assignedAt: Date,
+      },
+    ],
+
+    // Task Status & Progress
+    status: {
+      type: String,
+      enum: [
+        'pending', // Waiting to be assigned
+        'analyzing', // Agent analyzing requirements
+        'planning', // Creating implementation plan
+        'implementing', // Writing code
+        'testing', // Running tests
+        'reviewing', // Code review
+        'refining', // Making improvements
+        'completed', // Successfully completed
+        'failed', // Task failed
+        'blocked', // Blocked by dependencies
+        'cancelled', // Cancelled
+      ],
+      default: 'pending',
+      index: true,
+    },
+
+    progress: {
+      percentage: {
+        type: Number,
+        min: 0,
+        max: 100,
+        default: 0,
+      },
+      currentPhase: String,
+      phasesCompleted: [String],
+      phasesRemaining: [String],
+    },
+
+    // Execution Timeline
+    timeline: {
+      createdAt: Date,
+      assignedAt: Date,
+      startedAt: Date,
+      completedAt: Date,
+      estimatedDuration: Number, // minutes
+      actualDuration: Number, // minutes
+    },
+
+    // Implementation Plan (Generated by Agent)
+    implementationPlan: {
+      approach: String,
+      steps: [
+        {
+          stepNumber: Number,
+          description: String,
+          estimatedTime: Number, // minutes
+          status: {
+            type: String,
+            enum: ['pending', 'in-progress', 'completed', 'skipped'],
+          },
+          output: String,
+        },
+      ],
+
+      risksIdentified: [
+        {
+          risk: String,
+          severity: String,
+          mitigation: String,
+        },
+      ],
+
+      dependenciesNeeded: [String],
+      filesAffected: [String],
+    },
+
+    // Generated Output
+    output: {
+      // Generated code
+      codeFiles: [
+        {
+          filePath: String,
+          fileName: String,
+          fileType: String,
+          content: String,
+          linesOfCode: Number,
+          language: String,
+        },
+      ],
+
+      // Generated tests
+      testFiles: [
+        {
+          filePath: String,
+          fileName: String,
+          content: String,
+          testCount: Number,
+          coverage: Number,
+        },
+      ],
+
+      // Generated documentation
+      documentation: [
+        {
+          type: String, // 'README', 'API', 'inline', etc.
+          content: String,
+          format: String, // 'markdown', 'html', etc.
+        },
+      ],
+
+      // Database migrations
+      migrations: [
+        {
+          description: String,
+          sql: String,
+          rollback: String,
+        },
+      ],
+
+      // Configuration changes
+      configChanges: [
+        {
+          file: String,
+          changes: String,
+        },
+      ],
+
+      // API endpoints created
+      apiEndpoints: [
+        {
+          method: String,
+          path: String,
+          description: String,
+          requestExample: String,
+          responseExample: String,
+        },
+      ],
+    },
+
+    // Quality Metrics
+    qualityMetrics: {
+      codeQuality: {
+        score: Number, // 0-100
+        complexity: Number,
+        maintainability: Number,
+        readability: Number,
+      },
+
+      testCoverage: {
+        percentage: Number,
+        totalTests: Number,
+        passingTests: Number,
+        failingTests: Number,
+      },
+
+      performance: {
+        executionTime: Number, // ms
+        memoryUsage: Number, // MB
+        optimizationScore: Number,
+      },
+
+      security: {
+        vulnerabilities: Number,
+        securityScore: Number,
+        issues: [String],
+      },
+
+      bestPractices: {
+        score: Number,
+        violations: [String],
+        suggestions: [String],
+      },
+    },
+
+    // Validation & Review
+    validation: {
+      automated: {
+        passed: Boolean,
+        tests: [
+          {
+            name: String,
+            passed: Boolean,
+            message: String,
+          },
+        ],
+      },
+
+      humanReview: {
+        required: {
+          type: Boolean,
+          default: true,
+        },
+        reviewedBy: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: 'User',
+        },
+        reviewedAt: Date,
+        approved: Boolean,
+        feedback: String,
+        changesRequested: [String],
+      },
+
+      peerReview: {
+        reviewedByAgent: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: 'AutomationAgent',
+        },
+        reviewedAt: Date,
+        score: Number,
+        suggestions: [String],
+      },
+    },
+
+    // Learning Data
+    learningData: {
+      patternsUsed: [String],
+      techniquesApplied: [String],
+      challengesFaced: [String],
+      solutionsFound: [String],
+      improvementAreas: [String],
+    },
+
+    // Feedback & Iteration
+    iterations: [
+      {
+        iterationNumber: Number,
+        reason: String,
+        changes: [String],
+        timestamp: Date,
+        qualityImprovement: Number,
+      },
+    ],
+
+    feedback: [
+      {
+        source: {
+          type: String,
+          enum: ['human', 'agent', 'automated', 'system'],
+        },
+        feedbackType: {
+          type: String,
+          enum: ['positive', 'negative', 'suggestion', 'question'],
+        },
+        content: String,
+        rating: Number, // 1-5
+        timestamp: Date,
+      },
+    ],
+
+    // Related Items
+    relatedProject: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Project',
+    },
+
+    relatedTasks: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'AutomationTask',
+      },
+    ],
+
+    // Execution Logs
+    logs: [
+      {
+        timestamp: Date,
+        level: {
+          type: String,
+          enum: ['debug', 'info', 'warning', 'error'],
+        },
+        phase: String,
+        message: String,
+        details: mongoose.Schema.Types.Mixed,
+      },
+    ],
+
+    // Error Tracking
+    errors: [
+      {
+        timestamp: Date,
+        phase: String,
+        errorType: String,
+        errorMessage: String,
+        stackTrace: String,
+        resolution: String,
+        resolved: Boolean,
+      },
+    ],
+
+    // Metadata
+    createdBy: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User',
+      required: true,
+    },
+    tags: [String],
+    isArchived: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  {
+    timestamps: true,
+  }
+);
+
+// Indexes
+automationTaskSchema.index({ status: 1, priority: 1, createdAt: -1 });
+automationTaskSchema.index({ assignedAgent: 1, status: 1 });
+automationTaskSchema.index({ taskType: 1, complexity: 1 });
+automationTaskSchema.index({ 'timeline.completedAt': -1 });
+
+// Virtuals
+
+// Check if overdue
+automationTaskSchema.virtual('isOverdue').get(function () {
+  if (this.status === 'completed' || !this.timeline.estimatedDuration) return false;
+  const elapsed = Date.now() - this.timeline.startedAt;
+  return elapsed > this.timeline.estimatedDuration * 60 * 1000;
+});
+
+// Calculate actual duration
+automationTaskSchema.virtual('duration').get(function () {
+  if (!this.timeline.startedAt) return 0;
+  const endTime = this.timeline.completedAt || new Date();
+  return Math.round((endTime - this.timeline.startedAt) / (1000 * 60)); // minutes
+});
+
+// Static methods
+
+// Get pending tasks
+automationTaskSchema.statics.getPendingTasks = async function (filters = {}) {
+  const query = { status: 'pending', isArchived: false, ...filters };
+  return this.find(query)
+    .sort({ priority: -1, createdAt: 1 })
+    .populate('createdBy', 'firstName lastName');
+};
+
+// Get tasks by status
+automationTaskSchema.statics.getByStatus = async function (status) {
+  return this.find({ status, isArchived: false })
+    .populate('assignedAgent')
+    .populate('createdBy', 'firstName lastName')
+    .sort({ priority: -1, createdAt: -1 });
+};
+
+// Get tasks by agent
+automationTaskSchema.statics.getByAgent = async function (agentId, status = null) {
+  const query = { assignedAgent: agentId, isArchived: false };
+  if (status) query.status = status;
+
+  return this.find(query).sort({ createdAt: -1 });
+};
+
+// Get completed tasks for learning
+automationTaskSchema.statics.getForLearning = async function (limit = 100) {
+  return this.find({
+    status: 'completed',
+    'qualityMetrics.codeQuality.score': { $gte: 70 },
+  })
+    .sort({ 'qualityMetrics.codeQuality.score': -1 })
+    .limit(limit);
+};
+
+// Get task statistics
+automationTaskSchema.statics.getStatistics = async function (filters = {}) {
+  const matchStage = { isArchived: false, ...filters };
+
+  const stats = await this.aggregate([
+    { $match: matchStage },
+    {
+      $group: {
+        _id: '$status',
+        count: { $sum: 1 },
+        avgDuration: { $avg: '$timeline.actualDuration' },
+        avgQuality: { $avg: '$qualityMetrics.codeQuality.score' },
+      },
+    },
+  ]);
+
+  const complexityBreakdown = await this.aggregate([
+    { $match: matchStage },
+    {
+      $group: {
+        _id: '$complexity',
+        count: { $sum: 1 },
+      },
+    },
+  ]);
+
+  return {
+    byStatus: stats,
+    byComplexity: complexityBreakdown,
+  };
+};
+
+// Instance methods
+
+// Assign to agent
+automationTaskSchema.methods.assignToAgent = async function (agentId) {
+  if (this.status !== 'pending' && this.status !== 'blocked') {
+    throw new Error('Task cannot be assigned in current status');
+  }
+
+  this.assignedAgent = agentId;
+  this.assignedAt = new Date();
+  this.timeline.assignedAt = new Date();
+  this.status = 'analyzing';
+
+  return this.save();
+};
+
+// Start execution
+automationTaskSchema.methods.startExecution = async function () {
+  this.status = 'implementing';
+  this.timeline.startedAt = new Date();
+  return this.save();
+};
+
+// Update progress
+automationTaskSchema.methods.updateProgress = async function (percentage, currentPhase) {
+  this.progress.percentage = percentage;
+  this.progress.currentPhase = currentPhase;
+  return this.save();
+};
+
+// Add log entry
+automationTaskSchema.methods.addLog = function (level, phase, message, details = null) {
+  this.logs.push({
+    timestamp: new Date(),
+    level,
+    phase,
+    message,
+    details,
+  });
+  return this.save();
+};
+
+// Record error
+automationTaskSchema.methods.recordError = function (phase, errorType, errorMessage, stackTrace) {
+  this.errors.push({
+    timestamp: new Date(),
+    phase,
+    errorType,
+    errorMessage,
+    stackTrace,
+    resolved: false,
+  });
+  return this.save();
+};
+
+// Complete task
+automationTaskSchema.methods.completeTask = async function () {
+  this.status = 'completed';
+  this.progress.percentage = 100;
+  this.timeline.completedAt = new Date();
+
+  if (this.timeline.startedAt) {
+    this.timeline.actualDuration = Math.round(
+      (Date.now() - this.timeline.startedAt.getTime()) / (1000 * 60)
+    );
+  }
+
+  return this.save();
+};
+
+// Fail task
+automationTaskSchema.methods.failTask = async function (reason) {
+  this.status = 'failed';
+  this.addLog('error', 'completion', `Task failed: ${reason}`);
+  return this.save();
+};
+
+// Add iteration
+automationTaskSchema.methods.addIteration = function (reason, changes) {
+  const iterationNumber = this.iterations.length + 1;
+  this.iterations.push({
+    iterationNumber,
+    reason,
+    changes,
+    timestamp: new Date(),
+  });
+  this.status = 'refining';
+  return this.save();
+};
+
+// Pre-save middleware
+automationTaskSchema.pre('save', function (next) {
+  // Set initial timeline
+  if (this.isNew && !this.timeline.createdAt) {
+    this.timeline.createdAt = new Date();
+  }
+
+  next();
+});
+
+module.exports = mongoose.model('AutomationTask', automationTaskSchema);

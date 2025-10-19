@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-1.2",
+  "taskId": "TASK-1.2",
+  "moduleId": "1",
+  "moduleName": "Authentication & DevOps",
+  "title": "Login with JWT",
+  "description": "Access/refresh tokens, secure sessions.",
+  "storyPoints": 5,
+  "estimatedHours": null,
+  "priority": "High",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-001",
+  "sprintNumber": 1,
+  "dependencies": [],
+  "tags": [],
+  "tech": "JWT, bcrypt, HTTP-only cookies",
+  "acceptanceCriteria": "Login -> JWT issued -> Protected routes -> Refresh",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-12T15:47:27.644Z",
+  "completedAt": "2025-10-14T02:44:50.896Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:44:50.896Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

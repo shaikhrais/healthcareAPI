@@ -1,0 +1,93 @@
+const MailchimpAutomation = require('../models/MailchimpAutomation');
+
+// Helper: Get organization ID from headers
+const getOrgId = (req) => req.headers['x-organization-id'];
+
+const mailchimpController = {
+  connect: async (req, res) => {
+    // ...business logic from /connect route...
+  },
+  disconnect: async (req, res) => {
+    // ...business logic from /disconnect route...
+  },
+  getConnection: async (req, res) => {
+    // ...business logic from /connection route...
+  },
+  getLists: async (req, res) => {
+    // ...business logic from /lists GET route...
+  },
+  addOrUpdateList: async (req, res) => {
+    // ...business logic from /lists POST route...
+  },
+  getCampaigns: async (req, res) => {
+    // ...business logic from /campaigns GET route...
+  },
+  getCampaignById: async (req, res) => {
+    // ...business logic from /campaigns/:campaignId GET route...
+  },
+  addOrUpdateCampaign: async (req, res) => {
+    // ...business logic from /campaigns POST route...
+  },
+  updateCampaignStats: async (req, res) => {
+    // ...business logic from /campaigns/:campaignId/stats PUT route...
+  },
+  getAutomations: async (req, res) => {
+    // ...business logic from /automations GET route...
+  },
+  getAutomationById: async (req, res) => {
+    // ...business logic from /automations/:automationId GET route...
+  },
+  addOrUpdateAutomation: async (req, res) => {
+    // ...business logic from /automations POST route...
+  },
+  updateAutomationStats: async (req, res) => {
+    // ...business logic from /automations/:automationId/stats PUT route...
+  },
+  getMembers: async (req, res) => {
+    // ...business logic from /members GET route...
+  },
+  addOrUpdateMember: async (req, res) => {
+    // ...business logic from /members POST route...
+  },
+  addTagToMember: async (req, res) => {
+    // ...business logic from /members/:email/tags POST route...
+  },
+  removeTagFromMember: async (req, res) => {
+    // ...business logic from /members/:email/tags/:tagName DELETE route...
+  },
+  getTags: async (req, res) => {
+    // ...business logic from /tags GET route...
+  },
+  createTag: async (req, res) => {
+    // ...business logic from /tags POST route...
+  },
+  getSegments: async (req, res) => {
+    // ...business logic from /segments GET route...
+  },
+  createSegment: async (req, res) => {
+    // ...business logic from /segments POST route...
+  },
+  getWebhooks: async (req, res) => {
+    // ...business logic from /webhooks GET route...
+  },
+  createWebhook: async (req, res) => {
+    // ...business logic from /webhooks POST route...
+  },
+  deleteWebhook: async (req, res) => {
+    // ...business logic from /webhooks/:webhookId DELETE route...
+  },
+  webhookEvents: async (req, res) => {
+    // ...business logic from /webhook/events POST route...
+  },
+  getConfig: async (req, res) => {
+    // ...business logic from /config GET route...
+  },
+  updateConfig: async (req, res) => {
+    // ...business logic from /config PUT route...
+  },
+  getStats: async (req, res) => {
+    // ...business logic from /stats GET route...
+  },
+};
+
+module.exports = mailchimpController;

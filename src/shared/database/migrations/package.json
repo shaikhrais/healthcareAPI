@@ -1,0 +1,23 @@
+{
+  "name": "expojane-migrations",
+  "version": "1.0.0",
+  "description": "Data migration system for ExpoJane",
+  "main": "migrate.js",
+  "scripts": {
+    "migrate:up": "node migrate.js up",
+    "migrate:down": "node migrate.js down",
+    "migrate:down:all": "node migrate.js down --all",
+    "migrate:status": "node migrate.js status",
+    "migrate:list": "node migrate.js list",
+    "migrate:history": "node migrate.js history",
+    "migrate:create": "node migrate.js create"
+  },
+  "keywords": [
+    "migration",
+    "database",
+    "mongodb",
+    "mongoose"
+  ],
+  "author": "CloneJane Dev Team",
+  "license": "MIT"
+}

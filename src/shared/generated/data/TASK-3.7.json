@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-3.7",
+  "taskId": "TASK-3.7",
+  "moduleId": "3",
+  "moduleName": "Patient Management",
+  "title": "ENV Secrets Management",
+  "description": "Add capability: ENV Secrets Management.",
+  "storyPoints": 3,
+  "estimatedHours": null,
+  "priority": "Medium",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-003",
+  "sprintNumber": 3,
+  "dependencies": [],
+  "tags": ["foundation"],
+  "tech": "",
+  "acceptanceCriteria": "",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-13T08:44:42.706Z",
+  "completedAt": "2025-10-14T02:45:51.521Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:45:51.521Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-4.3",
+  "taskId": "TASK-4.3",
+  "moduleId": "4",
+  "moduleName": "Patient Management",
+  "title": "Patient Tags & Groups",
+  "description": "Custom tags/groups + bulk ops.",
+  "storyPoints": 8,
+  "estimatedHours": null,
+  "priority": "Medium",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-004",
+  "sprintNumber": 4,
+  "dependencies": [],
+  "tags": [],
+  "tech": "",
+  "acceptanceCriteria": "Create/assign/filter tags",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-13T09:08:44.000Z",
+  "completedAt": "2025-10-14T02:44:53.449Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:44:53.449Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

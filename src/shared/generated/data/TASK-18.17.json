@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-18.17",
+  "taskId": "TASK-18.17",
+  "moduleId": "18",
+  "moduleName": "Launch",
+  "title": "Beta Feedback Sweep",
+  "description": "Incorporate last beta issues.",
+  "storyPoints": 5,
+  "estimatedHours": null,
+  "priority": "Medium",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-018",
+  "sprintNumber": 18,
+  "dependencies": [],
+  "tags": ["launch"],
+  "tech": "",
+  "acceptanceCriteria": "",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-13T07:15:31.223Z",
+  "completedAt": "2025-10-14T02:45:50.056Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:45:50.056Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

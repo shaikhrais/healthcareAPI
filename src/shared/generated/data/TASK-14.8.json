@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-14.8",
+  "taskId": "TASK-14.8",
+  "moduleId": "14",
+  "moduleName": "Mobile",
+  "title": "App badge counts",
+  "description": "Implements: App badge counts.",
+  "storyPoints": 8,
+  "estimatedHours": null,
+  "priority": "Medium",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-014",
+  "sprintNumber": 14,
+  "dependencies": [],
+  "tags": ["mobile"],
+  "tech": "",
+  "acceptanceCriteria": "",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-13T02:33:46.636Z",
+  "completedAt": "2025-10-14T02:45:40.957Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:45:40.957Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

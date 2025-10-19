@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-16.11",
+  "taskId": "TASK-16.11",
+  "moduleId": "16",
+  "moduleName": "Integrations",
+  "title": "Bulk operations API",
+  "description": "Implements: Bulk operations API.",
+  "storyPoints": 8,
+  "estimatedHours": null,
+  "priority": "Medium",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-016",
+  "sprintNumber": 16,
+  "dependencies": [],
+  "tags": ["integrations"],
+  "tech": "",
+  "acceptanceCriteria": "",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-13T04:13:49.207Z",
+  "completedAt": "2025-10-14T02:45:46.806Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:45:46.806Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-4.7",
+  "taskId": "TASK-4.7",
+  "moduleId": "4",
+  "moduleName": "Patient Management",
+  "title": "Local Dev DX Improvements",
+  "description": "Add capability: Local Dev DX Improvements.",
+  "storyPoints": 3,
+  "estimatedHours": null,
+  "priority": "Medium",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-004",
+  "sprintNumber": 4,
+  "dependencies": [],
+  "tags": ["foundation"],
+  "tech": "",
+  "acceptanceCriteria": "",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-13T09:26:43.085Z",
+  "completedAt": "2025-10-14T02:45:51.687Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:45:51.687Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

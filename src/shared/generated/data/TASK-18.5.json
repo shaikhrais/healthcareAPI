@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-18.5",
+  "taskId": "TASK-18.5",
+  "moduleId": "18",
+  "moduleName": "Launch",
+  "title": "Security Hardening",
+  "description": "Firewall/WAF/DDoS/IDS.",
+  "storyPoints": 9,
+  "estimatedHours": null,
+  "priority": "High",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-018",
+  "sprintNumber": 18,
+  "dependencies": [],
+  "tags": [],
+  "tech": "",
+  "acceptanceCriteria": "",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-12T15:47:27.644Z",
+  "completedAt": "2025-10-14T02:45:05.546Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:45:05.546Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

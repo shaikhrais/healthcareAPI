@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-3.9",
+  "taskId": "TASK-3.9",
+  "moduleId": "3",
+  "moduleName": "Patient Management",
+  "title": "Search Query Parser",
+  "description": "Add capability: Search Query Parser.",
+  "storyPoints": 3,
+  "estimatedHours": null,
+  "priority": "Medium",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-003",
+  "sprintNumber": 3,
+  "dependencies": [],
+  "tags": ["foundation"],
+  "tech": "",
+  "acceptanceCriteria": "",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-13T08:56:34.227Z",
+  "completedAt": "2025-10-14T02:45:52.824Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:45:52.824Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

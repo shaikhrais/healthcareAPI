@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-13.7",
+  "taskId": "TASK-13.7",
+  "moduleId": "13",
+  "moduleName": "Mobile",
+  "title": "Saved payment methods",
+  "description": "Implements: Saved payment methods.",
+  "storyPoints": 8,
+  "estimatedHours": null,
+  "priority": "Medium",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-013",
+  "sprintNumber": 13,
+  "dependencies": [],
+  "tags": ["mobile"],
+  "tech": "",
+  "acceptanceCriteria": "",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-13T00:13:46.794Z",
+  "completedAt": "2025-10-14T02:45:37.755Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:45:37.755Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-1.10",
+  "taskId": "TASK-1.10",
+  "moduleId": "1",
+  "moduleName": "Authentication & DevOps",
+  "title": "Data Migration Scaffolding",
+  "description": "Add capability: Data Migration Scaffolding.",
+  "storyPoints": 3,
+  "estimatedHours": null,
+  "priority": "Medium",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-001",
+  "sprintNumber": 1,
+  "dependencies": [],
+  "tags": ["foundation"],
+  "tech": "",
+  "acceptanceCriteria": "",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-12T16:02:01.760Z",
+  "completedAt": "2025-10-14T02:45:53.155Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:45:53.155Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

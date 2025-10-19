@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-2.4",
+  "taskId": "TASK-2.4",
+  "moduleId": "2",
+  "moduleName": "User Management & RBAC",
+  "title": "Two-Factor Auth (TOTP)",
+  "description": "Enable/verify 2FA with TOTP.",
+  "storyPoints": 8,
+  "estimatedHours": null,
+  "priority": "High",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-002",
+  "sprintNumber": 2,
+  "dependencies": [],
+  "tags": [],
+  "tech": "Speakeasy, QR codes",
+  "acceptanceCriteria": "Enable -> Scan -> Code -> Required at login",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-12T15:47:27.644Z",
+  "completedAt": "2025-10-14T02:44:52.028Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:44:52.028Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

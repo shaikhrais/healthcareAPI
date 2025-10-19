@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-12.15",
+  "taskId": "TASK-12.15",
+  "moduleId": "12",
+  "moduleName": "Analytics & Reporting",
+  "title": "Booking conversion funnel",
+  "description": "Implements: Booking conversion funnel.",
+  "storyPoints": 8,
+  "estimatedHours": null,
+  "priority": "Medium",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-012",
+  "sprintNumber": 12,
+  "dependencies": [],
+  "tags": ["analytics-&-reporting"],
+  "tech": "",
+  "acceptanceCriteria": "",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-12T21:17:08.018Z",
+  "completedAt": "2025-10-14T02:45:36.308Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:45:36.308Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

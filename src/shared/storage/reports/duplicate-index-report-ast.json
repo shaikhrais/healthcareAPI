@@ -1,0 +1,1419 @@
+{
+  "generatedAt": "2025-10-14T13:29:07.301Z",
+  "groups": [
+    {
+      "fields": {
+        "flagged": 1
+      },
+      "occurrences": [
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\AccessLog.js",
+          "fields": {
+            "flagged": 1
+          },
+          "options": {},
+          "normalized": "{\"flagged\":1}"
+        },
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\NPSScore.js",
+          "fields": {
+            "flagged": 1
+          },
+          "options": {},
+          "normalized": "{\"flagged\":1}"
+        }
+      ]
+    },
+    {
+      "fields": {
+        "createdAt": null
+      },
+      "occurrences": [
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\AccessLog.js",
+          "fields": {
+            "createdAt": null
+          },
+          "options": {},
+          "normalized": "{\"createdAt\":null}"
+        },
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\Claim.js",
+          "fields": {
+            "createdAt": null
+          },
+          "options": {},
+          "normalized": "{\"createdAt\":null}"
+        },
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\DeepLink.js",
+          "fields": {
+            "createdAt": null
+          },
+          "options": {},
+          "normalized": "{\"createdAt\":null}"
+        },
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\IpBlock.js",
+          "fields": {
+            "createdAt": null
+          },
+          "options": {},
+          "normalized": "{\"createdAt\":null}"
+        },
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\PatientResponsibilityEstimate.js",
+          "fields": {
+            "createdAt": null
+          },
+          "options": {},
+          "normalized": "{\"createdAt\":null}"
+        },
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\Payment.js",
+          "fields": {
+            "createdAt": null
+          },
+          "options": {},
+          "normalized": "{\"createdAt\":null}"
+        },
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\PriorAuthorization.js",
+          "fields": {
+            "createdAt": null
+          },
+          "options": {},
+          "normalized": "{\"createdAt\":null}"
+        },
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\Referral.js",
+          "fields": {
+            "createdAt": null
+          },
+          "options": {},
+          "normalized": "{\"createdAt\":null}"
+        }
+      ]
+    },
+    {
+      "fields": {
+        "createdAt": 1
+      },
+      "occurrences": [
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\AccessLog.js",
+          "fields": {
+            "createdAt": 1
+          },
+          "options": {
+            "expireAfterSeconds": 7776000
+          },
+          "normalized": "{\"createdAt\":1}"
+        },
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\BadDebt.js",
+          "fields": {
+            "createdAt": 1
+          },
+          "options": {},
+          "normalized": "{\"createdAt\":1}"
+        }
+      ]
+    },
+    {
+      "fields": {
+        "assignedTo": 1,
+        "status": 1
+      },
+      "occurrences": [
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\Anomaly.js",
+          "fields": {
+            "assignedTo": 1,
+            "status": 1
+          },
+          "options": {},
+          "normalized": "{\"assignedTo\":1,\"status\":1}"
+        },
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\BadDebt.js",
+          "fields": {
+            "assignedTo": 1,
+            "status": 1
+          },
+          "options": {},
+          "normalized": "{\"assignedTo\":1,\"status\":1}"
+        },
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\DevelopmentTask.js",
+          "fields": {
+            "assignedTo": 1,
+            "status": 1
+          },
+          "options": {},
+          "normalized": "{\"assignedTo\":1,\"status\":1}"
+        }
+      ]
+    },
+    {
+      "fields": {
+        "isDeleted": 1,
+        "organization": 1
+      },
+      "occurrences": [
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\ApiRateLimiting.js",
+          "fields": {
+            "organization": 1,
+            "isDeleted": 1
+          },
+          "options": {},
+          "normalized": "{\"isDeleted\":1,\"organization\":1}"
+        },
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\DataImportWizard.js",
+          "fields": {
+            "organization": 1,
+            "isDeleted": 1
+          },
+          "options": {},
+          "normalized": "{\"isDeleted\":1,\"organization\":1}"
+        },
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\IntegrationMarketplace.js",
+          "fields": {
+            "organization": 1,
+            "isDeleted": 1
+          },
+          "options": {},
+          "normalized": "{\"isDeleted\":1,\"organization\":1}"
+        },
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\OpenApiDocs.js",
+          "fields": {
+            "organization": 1,
+            "isDeleted": 1
+          },
+          "options": {},
+          "normalized": "{\"isDeleted\":1,\"organization\":1}"
+        },
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\PaymentGateway.js",
+          "fields": {
+            "organization": 1,
+            "isDeleted": 1
+          },
+          "options": {},
+          "normalized": "{\"isDeleted\":1,\"organization\":1}"
+        }
+      ]
+    },
+    {
+      "fields": {
+        "patient": 1,
+        "status": 1
+      },
+      "occurrences": [
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\AssistanceApplication.js",
+          "fields": {
+            "patient": 1,
+            "status": 1
+          },
+          "options": {},
+          "normalized": "{\"patient\":1,\"status\":1}"
+        },
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\BadDebt.js",
+          "fields": {
+            "patient": 1,
+            "status": 1
+          },
+          "options": {},
+          "normalized": "{\"patient\":1,\"status\":1}"
+        },
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\PatientResponsibilityEstimate.js",
+          "fields": {
+            "patient": 1,
+            "status": 1
+          },
+          "options": {},
+          "normalized": "{\"patient\":1,\"status\":1}"
+        },
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\PaymentPlan.js",
+          "fields": {
+            "patient": 1,
+            "status": 1
+          },
+          "options": {},
+          "normalized": "{\"patient\":1,\"status\":1}"
+        },
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\PriorAuthorization.js",
+          "fields": {
+            "patient": 1,
+            "status": 1
+          },
+          "options": {},
+          "normalized": "{\"patient\":1,\"status\":1}"
+        },
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\Waitlist.js",
+          "fields": {
+            "patient": 1,
+            "status": 1
+          },
+          "options": {},
+          "normalized": "{\"patient\":1,\"status\":1}"
+        }
+      ]
+    },
+    {
+      "fields": {
+        "createdAt": null,
+        "status": 1
+      },
+      "occurrences": [
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\AutomationWorkflow.js",
+          "fields": {
+            "status": 1,
+            "createdAt": null
+          },
+          "options": {},
+          "normalized": "{\"createdAt\":null,\"status\":1}"
+        },
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\ClaimAttachment.js",
+          "fields": {
+            "status": 1,
+            "createdAt": null
+          },
+          "options": {},
+          "normalized": "{\"createdAt\":null,\"status\":1}"
+        },
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\ClinicalNote.js",
+          "fields": {
+            "status": 1,
+            "createdAt": null
+          },
+          "options": {},
+          "normalized": "{\"createdAt\":null,\"status\":1}"
+        },
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\COBRecord.js",
+          "fields": {
+            "status": 1,
+            "createdAt": null
+          },
+          "options": {},
+          "normalized": "{\"createdAt\":null,\"status\":1}"
+        },
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\ExportJob.js",
+          "fields": {
+            "status": 1,
+            "createdAt": null
+          },
+          "options": {},
+          "normalized": "{\"createdAt\":null,\"status\":1}"
+        },
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\Payment.js",
+          "fields": {
+            "status": 1,
+            "createdAt": null
+          },
+          "options": {},
+          "normalized": "{\"createdAt\":null,\"status\":1}"
+        },
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\TwilioMessage.js",
+          "fields": {
+            "status": 1,
+            "createdAt": null
+          },
+          "options": {},
+          "normalized": "{\"createdAt\":null,\"status\":1}"
+        }
+      ]
+    },
+    {
+      "fields": {
+        "createdBy": 1,
+        "status": 1
+      },
+      "occurrences": [
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\AutomationWorkflow.js",
+          "fields": {
+            "createdBy": 1,
+            "status": 1
+          },
+          "options": {},
+          "normalized": "{\"createdBy\":1,\"status\":1}"
+        },
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\NoteTemplate.js",
+          "fields": {
+            "createdBy": 1,
+            "status": 1
+          },
+          "options": {},
+          "normalized": "{\"createdBy\":1,\"status\":1}"
+        }
+      ]
+    },
+    {
+      "fields": {
+        "priority": 1,
+        "status": 1
+      },
+      "occurrences": [
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\BadDebt.js",
+          "fields": {
+            "status": 1,
+            "priority": 1
+          },
+          "options": {},
+          "normalized": "{\"priority\":1,\"status\":1}"
+        },
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\DevelopmentTask.js",
+          "fields": {
+            "priority": 1,
+            "status": 1
+          },
+          "options": {},
+          "normalized": "{\"priority\":1,\"status\":1}"
+        },
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\PriorAuthorization.js",
+          "fields": {
+            "priority": 1,
+            "status": 1
+          },
+          "options": {},
+          "normalized": "{\"priority\":1,\"status\":1}"
+        }
+      ]
+    },
+    {
+      "fields": {
+        "devices.deviceId": 1
+      },
+      "occurrences": [
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\BadgeCount.js",
+          "fields": {
+            "devices.deviceId": 1
+          },
+          "options": {},
+          "normalized": "{\"devices.deviceId\":1}"
+        },
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\NotificationPreferences.js",
+          "fields": {
+            "devices.deviceId": 1
+          },
+          "options": {},
+          "normalized": "{\"devices.deviceId\":1}"
+        }
+      ]
+    },
+    {
+      "fields": {
+        "patient": 1,
+        "predictionDate": null
+      },
+      "occurrences": [
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\ChurnPrediction.js",
+          "fields": {
+            "patient": 1,
+            "predictionDate": null
+          },
+          "options": {},
+          "normalized": "{\"patient\":1,\"predictionDate\":null}"
+        },
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\NoShowPrediction.js",
+          "fields": {
+            "patient": 1,
+            "predictionDate": null
+          },
+          "options": {},
+          "normalized": "{\"patient\":1,\"predictionDate\":null}"
+        }
+      ]
+    },
+    {
+      "fields": {
+        "insurance.payerId": 1
+      },
+      "occurrences": [
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\Claim.js",
+          "fields": {
+            "insurance.payerId": 1
+          },
+          "options": {},
+          "normalized": "{\"insurance.payerId\":1}"
+        },
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\PatientResponsibilityEstimate.js",
+          "fields": {
+            "insurance.payerId": 1
+          },
+          "options": {},
+          "normalized": "{\"insurance.payerId\":1}"
+        }
+      ]
+    },
+    {
+      "fields": {
+        "createdAt": null,
+        "uploadedBy": 1
+      },
+      "occurrences": [
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\ClaimAttachment.js",
+          "fields": {
+            "uploadedBy": 1,
+            "createdAt": null
+          },
+          "options": {},
+          "normalized": "{\"createdAt\":null,\"uploadedBy\":1}"
+        },
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\Document.js",
+          "fields": {
+            "uploadedBy": 1,
+            "createdAt": null
+          },
+          "options": {},
+          "normalized": "{\"createdAt\":null,\"uploadedBy\":1}"
+        }
+      ]
+    },
+    {
+      "fields": {
+        "createdAt": null,
+        "patientId": 1
+      },
+      "occurrences": [
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\ClinicalNote.js",
+          "fields": {
+            "patientId": 1,
+            "createdAt": null
+          },
+          "options": {},
+          "normalized": "{\"createdAt\":null,\"patientId\":1}"
+        },
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\ESignature.js",
+          "fields": {
+            "patientId": 1,
+            "createdAt": null
+          },
+          "options": {},
+          "normalized": "{\"createdAt\":null,\"patientId\":1}"
+        }
+      ]
+    },
+    {
+      "fields": {
+        "expiresAt": 1
+      },
+      "occurrences": [
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\DeepLink.js",
+          "fields": {
+            "expiresAt": 1
+          },
+          "options": {},
+          "normalized": "{\"expiresAt\":1}"
+        },
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\ExportJob.js",
+          "fields": {
+            "expiresAt": 1
+          },
+          "options": {
+            "expireAfterSeconds": 0
+          },
+          "normalized": "{\"expiresAt\":1}"
+        },
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\Notification.js",
+          "fields": {
+            "expiresAt": 1
+          },
+          "options": {
+            "expireAfterSeconds": 0
+          },
+          "normalized": "{\"expiresAt\":1}"
+        },
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\Referral.js",
+          "fields": {
+            "expiresAt": 1
+          },
+          "options": {
+            "expireAfterSeconds": 0
+          },
+          "normalized": "{\"expiresAt\":1}"
+        },
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\RichNotification.js",
+          "fields": {
+            "expiresAt": 1
+          },
+          "options": {},
+          "normalized": "{\"expiresAt\":1}"
+        },
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\Session.js",
+          "fields": {
+            "expiresAt": 1
+          },
+          "options": {
+            "expireAfterSeconds": 0
+          },
+          "normalized": "{\"expiresAt\":1}"
+        }
+      ]
+    },
+    {
+      "fields": {
+        "expiresAt": 1,
+        "status": 1
+      },
+      "occurrences": [
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\DeepLink.js",
+          "fields": {
+            "status": 1,
+            "expiresAt": 1
+          },
+          "options": {},
+          "normalized": "{\"expiresAt\":1,\"status\":1}"
+        },
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\ESignature.js",
+          "fields": {
+            "status": 1,
+            "expiresAt": 1
+          },
+          "options": {},
+          "normalized": "{\"expiresAt\":1,\"status\":1}"
+        },
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\IpBlock.js",
+          "fields": {
+            "status": 1,
+            "expiresAt": 1
+          },
+          "options": {},
+          "normalized": "{\"expiresAt\":1,\"status\":1}"
+        }
+      ]
+    },
+    {
+      "fields": {
+        "patientId": 1,
+        "status": 1
+      },
+      "occurrences": [
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\Document.js",
+          "fields": {
+            "patientId": 1,
+            "status": 1
+          },
+          "options": {},
+          "normalized": "{\"patientId\":1,\"status\":1}"
+        },
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\InsuranceCard.js",
+          "fields": {
+            "patientId": 1,
+            "status": 1
+          },
+          "options": {},
+          "normalized": "{\"patientId\":1,\"status\":1}"
+        }
+      ]
+    },
+    {
+      "fields": {
+        "organization": 1,
+        "status": 1
+      },
+      "occurrences": [
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\Document.js",
+          "fields": {
+            "organization": 1,
+            "status": 1
+          },
+          "options": {},
+          "normalized": "{\"organization\":1,\"status\":1}"
+        },
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\EmailDigest.js",
+          "fields": {
+            "organization": 1,
+            "status": 1
+          },
+          "options": {},
+          "normalized": "{\"organization\":1,\"status\":1}"
+        },
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\ESignature.js",
+          "fields": {
+            "organization": 1,
+            "status": 1
+          },
+          "options": {},
+          "normalized": "{\"organization\":1,\"status\":1}"
+        },
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\FamilyMember.js",
+          "fields": {
+            "organization": 1,
+            "status": 1
+          },
+          "options": {},
+          "normalized": "{\"organization\":1,\"status\":1}"
+        },
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\MailchimpAutomation.js",
+          "fields": {
+            "organization": 1,
+            "status": 1
+          },
+          "options": {},
+          "normalized": "{\"organization\":1,\"status\":1}"
+        },
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\PatientSurvey.js",
+          "fields": {
+            "organization": 1,
+            "status": 1
+          },
+          "options": {},
+          "normalized": "{\"organization\":1,\"status\":1}"
+        },
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\Referral.js",
+          "fields": {
+            "organization": 1,
+            "status": 1
+          },
+          "options": {},
+          "normalized": "{\"organization\":1,\"status\":1}"
+        },
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\SlackNotification.js",
+          "fields": {
+            "organization": 1,
+            "status": 1
+          },
+          "options": {},
+          "normalized": "{\"organization\":1,\"status\":1}"
+        },
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\SurveyResponse.js",
+          "fields": {
+            "organization": 1,
+            "status": 1
+          },
+          "options": {},
+          "normalized": "{\"organization\":1,\"status\":1}"
+        },
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\TeamsIntegration.js",
+          "fields": {
+            "organization": 1,
+            "status": 1
+          },
+          "options": {},
+          "normalized": "{\"organization\":1,\"status\":1}"
+        }
+      ]
+    },
+    {
+      "fields": {
+        "tags": 1
+      },
+      "occurrences": [
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\Document.js",
+          "fields": {
+            "tags": 1
+          },
+          "options": {},
+          "normalized": "{\"tags\":1}"
+        },
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\Project.js",
+          "fields": {
+            "tags": 1
+          },
+          "options": {},
+          "normalized": "{\"tags\":1}"
+        },
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\TestChecklist.js",
+          "fields": {
+            "tags": 1
+          },
+          "options": {},
+          "normalized": "{\"tags\":1}"
+        },
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\Translation.js",
+          "fields": {
+            "tags": 1
+          },
+          "options": {},
+          "normalized": "{\"tags\":1}"
+        }
+      ]
+    },
+    {
+      "fields": {
+        "appointment": 1
+      },
+      "occurrences": [
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\DoxyRoom.js",
+          "fields": {
+            "appointment": 1
+          },
+          "options": {},
+          "normalized": "{\"appointment\":1}"
+        },
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\InventoryTransaction.js",
+          "fields": {
+            "appointment": 1
+          },
+          "options": {},
+          "normalized": "{\"appointment\":1}"
+        },
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\NoShowPrediction.js",
+          "fields": {
+            "appointment": 1
+          },
+          "options": {},
+          "normalized": "{\"appointment\":1}"
+        }
+      ]
+    },
+    {
+      "fields": {
+        "createdBy": 1
+      },
+      "occurrences": [
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\EmailDigest.js",
+          "fields": {
+            "createdBy": 1
+          },
+          "options": {},
+          "normalized": "{\"createdBy\":1}"
+        },
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\PatientSurvey.js",
+          "fields": {
+            "createdBy": 1
+          },
+          "options": {},
+          "normalized": "{\"createdBy\":1}"
+        }
+      ]
+    },
+    {
+      "fields": {
+        "appointmentId": 1
+      },
+      "occurrences": [
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\ESignature.js",
+          "fields": {
+            "appointmentId": 1
+          },
+          "options": {},
+          "normalized": "{\"appointmentId\":1}"
+        },
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\SurveyResponse.js",
+          "fields": {
+            "appointmentId": 1
+          },
+          "options": {},
+          "normalized": "{\"appointmentId\":1}"
+        }
+      ]
+    },
+    {
+      "fields": {
+        "patientId": 1
+      },
+      "occurrences": [
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\FamilyMember.js",
+          "fields": {
+            "patientId": 1
+          },
+          "options": {},
+          "normalized": "{\"patientId\":1}"
+        },
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\OnlineReview.js",
+          "fields": {
+            "patientId": 1
+          },
+          "options": {},
+          "normalized": "{\"patientId\":1}"
+        }
+      ]
+    },
+    {
+      "fields": {
+        "name": 1
+      },
+      "occurrences": [
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\InventoryItem.js",
+          "fields": {
+            "name": 1
+          },
+          "options": {},
+          "normalized": "{\"name\":1}"
+        },
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\Treatment.js",
+          "fields": {
+            "name": 1
+          },
+          "options": {},
+          "normalized": "{\"name\":1}"
+        },
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\Vendor.js",
+          "fields": {
+            "name": 1
+          },
+          "options": {},
+          "normalized": "{\"name\":1}"
+        }
+      ]
+    },
+    {
+      "fields": {
+        "active": 1
+      },
+      "occurrences": [
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\InventoryItem.js",
+          "fields": {
+            "active": 1
+          },
+          "options": {},
+          "normalized": "{\"active\":1}"
+        },
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\Treatment.js",
+          "fields": {
+            "active": 1
+          },
+          "options": {},
+          "normalized": "{\"active\":1}"
+        }
+      ]
+    },
+    {
+      "fields": {
+        "calculatedAt": null
+      },
+      "occurrences": [
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\InventoryTurnover.js",
+          "fields": {
+            "calculatedAt": null
+          },
+          "options": {},
+          "normalized": "{\"calculatedAt\":null}"
+        },
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\ServiceLineAnalysis.js",
+          "fields": {
+            "calculatedAt": null
+          },
+          "options": {},
+          "normalized": "{\"calculatedAt\":null}"
+        },
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\VendorPerformance.js",
+          "fields": {
+            "calculatedAt": null
+          },
+          "options": {},
+          "normalized": "{\"calculatedAt\":null}"
+        }
+      ]
+    },
+    {
+      "fields": {
+        "appointmentDate": 1,
+        "riskLevel": 1
+      },
+      "occurrences": [
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\NoShowPrediction.js",
+          "fields": {
+            "riskLevel": 1,
+            "appointmentDate": 1
+          },
+          "options": {},
+          "normalized": "{\"appointmentDate\":1,\"riskLevel\":1}"
+        },
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\NoShowPrediction.js",
+          "fields": {
+            "appointmentDate": 1,
+            "riskLevel": 1
+          },
+          "options": {},
+          "normalized": "{\"appointmentDate\":1,\"riskLevel\":1}"
+        }
+      ]
+    },
+    {
+      "fields": {
+        "createdAt": null,
+        "read": 1,
+        "userId": 1
+      },
+      "occurrences": [
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\Notification.js",
+          "fields": {
+            "userId": 1,
+            "read": 1,
+            "createdAt": null
+          },
+          "options": {},
+          "normalized": "{\"createdAt\":null,\"read\":1,\"userId\":1}"
+        },
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\RichNotification.js",
+          "fields": {
+            "userId": 1,
+            "read": 1,
+            "createdAt": null
+          },
+          "options": {},
+          "normalized": "{\"createdAt\":null,\"read\":1,\"userId\":1}"
+        }
+      ]
+    },
+    {
+      "fields": {
+        "type": 1,
+        "userId": 1
+      },
+      "occurrences": [
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\Notification.js",
+          "fields": {
+            "userId": 1,
+            "type": 1
+          },
+          "options": {},
+          "normalized": "{\"type\":1,\"userId\":1}"
+        },
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\RichNotification.js",
+          "fields": {
+            "userId": 1,
+            "type": 1
+          },
+          "options": {},
+          "normalized": "{\"type\":1,\"userId\":1}"
+        }
+      ]
+    },
+    {
+      "fields": {
+        "status": 1
+      },
+      "occurrences": [
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\PurchaseOrder.js",
+          "fields": {
+            "status": 1
+          },
+          "options": {},
+          "normalized": "{\"status\":1}"
+        },
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\Vendor.js",
+          "fields": {
+            "status": 1
+          },
+          "options": {},
+          "normalized": "{\"status\":1}"
+        }
+      ]
+    },
+    {
+      "fields": {
+        "createdAt": null,
+        "organization": 1
+      },
+      "occurrences": [
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\SendGridEmail.js",
+          "fields": {
+            "organization": 1,
+            "createdAt": null
+          },
+          "options": {},
+          "normalized": "{\"createdAt\":null,\"organization\":1}"
+        },
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\TwilioMessage.js",
+          "fields": {
+            "organization": 1,
+            "createdAt": null
+          },
+          "options": {},
+          "normalized": "{\"createdAt\":null,\"organization\":1}"
+        }
+      ]
+    },
+    {
+      "fields": {
+        "campaign.id": 1,
+        "createdAt": null
+      },
+      "occurrences": [
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\SendGridEmail.js",
+          "fields": {
+            "campaign.id": 1,
+            "createdAt": null
+          },
+          "options": {},
+          "normalized": "{\"campaign.id\":1,\"createdAt\":null}"
+        },
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\TwilioMessage.js",
+          "fields": {
+            "campaign.id": 1,
+            "createdAt": null
+          },
+          "options": {},
+          "normalized": "{\"campaign.id\":1,\"createdAt\":null}"
+        }
+      ]
+    },
+    {
+      "fields": {
+        "scheduling.scheduledFor": 1,
+        "status": 1
+      },
+      "occurrences": [
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\SendGridEmail.js",
+          "fields": {
+            "scheduling.scheduledFor": 1,
+            "status": 1
+          },
+          "options": {},
+          "normalized": "{\"scheduling.scheduledFor\":1,\"status\":1}"
+        },
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\TwilioMessage.js",
+          "fields": {
+            "scheduling.scheduledFor": 1,
+            "status": 1
+          },
+          "options": {},
+          "normalized": "{\"scheduling.scheduledFor\":1,\"status\":1}"
+        }
+      ]
+    },
+    {
+      "fields": {
+        "practitioner": 1,
+        "status": 1
+      },
+      "occurrences": [
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\Shift.js",
+          "fields": {
+            "practitioner": 1,
+            "status": 1
+          },
+          "options": {},
+          "normalized": "{\"practitioner\":1,\"status\":1}"
+        },
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\Waitlist.js",
+          "fields": {
+            "practitioner": 1,
+            "status": 1
+          },
+          "options": {},
+          "normalized": "{\"practitioner\":1,\"status\":1}"
+        }
+      ]
+    },
+    {
+      "fields": {
+        "messages.messageId": 1
+      },
+      "occurrences": [
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\SlackNotification.js",
+          "fields": {
+            "messages.messageId": 1
+          },
+          "options": {},
+          "normalized": "{\"messages.messageId\":1}"
+        },
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\TeamsIntegration.js",
+          "fields": {
+            "messages.messageId": 1
+          },
+          "options": {},
+          "normalized": "{\"messages.messageId\":1}"
+        }
+      ]
+    },
+    {
+      "fields": {
+        "messages.channelId": 1
+      },
+      "occurrences": [
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\SlackNotification.js",
+          "fields": {
+            "messages.channelId": 1
+          },
+          "options": {},
+          "normalized": "{\"messages.channelId\":1}"
+        },
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\TeamsIntegration.js",
+          "fields": {
+            "messages.channelId": 1
+          },
+          "options": {},
+          "normalized": "{\"messages.channelId\":1}"
+        }
+      ]
+    },
+    {
+      "fields": {
+        "messages.sentAt": null
+      },
+      "occurrences": [
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\SlackNotification.js",
+          "fields": {
+            "messages.sentAt": null
+          },
+          "options": {},
+          "normalized": "{\"messages.sentAt\":null}"
+        },
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\TeamsIntegration.js",
+          "fields": {
+            "messages.sentAt": null
+          },
+          "options": {},
+          "normalized": "{\"messages.sentAt\":null}"
+        }
+      ]
+    },
+    {
+      "fields": {
+        "organization": 1
+      },
+      "occurrences": [
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\SocialLoginProvider.js",
+          "fields": {
+            "organization": 1
+          },
+          "options": {},
+          "normalized": "{\"organization\":1}"
+        },
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\Translation.js",
+          "fields": {
+            "organization": 1
+          },
+          "options": {},
+          "normalized": "{\"organization\":1}"
+        }
+      ]
+    },
+    {
+      "fields": {
+        "isActive": 1,
+        "priority": 1
+      },
+      "occurrences": [
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\TeamRole.js",
+          "fields": {
+            "isActive": 1,
+            "priority": 1
+          },
+          "options": {},
+          "normalized": "{\"isActive\":1,\"priority\":1}"
+        },
+        {
+          "type": "schema.index",
+          "file": "c:\\Users\\User\\Projects\\clonejane\\expo-jane\\backend\\models\\TestChecklist.js",
+          "fields": {
+            "priority": 1,
+            "isActive": 1
+          },
+          "options": {},
+          "normalized": "{\"isActive\":1,\"priority\":1}"
+        }
+      ]
+    }
+  ],
+  "totalIndexes": 425
+}

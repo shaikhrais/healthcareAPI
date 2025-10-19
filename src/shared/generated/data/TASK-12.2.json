@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-12.2",
+  "taskId": "TASK-12.2",
+  "moduleId": "12",
+  "moduleName": "Analytics & Reporting",
+  "title": "Data Export",
+  "description": "Excel/CSV/PDF; large sets.",
+  "storyPoints": 8,
+  "estimatedHours": null,
+  "priority": "Medium",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-012",
+  "sprintNumber": 12,
+  "dependencies": [],
+  "tags": [],
+  "tech": "",
+  "acceptanceCriteria": "",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-12T21:46:33.071Z",
+  "completedAt": "2025-10-14T02:44:59.745Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:44:59.745Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

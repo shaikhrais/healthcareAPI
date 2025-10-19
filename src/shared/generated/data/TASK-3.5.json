@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-3.5",
+  "taskId": "TASK-3.5",
+  "moduleId": "3",
+  "moduleName": "Patient Management",
+  "title": "Patient Document Upload",
+  "description": "Upload/categorize docs.",
+  "storyPoints": 8,
+  "estimatedHours": null,
+  "priority": "Medium",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-003",
+  "sprintNumber": 3,
+  "dependencies": [],
+  "tags": [],
+  "tech": "Multer, S3/local",
+  "acceptanceCriteria": "Upload, categorize, preview",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-13T08:32:51.599Z",
+  "completedAt": "2025-10-14T02:44:52.973Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:44:52.973Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

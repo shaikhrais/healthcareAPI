@@ -1,0 +1,2385 @@
+{
+  "timestamp": "2025-10-15T03:12:40.185Z",
+  "configuration": {
+    "scenarios": [
+      "public",
+      "appointments"
+    ],
+    "users": 5,
+    "duration": 30000,
+    "rampUp": 5000
+  },
+  "results": [
+    {
+      "scenario": "Public API Load Test",
+      "configuration": {
+        "users": 5,
+        "duration": 30000,
+        "rampUp": 5000
+      },
+      "results": [
+        {
+          "success": true,
+          "status": 200,
+          "responseTime": 43,
+          "dataSize": 2,
+          "path": "/api/public/practitioners",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 6,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/treatments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 7,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/treatments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 7,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/treatments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 8,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/availability",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 4,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/treatments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 4,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/treatments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 4,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/treatments",
+          "method": "GET"
+        },
+        {
+          "success": true,
+          "status": 200,
+          "responseTime": 9,
+          "dataSize": 2,
+          "path": "/api/public/practitioners",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 3,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/treatments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 2,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/treatments",
+          "method": "GET"
+        },
+        {
+          "success": true,
+          "status": 200,
+          "responseTime": 11,
+          "dataSize": 2,
+          "path": "/api/public/practitioners",
+          "method": "GET"
+        },
+        {
+          "success": true,
+          "status": 200,
+          "responseTime": 7,
+          "dataSize": 2,
+          "path": "/api/public/practitioners",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 7,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/treatments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 4,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/availability",
+          "method": "GET"
+        },
+        {
+          "success": true,
+          "status": 200,
+          "responseTime": 8,
+          "dataSize": 2,
+          "path": "/api/public/practitioners",
+          "method": "GET"
+        },
+        {
+          "success": true,
+          "status": 200,
+          "responseTime": 8,
+          "dataSize": 2,
+          "path": "/api/public/practitioners",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 2,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/treatments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 3,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/availability",
+          "method": "GET"
+        },
+        {
+          "success": true,
+          "status": 200,
+          "responseTime": 4,
+          "dataSize": 2,
+          "path": "/api/public/practitioners",
+          "method": "GET"
+        },
+        {
+          "success": true,
+          "status": 200,
+          "responseTime": 10,
+          "dataSize": 2,
+          "path": "/api/public/practitioners",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 5,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/treatments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 2,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/availability",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 4,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/treatments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 3,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/availability",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 6,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/availability",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 3,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/treatments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 7,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/treatments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 6,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/availability",
+          "method": "GET"
+        },
+        {
+          "success": true,
+          "status": 200,
+          "responseTime": 6,
+          "dataSize": 2,
+          "path": "/api/public/practitioners",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 5,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/treatments",
+          "method": "GET"
+        },
+        {
+          "success": true,
+          "status": 200,
+          "responseTime": 3,
+          "dataSize": 2,
+          "path": "/api/public/practitioners",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 3,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/treatments",
+          "method": "GET"
+        },
+        {
+          "success": true,
+          "status": 200,
+          "responseTime": 3,
+          "dataSize": 2,
+          "path": "/api/public/practitioners",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 3,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/availability",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 4,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/availability",
+          "method": "GET"
+        },
+        {
+          "success": true,
+          "status": 200,
+          "responseTime": 15,
+          "dataSize": 2,
+          "path": "/api/public/practitioners",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 2,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/availability",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 3,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/availability",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 5,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/treatments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 2,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/availability",
+          "method": "GET"
+        },
+        {
+          "success": true,
+          "status": 200,
+          "responseTime": 5,
+          "dataSize": 2,
+          "path": "/api/public/practitioners",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 4,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/availability",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 2,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/treatments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 3,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/treatments",
+          "method": "GET"
+        },
+        {
+          "success": true,
+          "status": 200,
+          "responseTime": 3,
+          "dataSize": 2,
+          "path": "/api/public/practitioners",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 2,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/availability",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 2,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/treatments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 3,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/treatments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 2,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/treatments",
+          "method": "GET"
+        },
+        {
+          "success": true,
+          "status": 200,
+          "responseTime": 13,
+          "dataSize": 2,
+          "path": "/api/public/practitioners",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 4,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/availability",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 5,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/treatments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 2,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/availability",
+          "method": "GET"
+        },
+        {
+          "success": true,
+          "status": 200,
+          "responseTime": 3,
+          "dataSize": 2,
+          "path": "/api/public/practitioners",
+          "method": "GET"
+        },
+        {
+          "success": true,
+          "status": 200,
+          "responseTime": 5,
+          "dataSize": 2,
+          "path": "/api/public/practitioners",
+          "method": "GET"
+        },
+        {
+          "success": true,
+          "status": 200,
+          "responseTime": 8,
+          "dataSize": 2,
+          "path": "/api/public/practitioners",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 3,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/treatments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 2,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/treatments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 4,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/treatments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 7,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/treatments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 3,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/treatments",
+          "method": "GET"
+        },
+        {
+          "success": true,
+          "status": 200,
+          "responseTime": 5,
+          "dataSize": 2,
+          "path": "/api/public/practitioners",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 4,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/treatments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 3,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/treatments",
+          "method": "GET"
+        },
+        {
+          "success": true,
+          "status": 200,
+          "responseTime": 3,
+          "dataSize": 2,
+          "path": "/api/public/practitioners",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 7,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/availability",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 2,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/treatments",
+          "method": "GET"
+        },
+        {
+          "success": true,
+          "status": 200,
+          "responseTime": 6,
+          "dataSize": 2,
+          "path": "/api/public/practitioners",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 3,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/treatments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 2,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/treatments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 2,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/availability",
+          "method": "GET"
+        },
+        {
+          "success": true,
+          "status": 200,
+          "responseTime": 4,
+          "dataSize": 2,
+          "path": "/api/public/practitioners",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 2,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/treatments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 2,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/treatments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 2,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/availability",
+          "method": "GET"
+        },
+        {
+          "success": true,
+          "status": 200,
+          "responseTime": 3,
+          "dataSize": 2,
+          "path": "/api/public/practitioners",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 2,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/treatments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 2,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/availability",
+          "method": "GET"
+        },
+        {
+          "success": true,
+          "status": 200,
+          "responseTime": 9,
+          "dataSize": 2,
+          "path": "/api/public/practitioners",
+          "method": "GET"
+        },
+        {
+          "success": true,
+          "status": 200,
+          "responseTime": 7,
+          "dataSize": 2,
+          "path": "/api/public/practitioners",
+          "method": "GET"
+        },
+        {
+          "success": true,
+          "status": 200,
+          "responseTime": 6,
+          "dataSize": 2,
+          "path": "/api/public/practitioners",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 2,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/treatments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 6,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/treatments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 5,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/treatments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 2,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/treatments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 3,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/treatments",
+          "method": "GET"
+        },
+        {
+          "success": true,
+          "status": 200,
+          "responseTime": 4,
+          "dataSize": 2,
+          "path": "/api/public/practitioners",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 2,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/availability",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 7,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/availability",
+          "method": "GET"
+        },
+        {
+          "success": true,
+          "status": 200,
+          "responseTime": 11,
+          "dataSize": 2,
+          "path": "/api/public/practitioners",
+          "method": "GET"
+        },
+        {
+          "success": true,
+          "status": 200,
+          "responseTime": 3,
+          "dataSize": 2,
+          "path": "/api/public/practitioners",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 5,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/treatments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 5,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/availability",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 3,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/availability",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 5,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/availability",
+          "method": "GET"
+        },
+        {
+          "success": true,
+          "status": 200,
+          "responseTime": 4,
+          "dataSize": 2,
+          "path": "/api/public/practitioners",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 3,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/treatments",
+          "method": "GET"
+        },
+        {
+          "success": true,
+          "status": 200,
+          "responseTime": 4,
+          "dataSize": 2,
+          "path": "/api/public/practitioners",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 2,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/availability",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 3,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/availability",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 2,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/availability",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 3,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/treatments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 2,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/treatments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 2,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/availability",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 2,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/treatments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 6,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/treatments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 2,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/availability",
+          "method": "GET"
+        },
+        {
+          "success": true,
+          "status": 200,
+          "responseTime": 3,
+          "dataSize": 2,
+          "path": "/api/public/practitioners",
+          "method": "GET"
+        },
+        {
+          "success": true,
+          "status": 200,
+          "responseTime": 6,
+          "dataSize": 2,
+          "path": "/api/public/practitioners",
+          "method": "GET"
+        },
+        {
+          "success": true,
+          "status": 200,
+          "responseTime": 5,
+          "dataSize": 2,
+          "path": "/api/public/practitioners",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 3,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/treatments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 6,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/treatments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 7,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/treatments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 3,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/availability",
+          "method": "GET"
+        },
+        {
+          "success": true,
+          "status": 200,
+          "responseTime": 3,
+          "dataSize": 2,
+          "path": "/api/public/practitioners",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 5,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/treatments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 2,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/availability",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 4,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/availability",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 3,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/treatments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 6,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/treatments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 2,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/treatments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 7,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/treatments",
+          "method": "GET"
+        },
+        {
+          "success": true,
+          "status": 200,
+          "responseTime": 4,
+          "dataSize": 2,
+          "path": "/api/public/practitioners",
+          "method": "GET"
+        },
+        {
+          "success": true,
+          "status": 200,
+          "responseTime": 3,
+          "dataSize": 2,
+          "path": "/api/public/practitioners",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 2,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/treatments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 3,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/treatments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 2,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/availability",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 3,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/availability",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 3,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/availability",
+          "method": "GET"
+        },
+        {
+          "success": true,
+          "status": 200,
+          "responseTime": 7,
+          "dataSize": 2,
+          "path": "/api/public/practitioners",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 2,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/treatments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 2,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/availability",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 6,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/availability",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 7,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/treatments",
+          "method": "GET"
+        },
+        {
+          "success": true,
+          "status": 200,
+          "responseTime": 8,
+          "dataSize": 2,
+          "path": "/api/public/practitioners",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 2,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/availability",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 2,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/treatments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 4,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/availability",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 5,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/availability",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 2,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/treatments",
+          "method": "GET"
+        },
+        {
+          "success": true,
+          "status": 200,
+          "responseTime": 10,
+          "dataSize": 2,
+          "path": "/api/public/practitioners",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 404,
+          "responseTime": 4,
+          "error": "Request failed with status code 404",
+          "path": "/api/public/treatments",
+          "method": "GET"
+        },
+        {
+          "success": true,
+          "status": 200,
+          "responseTime": 10,
+          "dataSize": 2,
+          "path": "/api/public/practitioners",
+          "method": "GET"
+        },
+        {
+          "success": true,
+          "status": 200,
+          "responseTime": 7,
+          "dataSize": 2,
+          "path": "/api/public/practitioners",
+          "method": "GET"
+        }
+      ],
+      "statistics": {
+        "scenario": "Public API Load Test",
+        "totalRequests": 145,
+        "successful": 42,
+        "failed": 103,
+        "successRate": "28.97%",
+        "errorRate": "71.03%",
+        "responseTime": {
+          "min": 3,
+          "max": 43,
+          "average": 7,
+          "median": 6,
+          "p90": 11,
+          "p95": 13,
+          "p99": 43
+        },
+        "throughput": {
+          "requestsPerSecond": "3372.09",
+          "dataPerSecond": "1.91 KB/s"
+        },
+        "concurrency": {
+          "maxConcurrentUsers": 5
+        },
+        "errors": [
+          {
+            "error": "404 - Request failed with status code 404",
+            "count": 103
+          }
+        ]
+      }
+    },
+    {
+      "scenario": "Appointment Management Load Test",
+      "configuration": {
+        "users": 5,
+        "duration": 30000,
+        "rampUp": 5000
+      },
+      "results": [
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 3,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments/:id",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 27,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments",
+          "method": "POST"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 4,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 2,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 2,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 5,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments/:id",
+          "method": "PUT"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 2,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 6,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments",
+          "method": "POST"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 2,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments/:id",
+          "method": "PUT"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 3,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments/:id",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 3,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments/:id",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 3,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 2,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments/:id",
+          "method": "PUT"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 3,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments/:id",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 2,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 4,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments/:id",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 1,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments",
+          "method": "POST"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 6,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 2,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments/:id",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 2,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 2,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments/:id",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 3,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments/:id",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 2,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments/:id",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 2,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 2,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments/:id",
+          "method": "PUT"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 2,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 2,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 5,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 2,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 6,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 1,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments",
+          "method": "POST"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 2,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 3,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 5,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 4,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 3,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 1,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments/:id",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 4,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 3,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments/:id",
+          "method": "PUT"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 4,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments/:id",
+          "method": "PUT"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 6,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 3,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 3,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 2,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments/:id",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 2,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 3,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 3,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 11,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments/:id",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 3,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 2,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments/:id",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 2,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 2,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments",
+          "method": "POST"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 3,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 1,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments",
+          "method": "POST"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 4,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments/:id",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 1,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 7,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments",
+          "method": "POST"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 2,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments/:id",
+          "method": "PUT"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 4,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments",
+          "method": "POST"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 2,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 3,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 5,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments/:id",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 4,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 6,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments/:id",
+          "method": "PUT"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 4,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 2,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments/:id",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 2,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments/:id",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 3,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments",
+          "method": "POST"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 3,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments/:id",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 3,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments/:id",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 2,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments",
+          "method": "POST"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 3,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 2,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments",
+          "method": "POST"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 5,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 4,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 3,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 3,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments/:id",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 2,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments/:id",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 3,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments",
+          "method": "POST"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 2,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments/:id",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 2,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments",
+          "method": "POST"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 6,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments/:id",
+          "method": "PUT"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 2,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments",
+          "method": "POST"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 2,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments",
+          "method": "POST"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 1,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments/:id",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 2,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments/:id",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 3,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments",
+          "method": "POST"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 3,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments/:id",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 3,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments/:id",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 2,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 3,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments",
+          "method": "POST"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 2,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 4,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 2,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 3,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments/:id",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 1,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments/:id",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 4,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 3,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 5,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments",
+          "method": "POST"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 4,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments/:id",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 2,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments",
+          "method": "POST"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 2,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments",
+          "method": "POST"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 3,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 5,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments/:id",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 6,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments/:id",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 3,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments/:id",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 6,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 4,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 3,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments",
+          "method": "POST"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 2,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments/:id",
+          "method": "PUT"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 2,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments",
+          "method": "POST"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 5,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments/:id",
+          "method": "PUT"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 3,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 2,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments/:id",
+          "method": "PUT"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 5,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments/:id",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 2,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 5,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments/:id",
+          "method": "PUT"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 3,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments/:id",
+          "method": "PUT"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 3,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 3,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments",
+          "method": "POST"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 3,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 2,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 3,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 3,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments",
+          "method": "POST"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 2,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 2,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 2,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments/:id",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 2,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments/:id",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 6,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 2,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments",
+          "method": "POST"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 2,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments/:id",
+          "method": "PUT"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 1,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments",
+          "method": "POST"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 4,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 2,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments/:id",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 4,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments/:id",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 3,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 2,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 5,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments",
+          "method": "GET"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 2,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments",
+          "method": "POST"
+        },
+        {
+          "success": false,
+          "status": 401,
+          "responseTime": 3,
+          "error": "Request failed with status code 401",
+          "path": "/api/appointments/:id",
+          "method": "PUT"
+        }
+      ],
+      "statistics": {
+        "scenario": "Appointment Management Load Test",
+        "totalRequests": 140,
+        "successful": 0,
+        "failed": 140,
+        "successRate": "0.00%",
+        "errorRate": "100.00%",
+        "responseTime": {
+          "min": null,
+          "max": null,
+          "average": 0,
+          "median": 0,
+          "p90": 0,
+          "p95": 0,
+          "p99": 0
+        },
+        "throughput": {
+          "requestsPerSecond": "5185.19",
+          "dataPerSecond": "0.00 KB/s"
+        },
+        "concurrency": {
+          "maxConcurrentUsers": 5
+        },
+        "errors": [
+          {
+            "error": "401 - Request failed with status code 401",
+            "count": 140
+          }
+        ]
+      }
+    }
+  ],
+  "summary": {
+    "totalScenarios": 2,
+    "successfulScenarios": 2,
+    "failedScenarios": 0,
+    "overallStats": {
+      "totalRequests": 285,
+      "successRate": "14.74%",
+      "averageResponseTime": "4ms",
+      "averageThroughput": "4278.64 req/s"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-18.6",
+  "taskId": "TASK-18.6",
+  "moduleId": "18",
+  "moduleName": "Launch",
+  "title": "Performance Optimization",
+  "description": "Indexes/caching/CDN.",
+  "storyPoints": 8,
+  "estimatedHours": null,
+  "priority": "Medium",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-018",
+  "sprintNumber": 18,
+  "dependencies": [],
+  "tags": [],
+  "tech": "",
+  "acceptanceCriteria": "",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-13T07:33:00.033Z",
+  "completedAt": "2025-10-14T02:45:05.710Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:45:05.710Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

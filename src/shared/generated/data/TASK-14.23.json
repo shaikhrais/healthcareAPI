@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-14.23",
+  "taskId": "TASK-14.23",
+  "moduleId": "14",
+  "moduleName": "Mobile",
+  "title": "App size optimization",
+  "description": "Implements: App size optimization.",
+  "storyPoints": 8,
+  "estimatedHours": null,
+  "priority": "Medium",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-014",
+  "sprintNumber": 14,
+  "dependencies": [],
+  "tags": ["mobile"],
+  "tech": "",
+  "acceptanceCriteria": "",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-13T01:58:40.915Z",
+  "completedAt": "2025-10-14T02:45:43.370Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:45:43.370Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-11.10",
+  "taskId": "TASK-11.10",
+  "moduleId": "11",
+  "moduleName": "Analytics & Reporting",
+  "title": "Provider productivity scorecards",
+  "description": "Implements: Provider productivity scorecards.",
+  "storyPoints": 8,
+  "estimatedHours": null,
+  "priority": "Medium",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-011",
+  "sprintNumber": 11,
+  "dependencies": [],
+  "tags": ["analytics-&-reporting"],
+  "tech": "",
+  "acceptanceCriteria": "",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-12T18:42:48.877Z",
+  "completedAt": "2025-10-14T02:45:32.706Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:45:32.706Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

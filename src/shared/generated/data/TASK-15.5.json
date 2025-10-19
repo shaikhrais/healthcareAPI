@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-15.5",
+  "taskId": "TASK-15.5",
+  "moduleId": "15",
+  "moduleName": "Integrations",
+  "title": "Insurance Eligibility API",
+  "description": "Real-time eligibility 270/271.",
+  "storyPoints": 8,
+  "estimatedHours": null,
+  "priority": "High",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-015",
+  "sprintNumber": 15,
+  "dependencies": [],
+  "tags": [],
+  "tech": "",
+  "acceptanceCriteria": "",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-12T15:47:27.644Z",
+  "completedAt": "2025-10-14T02:45:02.611Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:45:02.611Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

@@ -1,0 +1,20 @@
+# Ignore node_modules if any
+node_modules/
+
+# Keep directory structure
+!.gitkeep
+
+# Ignore environment-specific files
+.env
+.env.local
+
+# Ignore logs
+*.log
+npm-debug.log*
+
+# Ignore backup files
+*_backup_*
+
+# OS files
+.DS_Store
+Thumbs.db

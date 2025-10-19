@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-7.37",
+  "taskId": "TASK-7.37",
+  "moduleId": "7",
+  "moduleName": "Clinical Notes",
+  "title": "Encounter linking to billing",
+  "description": "Implements: Encounter linking to billing.",
+  "storyPoints": 8,
+  "estimatedHours": null,
+  "priority": "Medium",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-007",
+  "sprintNumber": 7,
+  "dependencies": [],
+  "tags": ["clinical-notes"],
+  "tech": "",
+  "acceptanceCriteria": "",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-12T15:47:27.644Z",
+  "completedAt": "2025-10-14T02:45:20.159Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:45:20.159Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

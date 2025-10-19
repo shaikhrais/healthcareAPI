@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-10.12",
+  "taskId": "TASK-10.12",
+  "moduleId": "10",
+  "moduleName": "Billing & Payments",
+  "title": "Clearinghouse management (multi)",
+  "description": "Implements: Clearinghouse management (multi).",
+  "storyPoints": 8,
+  "estimatedHours": null,
+  "priority": "Medium",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-010",
+  "sprintNumber": 10,
+  "dependencies": [],
+  "tags": ["billing-&-payments"],
+  "tech": "",
+  "acceptanceCriteria": "",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-12T16:48:18.707Z",
+  "completedAt": "2025-10-14T02:45:29.727Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:45:29.727Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

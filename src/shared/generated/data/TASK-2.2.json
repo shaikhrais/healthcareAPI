@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-2.2",
+  "taskId": "TASK-2.2",
+  "moduleId": "2",
+  "moduleName": "User Management & RBAC",
+  "title": "Permission Middleware",
+  "description": "JWT + permission checks.",
+  "storyPoints": 5,
+  "estimatedHours": null,
+  "priority": "High",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-002",
+  "sprintNumber": 2,
+  "dependencies": [],
+  "tags": [],
+  "tech": "Express middleware",
+  "acceptanceCriteria": "Protected routes enforce scopes",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-12T15:47:27.644Z",
+  "completedAt": "2025-10-14T02:44:51.689Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:44:51.689Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

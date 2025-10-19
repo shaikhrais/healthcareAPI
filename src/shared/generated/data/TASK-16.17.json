@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-16.17",
+  "taskId": "TASK-16.17",
+  "moduleId": "16",
+  "moduleName": "Integrations",
+  "title": "Partner certification program",
+  "description": "Implements: Partner certification program.",
+  "storyPoints": 8,
+  "estimatedHours": null,
+  "priority": "Medium",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-016",
+  "sprintNumber": 16,
+  "dependencies": [],
+  "tags": ["integrations"],
+  "tech": "",
+  "acceptanceCriteria": "",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-13T04:49:05.819Z",
+  "completedAt": "2025-10-14T02:45:47.783Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:45:47.783Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

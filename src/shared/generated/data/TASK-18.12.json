@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-18.12",
+  "taskId": "TASK-18.12",
+  "moduleId": "18",
+  "moduleName": "Launch",
+  "title": "Launch Communications",
+  "description": "PR + social campaign.",
+  "storyPoints": 4,
+  "estimatedHours": null,
+  "priority": "Medium",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-018",
+  "sprintNumber": 18,
+  "dependencies": [],
+  "tags": [],
+  "tech": "",
+  "acceptanceCriteria": "",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-13T06:46:23.740Z",
+  "completedAt": "2025-10-14T02:45:06.675Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:45:06.675Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

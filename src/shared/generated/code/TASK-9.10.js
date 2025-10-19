@@ -1,0 +1,13 @@
+const express = require('express');
+
+const router = express.Router();
+
+router.get('/TASK-9.10', (req, res) => {
+  res.json({
+    taskId: 'TASK-9.10',
+    title: 'Batch payment posting',
+    description: 'Implements: Batch payment posting.',
+  });
+});
+
+module.exports = router;

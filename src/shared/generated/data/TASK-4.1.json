@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-4.1",
+  "taskId": "TASK-4.1",
+  "moduleId": "4",
+  "moduleName": "Patient Management",
+  "title": "Consent Forms & E-sign",
+  "description": "Templates, signature, expiry.",
+  "storyPoints": 8,
+  "estimatedHours": null,
+  "priority": "High",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-004",
+  "sprintNumber": 4,
+  "dependencies": [],
+  "tags": [],
+  "tech": "Signature pad; PDF",
+  "acceptanceCriteria": "Template -> sign -> PDF -> reminders",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-12T15:47:27.644Z",
+  "completedAt": "2025-10-14T02:44:53.129Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:44:53.129Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

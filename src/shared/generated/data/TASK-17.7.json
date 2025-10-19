@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-17.7",
+  "taskId": "TASK-17.7",
+  "moduleId": "17",
+  "moduleName": "Testing & QA",
+  "title": "Cross-Browser Testing",
+  "description": "Desktop/mobile matrix.",
+  "storyPoints": 4,
+  "estimatedHours": null,
+  "priority": "Medium",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-017",
+  "sprintNumber": 17,
+  "dependencies": [],
+  "tags": [],
+  "tech": "",
+  "acceptanceCriteria": "",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-13T06:22:57.229Z",
+  "completedAt": "2025-10-14T02:45:04.548Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:45:04.548Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

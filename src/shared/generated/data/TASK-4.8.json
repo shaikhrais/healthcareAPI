@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-4.8",
+  "taskId": "TASK-4.8",
+  "moduleId": "4",
+  "moduleName": "Patient Management",
+  "title": "Feature Flag Framework",
+  "description": "Add capability: Feature Flag Framework.",
+  "storyPoints": 3,
+  "estimatedHours": null,
+  "priority": "Medium",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-004",
+  "sprintNumber": 4,
+  "dependencies": [],
+  "tags": ["foundation"],
+  "tech": "",
+  "acceptanceCriteria": "",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-13T09:32:37.906Z",
+  "completedAt": "2025-10-14T02:45:52.341Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:45:52.341Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

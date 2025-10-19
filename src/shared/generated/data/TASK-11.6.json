@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-11.6",
+  "taskId": "TASK-11.6",
+  "moduleId": "11",
+  "moduleName": "Analytics & Reporting",
+  "title": "Patient demographics reports",
+  "description": "Implements: Patient demographics reports.",
+  "storyPoints": 8,
+  "estimatedHours": null,
+  "priority": "Medium",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-011",
+  "sprintNumber": 11,
+  "dependencies": [],
+  "tags": ["analytics-&-reporting"],
+  "tech": "",
+  "acceptanceCriteria": "",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-12T20:17:53.773Z",
+  "completedAt": "2025-10-14T02:45:32.042Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:45:32.042Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

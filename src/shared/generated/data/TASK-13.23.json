@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-13.23",
+  "taskId": "TASK-13.23",
+  "moduleId": "13",
+  "moduleName": "Mobile",
+  "title": "Mobile onboarding tutorial",
+  "description": "Implements: Mobile onboarding tutorial.",
+  "storyPoints": 8,
+  "estimatedHours": null,
+  "priority": "Medium",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-013",
+  "sprintNumber": 13,
+  "dependencies": [],
+  "tags": ["mobile"],
+  "tech": "",
+  "acceptanceCriteria": "",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-12T23:56:12.962Z",
+  "completedAt": "2025-10-14T02:45:40.310Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:45:40.310Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

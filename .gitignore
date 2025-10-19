@@ -1,0 +1,267 @@
+# ====================================
+# Node.js Dependencies & Build Files
+# ====================================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+package-lock.json
+.pnp
+.pnp.js
+
+# ====================================
+# Environment Variables & Secrets
+# ====================================
+.env
+.env.local
+.env.development
+.env.development.local
+.env.test
+.env.test.local
+.env.production
+.env.production.local
+.env.staging
+.env.*
+
+# API Keys and Secrets
+secrets/
+.secrets
+api-keys.json
+credentials.json
+config/secrets.json
+
+# ====================================
+# Logs & Runtime Data
+# ====================================
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Application logs
+app.log
+error.log
+access.log
+audit.log
+*.access.log
+*.error.log
+
+# ====================================
+# Test Coverage & Reports
+# ====================================
+coverage/
+*.lcov
+.nyc_output/
+test-results/
+jest-html-reporters-attach/
+.jest/
+
+# ====================================
+# Build & Cache Directories
+# ====================================
+build/
+dist/
+out/
+.cache/
+.parcel-cache/
+.next/
+.nuxt/
+.vuepress/dist/
+
+# Node.js cache
+.npm/
+.yarn/
+.eslintcache
+*.tsbuildinfo
+
+# Microbundle cache
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+
+# ====================================
+# IDE & Editor Files
+# ====================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+
+# ====================================
+# Operating System Files
+# ====================================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# ====================================
+# Healthcare API Specific
+# ====================================
+# Patient data uploads
+uploads/
+attachments/
+patient-files/
+medical-records/
+
+# Temporary files
+temp/
+tmp/
+*.tmp
+*.temp
+
+# Export files
+exports/
+reports/
+backups/
+
+# Generated files
+generated/
+auto-generated/
+
+# ====================================
+# Database & Storage
+# ====================================
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+*.dump
+*.sql
+
+# MongoDB dumps
+mongodb-dumps/
+db-backups/
+
+# ====================================
+# SSL Certificates & Security
+# ====================================
+certificates/
+ssl/
+*.pem
+*.key
+*.crt
+*.cert
+*.csr
+*.p12
+*.pfx
+
+# ====================================
+# Docker & Containerization
+# ====================================
+.dockerignore
+.docker/
+docker-compose.override.yml
+Dockerfile.local
+
+# ====================================
+# Infrastructure as Code
+# ====================================
+# Terraform
+*.tfstate
+*.tfstate.*
+.terraform/
+*.tfplan
+terraform.tfvars
+
+# Kubernetes
+*.yaml.bak
+*.yml.bak
+kustomization.yaml.bak
+
+# Helm
+charts/*.tgz
+
+# ====================================
+# Monitoring & Analytics
+# ====================================
+monitoring/data/
+metrics/
+analytics/
+logs/monitoring/
+grafana/data/
+prometheus/data/
+
+# ====================================
+# Deployment & Production
+# ====================================
+deployment/.env*
+deployment/ssl/
+deployment/data/
+deployment/backups/
+
+# Production configurations
+production/
+.production/
+
+# ====================================
+# Mobile & Client Apps
+# ====================================
+mobile/platforms/
+mobile/plugins/
+mobile/www/
+
+# ====================================
+# Third-party Integrations
+# ====================================
+# Stripe
+stripe-logs/
+
+# Twilio
+twilio-logs/
+
+# SendGrid
+sendgrid-logs/
+
+# ====================================
+# Development Tools
+# ====================================
+# Git hooks
+.git/hooks/local/
+
+# Documentation build
+docs/.vuepress/dist/
+docs/_book/
+
+# ====================================
+# Package Managers
+# ====================================
+# Yarn
+.yarn/
+.pnp.*
+
+# NPM
+.npm/
+
+# ====================================
+# Backup & Archive Files
+# ====================================
+*.backup
+*.bak
+*.orig
+backup/
+archives/
+
+# ====================================
+# Local Development
+# ====================================
+.local/
+local/
+dev/
+sandbox/

@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-4.5",
+  "taskId": "TASK-4.5",
+  "moduleId": "4",
+  "moduleName": "Patient Management",
+  "title": "Patient Activity Timeline",
+  "description": "Chronological interactions.",
+  "storyPoints": 8,
+  "estimatedHours": null,
+  "priority": "Medium",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-004",
+  "sprintNumber": 4,
+  "dependencies": [],
+  "tags": [],
+  "tech": "",
+  "acceptanceCriteria": "Filter by type; infinite scroll; export",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-13T09:14:49.793Z",
+  "completedAt": "2025-10-14T02:44:53.767Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:44:53.767Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

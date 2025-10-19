@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-15.7",
+  "taskId": "TASK-15.7",
+  "moduleId": "15",
+  "moduleName": "Integrations",
+  "title": "Google Calendar sync (2-way)",
+  "description": "Implements: Google Calendar sync (2-way).",
+  "storyPoints": 8,
+  "estimatedHours": null,
+  "priority": "Medium",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-015",
+  "sprintNumber": 15,
+  "dependencies": [],
+  "tags": ["integrations"],
+  "tech": "",
+  "acceptanceCriteria": "",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-13T03:50:19.603Z",
+  "completedAt": "2025-10-14T02:45:43.858Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:45:43.858Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

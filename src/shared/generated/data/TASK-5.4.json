@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-5.4",
+  "taskId": "TASK-5.4",
+  "moduleId": "5",
+  "moduleName": "Scheduling",
+  "title": "Appointment Types & Durations",
+  "description": "Durations, colors, buffers, pricing.",
+  "storyPoints": 8,
+  "estimatedHours": null,
+  "priority": "Medium",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-005",
+  "sprintNumber": 5,
+  "dependencies": [],
+  "tags": [],
+  "tech": "",
+  "acceptanceCriteria": "",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-12T15:47:27.644Z",
+  "completedAt": "2025-10-14T02:44:54.424Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:44:54.424Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

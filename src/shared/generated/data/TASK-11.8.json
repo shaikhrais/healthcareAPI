@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-11.8",
+  "taskId": "TASK-11.8",
+  "moduleId": "11",
+  "moduleName": "Analytics & Reporting",
+  "title": "Revenue forecasting models",
+  "description": "Implements: Revenue forecasting models.",
+  "storyPoints": 8,
+  "estimatedHours": null,
+  "priority": "Medium",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-011",
+  "sprintNumber": 11,
+  "dependencies": [],
+  "tags": ["analytics-&-reporting"],
+  "tech": "",
+  "acceptanceCriteria": "",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-12T20:29:45.711Z",
+  "completedAt": "2025-10-14T02:45:32.372Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:45:32.372Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

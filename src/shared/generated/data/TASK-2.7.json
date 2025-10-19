@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-2.7",
+  "taskId": "TASK-2.7",
+  "moduleId": "2",
+  "moduleName": "User Management & RBAC",
+  "title": "Admin Dashboard Skeleton",
+  "description": "Add capability: Admin Dashboard Skeleton.",
+  "storyPoints": 3,
+  "estimatedHours": null,
+  "priority": "Medium",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-002",
+  "sprintNumber": 2,
+  "dependencies": [],
+  "tags": ["foundation"],
+  "tech": "",
+  "acceptanceCriteria": "",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-13T08:14:43.895Z",
+  "completedAt": "2025-10-14T02:45:51.357Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:45:51.357Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

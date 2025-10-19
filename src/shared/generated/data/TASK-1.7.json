@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-1.7",
+  "taskId": "TASK-1.7",
+  "moduleId": "1",
+  "moduleName": "Authentication & DevOps",
+  "title": "Rate Limiting & IP Throttling",
+  "description": "Add capability: Rate Limiting & IP Throttling.",
+  "storyPoints": 3,
+  "estimatedHours": null,
+  "priority": "Medium",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-001",
+  "sprintNumber": 1,
+  "dependencies": [],
+  "tags": ["foundation"],
+  "tech": "",
+  "acceptanceCriteria": "",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-12T16:19:39.014Z",
+  "completedAt": "2025-10-14T02:45:51.193Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:45:51.193Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

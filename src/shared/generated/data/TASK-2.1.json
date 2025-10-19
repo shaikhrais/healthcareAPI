@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-2.1",
+  "taskId": "TASK-2.1",
+  "moduleId": "2",
+  "moduleName": "User Management & RBAC",
+  "title": "Role-Based Access Control",
+  "description": "Roles & granular permissions.",
+  "storyPoints": 8,
+  "estimatedHours": null,
+  "priority": "High",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-002",
+  "sprintNumber": 2,
+  "dependencies": [],
+  "tags": [],
+  "tech": "Middleware, role models",
+  "acceptanceCriteria": "Assign role -> Enforce perms -> 403 otherwise",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-12T15:47:27.644Z",
+  "completedAt": "2025-10-14T02:44:51.528Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:44:51.528Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

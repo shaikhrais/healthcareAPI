@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-11.9",
+  "taskId": "TASK-11.9",
+  "moduleId": "11",
+  "moduleName": "Analytics & Reporting",
+  "title": "Payer mix analysis",
+  "description": "Implements: Payer mix analysis.",
+  "storyPoints": 8,
+  "estimatedHours": null,
+  "priority": "Medium",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-011",
+  "sprintNumber": 11,
+  "dependencies": [],
+  "tags": ["analytics-&-reporting"],
+  "tech": "",
+  "acceptanceCriteria": "",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-12T20:35:38.524Z",
+  "completedAt": "2025-10-14T02:45:32.539Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:45:32.539Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

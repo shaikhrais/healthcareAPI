@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-3.8",
+  "taskId": "TASK-3.8",
+  "moduleId": "3",
+  "moduleName": "Patient Management",
+  "title": "Structured Logging (JSON)",
+  "description": "Add capability: Structured Logging (JSON).",
+  "storyPoints": 3,
+  "estimatedHours": null,
+  "priority": "Medium",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-003",
+  "sprintNumber": 3,
+  "dependencies": [],
+  "tags": ["foundation"],
+  "tech": "",
+  "acceptanceCriteria": "",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-13T08:50:41.475Z",
+  "completedAt": "2025-10-14T02:45:52.175Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:45:52.175Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

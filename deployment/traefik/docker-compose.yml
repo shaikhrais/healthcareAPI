@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  traefik:
+    image: traefik:v3.0
+    container_name: traefik
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+      - "8080:8080"  # Dashboard - remove in production
+    networks:
+      - traefik-proxy
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./traefik.yml:/etc/traefik/traefik.yml:ro
+      - ./acme.json:/acme.json
+    environment:
+      - TRAEFIK_LOG_LEVEL=INFO
+    labels:
+      - "traefik.enable=true"
+      # Dashboard (optional - secure this or remove in production)
+      - "traefik.http.routers.dashboard.rule=Host(`traefik.yourdomain.com`)"
+      - "traefik.http.routers.dashboard.entrypoints=websecure"
+      - "traefik.http.routers.dashboard.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.dashboard.service=api@internal"
+      - "traefik.http.routers.dashboard.middlewares=auth"
+      # Basic auth for dashboard (generate with: htpasswd -nb admin password)
+      - "traefik.http.middlewares.auth.basicauth.users=admin:$$2y$$10$$example$$hash$$here"
+
+networks:
+  traefik-proxy:
+    external: true

@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-11.4",
+  "taskId": "TASK-11.4",
+  "moduleId": "11",
+  "moduleName": "Analytics & Reporting",
+  "title": "Operational Reports",
+  "description": "Utilization, waits, no-shows.",
+  "storyPoints": 8,
+  "estimatedHours": null,
+  "priority": "Medium",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-011",
+  "sprintNumber": 11,
+  "dependencies": [],
+  "tags": [],
+  "tech": "",
+  "acceptanceCriteria": "",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-12T20:11:57.075Z",
+  "completedAt": "2025-10-14T02:44:59.269Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:44:59.269Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

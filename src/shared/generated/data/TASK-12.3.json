@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-12.3",
+  "taskId": "TASK-12.3",
+  "moduleId": "12",
+  "moduleName": "Analytics & Reporting",
+  "title": "BI Integration",
+  "description": "Tableau/Power BI endpoints.",
+  "storyPoints": 13,
+  "estimatedHours": null,
+  "priority": "High",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-012",
+  "sprintNumber": 12,
+  "dependencies": [],
+  "tags": [],
+  "tech": "",
+  "acceptanceCriteria": "",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-12T15:47:27.644Z",
+  "completedAt": "2025-10-14T02:44:59.900Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:44:59.900Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

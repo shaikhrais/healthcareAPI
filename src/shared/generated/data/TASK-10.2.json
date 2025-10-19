@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-10.2",
+  "taskId": "TASK-10.2",
+  "moduleId": "10",
+  "moduleName": "Billing & Payments",
+  "title": "Claim Status Tracking",
+  "description": "276/277; timeline.",
+  "storyPoints": 8,
+  "estimatedHours": null,
+  "priority": "Medium",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-010",
+  "sprintNumber": 10,
+  "dependencies": [],
+  "tags": [],
+  "tech": "",
+  "acceptanceCriteria": "",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-12T17:34:07.995Z",
+  "completedAt": "2025-10-14T02:44:58.138Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:44:58.138Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

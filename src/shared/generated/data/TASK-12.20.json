@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-12.20",
+  "taskId": "TASK-12.20",
+  "moduleId": "12",
+  "moduleName": "Analytics & Reporting",
+  "title": "Real-time dashboard updates",
+  "description": "Implements: Real-time dashboard updates.",
+  "storyPoints": 8,
+  "estimatedHours": null,
+  "priority": "Medium",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-012",
+  "sprintNumber": 12,
+  "dependencies": [],
+  "tags": ["analytics-&-reporting"],
+  "tech": "",
+  "acceptanceCriteria": "",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-12T21:52:30.017Z",
+  "completedAt": "2025-10-14T02:45:37.110Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:45:37.110Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

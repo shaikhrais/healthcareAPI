@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-17.9",
+  "taskId": "TASK-17.9",
+  "moduleId": "17",
+  "moduleName": "Testing & QA",
+  "title": "Regression Test Suite Automation",
+  "description": "Automate broad regression suite in CI.",
+  "storyPoints": 5,
+  "estimatedHours": null,
+  "priority": "Medium",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-017",
+  "sprintNumber": 17,
+  "dependencies": [],
+  "tags": ["qa", "testing"],
+  "tech": "",
+  "acceptanceCriteria": "",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-13T06:34:42.641Z",
+  "completedAt": "2025-10-14T02:45:48.272Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:45:48.272Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

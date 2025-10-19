@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-5.12",
+  "taskId": "TASK-5.12",
+  "moduleId": "5",
+  "moduleName": "Scheduling",
+  "title": "Double-booking prevention",
+  "description": "Implements: Double-booking prevention.",
+  "storyPoints": 8,
+  "estimatedHours": null,
+  "priority": "Medium",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-005",
+  "sprintNumber": 5,
+  "dependencies": [],
+  "tags": ["scheduling"],
+  "tech": "",
+  "acceptanceCriteria": "",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-13T09:56:19.139Z",
+  "completedAt": "2025-10-14T02:45:07.820Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:45:07.820Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-17.13",
+  "taskId": "TASK-17.13",
+  "moduleId": "17",
+  "moduleName": "Testing & QA",
+  "title": "Bug Prioritization & Triage",
+  "description": "Severity & SLA tagging.",
+  "storyPoints": 5,
+  "estimatedHours": null,
+  "priority": "Medium",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-017",
+  "sprintNumber": 17,
+  "dependencies": [],
+  "tags": ["qa", "testing"],
+  "tech": "",
+  "acceptanceCriteria": "",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-13T05:59:37.109Z",
+  "completedAt": "2025-10-14T02:45:48.924Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:45:48.924Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

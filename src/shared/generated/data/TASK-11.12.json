@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-11.12",
+  "taskId": "TASK-11.12",
+  "moduleId": "11",
+  "moduleName": "Analytics & Reporting",
+  "title": "Referral source tracking",
+  "description": "Implements: Referral source tracking.",
+  "storyPoints": 8,
+  "estimatedHours": null,
+  "priority": "Medium",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-011",
+  "sprintNumber": 11,
+  "dependencies": [],
+  "tags": ["analytics-&-reporting"],
+  "tech": "",
+  "acceptanceCriteria": "",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-12T18:54:17.523Z",
+  "completedAt": "2025-10-14T02:45:33.036Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:45:33.036Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

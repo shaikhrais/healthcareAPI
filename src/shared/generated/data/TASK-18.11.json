@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-18.11",
+  "taskId": "TASK-18.11",
+  "moduleId": "18",
+  "moduleName": "Launch",
+  "title": "Go-Live Checklist & Rollback",
+  "description": "Finalize & test rollback.",
+  "storyPoints": 6,
+  "estimatedHours": null,
+  "priority": "High",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-018",
+  "sprintNumber": 18,
+  "dependencies": [],
+  "tags": [],
+  "tech": "",
+  "acceptanceCriteria": "",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-12T15:47:27.644Z",
+  "completedAt": "2025-10-14T02:45:06.510Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:45:06.510Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

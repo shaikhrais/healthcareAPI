@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-14.1",
+  "taskId": "TASK-14.1",
+  "moduleId": "14",
+  "moduleName": "Mobile",
+  "title": "Offline Mode & Sync",
+  "description": "Queue writes; resolve conflicts.",
+  "storyPoints": 13,
+  "estimatedHours": null,
+  "priority": "High",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-014",
+  "sprintNumber": 14,
+  "dependencies": [],
+  "tags": [],
+  "tech": "",
+  "acceptanceCriteria": "",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-12T15:47:27.644Z",
+  "completedAt": "2025-10-14T02:45:01.147Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:45:01.147Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

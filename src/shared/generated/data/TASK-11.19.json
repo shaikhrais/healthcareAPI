@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-11.19",
+  "taskId": "TASK-11.19",
+  "moduleId": "11",
+  "moduleName": "Analytics & Reporting",
+  "title": "Cohort analysis by acquisition date",
+  "description": "Implements: Cohort analysis by acquisition date.",
+  "storyPoints": 8,
+  "estimatedHours": null,
+  "priority": "Medium",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-011",
+  "sprintNumber": 11,
+  "dependencies": [],
+  "tags": ["analytics-&-reporting"],
+  "tech": "",
+  "acceptanceCriteria": "",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-12T19:42:30.681Z",
+  "completedAt": "2025-10-14T02:45:34.154Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:45:34.154Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

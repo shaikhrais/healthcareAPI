@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-1.4",
+  "taskId": "TASK-1.4",
+  "moduleId": "1",
+  "moduleName": "Authentication & DevOps",
+  "title": "Docker Configuration",
+  "description": "Dockerize app/DB/Redis.",
+  "storyPoints": 5,
+  "estimatedHours": null,
+  "priority": "High",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-001",
+  "sprintNumber": 1,
+  "dependencies": [],
+  "tags": [],
+  "tech": "Docker, Compose, multi-stage",
+  "acceptanceCriteria": "Containers up -> DB wired -> ENVs work",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-12T15:47:27.644Z",
+  "completedAt": "2025-10-14T02:44:51.207Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:44:51.207Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

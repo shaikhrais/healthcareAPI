@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-15.14",
+  "taskId": "TASK-15.14",
+  "moduleId": "15",
+  "moduleName": "Integrations",
+  "title": "QuickBooks sync",
+  "description": "Implements: QuickBooks sync.",
+  "storyPoints": 8,
+  "estimatedHours": null,
+  "priority": "Medium",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-015",
+  "sprintNumber": 15,
+  "dependencies": [],
+  "tags": ["integrations"],
+  "tech": "",
+  "acceptanceCriteria": "",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-13T03:08:54.976Z",
+  "completedAt": "2025-10-14T02:45:45.031Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:45:45.031Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

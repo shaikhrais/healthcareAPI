@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-3.3",
+  "taskId": "TASK-3.3",
+  "moduleId": "3",
+  "moduleName": "Patient Management",
+  "title": "Insurance Info Management",
+  "description": "Policy data, card photos.",
+  "storyPoints": 8,
+  "estimatedHours": null,
+  "priority": "High",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-003",
+  "sprintNumber": 3,
+  "dependencies": [],
+  "tags": [],
+  "tech": "Image upload; insurance prep",
+  "acceptanceCriteria": "Add policy -> Upload card -> Verify status",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-12T15:47:27.644Z",
+  "completedAt": "2025-10-14T02:44:52.665Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:44:52.665Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

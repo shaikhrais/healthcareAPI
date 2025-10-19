@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-16.10",
+  "taskId": "TASK-16.10",
+  "moduleId": "16",
+  "moduleName": "Integrations",
+  "title": "Custom field API support",
+  "description": "Implements: Custom field API support.",
+  "storyPoints": 8,
+  "estimatedHours": null,
+  "priority": "Medium",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-016",
+  "sprintNumber": 16,
+  "dependencies": [],
+  "tags": ["integrations"],
+  "tech": "",
+  "acceptanceCriteria": "",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-13T04:07:57.299Z",
+  "completedAt": "2025-10-14T02:45:46.640Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:45:46.640Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

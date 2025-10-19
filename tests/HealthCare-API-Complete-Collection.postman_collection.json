@@ -1,0 +1,1630 @@
+{
+  "info": {
+    "name": "HealthCare Management API - Complete Testing Collection",
+    "description": "Comprehensive API testing collection for all endpoints including authentication flows and mobile features",
+    "version": "1.0.0",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{auth_token}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:3001",
+      "type": "string"
+    },
+    {
+      "key": "api_url",
+      "value": "{{base_url}}/api",
+      "type": "string"
+    },
+    {
+      "key": "auth_token",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "user_email",
+      "value": "test@example.com",
+      "type": "string"
+    },
+    {
+      "key": "user_password",
+      "value": "TestPassword123!",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "🏥 System Health",
+      "description": "System health and status endpoints",
+      "item": [
+        {
+          "name": "Health Check",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/health",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "health"
+              ]
+            },
+            "description": "Check API health status"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200', function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test('Response time is less than 1000ms', function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "API Status",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/status",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "status"
+              ]
+            },
+            "description": "Get detailed API status and module information"
+          }
+        },
+        {
+          "name": "API Documentation",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api-docs",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "api-docs"
+              ]
+            },
+            "description": "Access Swagger API documentation"
+          }
+        }
+      ]
+    },
+    {
+      "name": "🔐 Authentication",
+      "description": "User authentication and session management",
+      "item": [
+        {
+          "name": "Register User",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{api_url}}/auth/register",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "auth",
+                "register"
+              ]
+            },
+            "description": "Register a new user account",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"{{user_email}}\",\n  \"password\": \"{{user_password}}\",\n  \"firstName\": \"Test\",\n  \"lastName\": \"User\",\n  \"phoneNumber\": \"+1234567890\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200 or 201', function () {",
+                  "    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+                  "});",
+                  "",
+                  "if (pm.response.code === 200 || pm.response.code === 201) {",
+                  "    const responseJson = pm.response.json();",
+                  "    if (responseJson.token) {",
+                  "        pm.collectionVariables.set('auth_token', responseJson.token);",
+                  "    }",
+                  "}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Login User",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{api_url}}/auth/login",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "auth",
+                "login"
+              ]
+            },
+            "description": "Login with user credentials",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"{{user_email}}\",\n  \"password\": \"{{user_password}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200 or 201', function () {",
+                  "    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+                  "});",
+                  "",
+                  "if (pm.response.code === 200 || pm.response.code === 201) {",
+                  "    const responseJson = pm.response.json();",
+                  "    if (responseJson.token) {",
+                  "        pm.collectionVariables.set('auth_token', responseJson.token);",
+                  "    }",
+                  "}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Get User Profile",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{api_url}}/auth/me",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "auth",
+                "me"
+              ]
+            },
+            "description": "Get current user profile (requires authentication)"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200', function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test('Response has user data', function () {",
+                  "    const responseJson = pm.response.json();",
+                  "    pm.expect(responseJson).to.have.property('data');",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Logout User",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{api_url}}/auth/logout",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "auth",
+                "logout"
+              ]
+            },
+            "description": "Logout current user session"
+          }
+        },
+        {
+          "name": "Request Password Reset",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{api_url}}/auth/password-reset/request",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "auth",
+                "password-reset",
+                "request"
+              ]
+            },
+            "description": "Request password reset email",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"{{user_email}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "📱 Phone Verification",
+      "description": "SMS-based phone number verification",
+      "item": [
+        {
+          "name": "Send Verification Code",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{api_url}}/auth/phone/send-code",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "auth",
+                "phone",
+                "send-code"
+              ]
+            },
+            "description": "Send SMS verification code to phone number",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"phoneNumber\": \"+1234567890\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Verify Phone Code",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{api_url}}/auth/phone/verify",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "auth",
+                "phone",
+                "verify"
+              ]
+            },
+            "description": "Verify SMS code received on phone",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"phoneNumber\": \"+1234567890\",\n  \"code\": \"123456\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Update Phone Number",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{api_url}}/auth/phone",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "auth",
+                "phone"
+              ]
+            },
+            "description": "Update user's phone number",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"phoneNumber\": \"+1987654321\",\n  \"verificationCode\": \"123456\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "🔒 Multi-Factor Authentication",
+      "description": "TOTP-based MFA management",
+      "item": [
+        {
+          "name": "Setup MFA",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{api_url}}/auth/mfa/setup",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "auth",
+                "mfa",
+                "setup"
+              ]
+            },
+            "description": "Initialize multi-factor authentication setup"
+          }
+        },
+        {
+          "name": "Verify MFA Token",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{api_url}}/auth/mfa/verify",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "auth",
+                "mfa",
+                "verify"
+              ]
+            },
+            "description": "Verify MFA token from authenticator app",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"token\": \"123456\",\n  \"deviceId\": \"test-device\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Get MFA Devices",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{api_url}}/auth/mfa/devices",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "auth",
+                "mfa",
+                "devices"
+              ]
+            },
+            "description": "Get list of registered MFA devices"
+          }
+        },
+        {
+          "name": "Disable MFA",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{api_url}}/auth/mfa/device/{deviceId}",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "auth",
+                "mfa",
+                "device",
+                "{deviceId}"
+              ]
+            },
+            "description": "Disable MFA for specific device"
+          }
+        }
+      ]
+    },
+    {
+      "name": "👆 Biometric Authentication",
+      "description": "Fingerprint/Face ID authentication",
+      "item": [
+        {
+          "name": "Register Biometric Device",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{api_url}}/auth/biometric/register",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "auth",
+                "biometric",
+                "register"
+              ]
+            },
+            "description": "Register device for biometric authentication",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"deviceId\": \"test-device-12345\",\n  \"biometricType\": \"fingerprint\",\n  \"publicKey\": \"test-public-key-data\",\n  \"deviceInfo\": {\n    \"platform\": \"iOS\",\n    \"model\": \"iPhone 13 Pro\",\n    \"osVersion\": \"15.0\",\n    \"appVersion\": \"1.0.0\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Biometric Authentication",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{api_url}}/auth/biometric/authenticate",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "auth",
+                "biometric",
+                "authenticate"
+              ]
+            },
+            "description": "Authenticate using biometric data",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"deviceId\": \"test-device-12345\",\n  \"challenge\": \"test-challenge-string\",\n  \"signature\": \"test-signature-data\",\n  \"biometricData\": \"encrypted-biometric-hash\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Get Biometric Devices",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{api_url}}/auth/biometric/devices",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "auth",
+                "biometric",
+                "devices"
+              ]
+            },
+            "description": "Get list of registered biometric devices"
+          }
+        },
+        {
+          "name": "Update Biometric Device",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{api_url}}/auth/biometric/device",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "auth",
+                "biometric",
+                "device"
+              ]
+            },
+            "description": "Update biometric device information",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"deviceId\": \"test-device-12345\",\n  \"name\": \"Updated Device Name\",\n  \"isActive\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Delete Biometric Device",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{api_url}}/auth/biometric/device/{deviceId}",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "auth",
+                "biometric",
+                "device",
+                "{deviceId}"
+              ]
+            },
+            "description": "Remove biometric device registration"
+          }
+        }
+      ]
+    },
+    {
+      "name": "🔄 Offline Sync",
+      "description": "Data synchronization for offline functionality",
+      "item": [
+        {
+          "name": "Get Sync Status",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{api_url}}/sync/status",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "sync",
+                "status"
+              ]
+            },
+            "description": "Get current synchronization status"
+          }
+        },
+        {
+          "name": "Upload Offline Data",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{api_url}}/sync/upload",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "sync",
+                "upload"
+              ]
+            },
+            "description": "Upload data created while offline",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"data\": [\n    {\n      \"id\": \"local-appointment-1\",\n      \"type\": \"appointment\",\n      \"data\": {\n        \"title\": \"Offline Created Appointment\",\n        \"date\": \"2025-10-18T01:09:46.429Z\",\n        \"patientId\": \"patient-123\",\n        \"notes\": \"Created while offline\"\n      },\n      \"timestamp\": 1760749786429,\n      \"localId\": \"temp-id-1\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Download Server Data",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{api_url}}/sync/download",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "sync",
+                "download"
+              ]
+            },
+            "description": "Download latest data from server"
+          }
+        },
+        {
+          "name": "Resolve Conflicts",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{api_url}}/sync/resolve-conflicts",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "sync",
+                "resolve-conflicts"
+              ]
+            },
+            "description": "Resolve sync conflicts between local and server data",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"conflicts\": [\n    {\n      \"localId\": \"local-appointment-1\",\n      \"serverId\": \"server-appointment-1\",\n      \"localData\": {\n        \"title\": \"Local Version\",\n        \"updatedAt\": \"2025-10-18T01:09:46.429Z\"\n      },\n      \"serverData\": {\n        \"title\": \"Server Version\",\n        \"updatedAt\": \"2025-10-18T01:09:46.430Z\"\n      },\n      \"resolution\": \"merge\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Get Sync State",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{api_url}}/sync/state",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "sync",
+                "state"
+              ]
+            },
+            "description": "Get detailed synchronization state"
+          }
+        },
+        {
+          "name": "Reset Sync",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{api_url}}/sync/reset",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "sync",
+                "reset"
+              ]
+            },
+            "description": "Reset synchronization state"
+          }
+        }
+      ]
+    },
+    {
+      "name": "❤️ Health Integrations",
+      "description": "Apple Health & Google Fit integration",
+      "item": [
+        {
+          "name": "Sync Health Data",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{api_url}}/health/sync",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "health",
+                "sync"
+              ]
+            },
+            "description": "Sync health data from external sources",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"source\": \"apple_health\",\n  \"data\": [\n    {\n      \"type\": \"steps\",\n      \"value\": 8500,\n      \"date\": \"2025-10-18T01:09:46.430Z\",\n      \"metadata\": {\n        \"device\": \"iPhone 13\",\n        \"source\": \"Health App\"\n      }\n    },\n    {\n      \"type\": \"heart_rate\",\n      \"value\": 72,\n      \"date\": \"2025-10-18T01:09:46.430Z\",\n      \"metadata\": {\n        \"device\": \"Apple Watch Series 7\"\n      }\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Get Health Data",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{api_url}}/health/data?type=steps&date=2025-10-17",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "health",
+                "data?type=steps&date=2025-10-17"
+              ]
+            },
+            "description": "Retrieve health data with filters"
+          }
+        },
+        {
+          "name": "Validate Health Data",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{api_url}}/health/validate",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "health",
+                "validate"
+              ]
+            },
+            "description": "Validate health data before saving",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"data\": [\n    {\n      \"type\": \"heart_rate\",\n      \"value\": 75,\n      \"date\": \"2025-10-18T01:09:46.430Z\"\n    },\n    {\n      \"type\": \"steps\",\n      \"value\": 10000,\n      \"date\": \"2025-10-18T01:09:46.430Z\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Export Health Data",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{api_url}}/health/export?format=json&startDate=2025-10-01",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "health",
+                "export?format=json&startDate=2025-10-01"
+              ]
+            },
+            "description": "Export health data in various formats"
+          }
+        },
+        {
+          "name": "Get Health Insights",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{api_url}}/health/insights",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "health",
+                "insights"
+              ]
+            },
+            "description": "Get AI-generated health insights"
+          }
+        },
+        {
+          "name": "Batch Import Health Data",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{api_url}}/health/batch-import",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "health",
+                "batch-import"
+              ]
+            },
+            "description": "Import large amounts of health data",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"source\": \"google_fit\",\n  \"batch\": [\n    {\n      \"type\": \"steps\",\n      \"value\": 5000,\n      \"date\": \"2025-10-18T01:09:46.430Z\"\n    },\n    {\n      \"type\": \"steps\",\n      \"value\": 5100,\n      \"date\": \"2025-10-17T01:09:46.430Z\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "🔔 Push Notifications",
+      "description": "FCM/APNS push notification management",
+      "item": [
+        {
+          "name": "Register Device",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{api_url}}/notifications/devices/register",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "notifications",
+                "devices",
+                "register"
+              ]
+            },
+            "description": "Register device for push notifications",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"token\": \"fcm-test-token-12345\",\n  \"platform\": \"android\",\n  \"deviceInfo\": {\n    \"model\": \"Pixel 6 Pro\",\n    \"osVersion\": \"12.0\",\n    \"appVersion\": \"1.0.0\"\n  },\n  \"preferences\": {\n    \"appointments\": true,\n    \"reminders\": true,\n    \"healthAlerts\": false\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Send Notification",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{api_url}}/notifications/send",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "notifications",
+                "send"
+              ]
+            },
+            "description": "Send push notification to specific users",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Test Notification\",\n  \"body\": \"This is a test push notification\",\n  \"data\": {\n    \"type\": \"appointment_reminder\",\n    \"appointmentId\": \"appointment-123\",\n    \"action\": \"view\"\n  },\n  \"recipients\": [\n    \"user-id-123\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Schedule Notification",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{api_url}}/notifications/schedule",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "notifications",
+                "schedule"
+              ]
+            },
+            "description": "Schedule future push notification",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Appointment Reminder\",\n  \"body\": \"You have an appointment in 1 hour\",\n  \"scheduledFor\": \"2025-10-18T02:09:46.430Z\",\n  \"data\": {\n    \"type\": \"appointment_reminder\",\n    \"appointmentId\": \"appointment-456\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Get Notification History",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{api_url}}/notifications/history",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "notifications",
+                "history"
+              ]
+            },
+            "description": "Get notification history for user"
+          }
+        },
+        {
+          "name": "Send Bulk Notifications",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{api_url}}/notifications/bulk-send",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "notifications",
+                "bulk-send"
+              ]
+            },
+            "description": "Send notifications to multiple users",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"notifications\": [\n    {\n      \"title\": \"Health Reminder\",\n      \"body\": \"Time to log your daily steps\",\n      \"recipients\": [\n        \"user-1\",\n        \"user-2\",\n        \"user-3\"\n      ]\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Update Notification Preferences",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{api_url}}/notifications/preferences",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "notifications",
+                "preferences"
+              ]
+            },
+            "description": "Update user notification preferences",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"appointments\": true,\n  \"reminders\": false,\n  \"healthAlerts\": true,\n  \"marketing\": false\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Get Registered Devices",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{api_url}}/notifications/devices",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "notifications",
+                "devices"
+              ]
+            },
+            "description": "Get list of user's registered devices"
+          }
+        }
+      ]
+    },
+    {
+      "name": "👥 Patients Management",
+      "description": "Patient records and management",
+      "item": [
+        {
+          "name": "Get Patients List",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{api_url}}/patients",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "patients"
+              ]
+            },
+            "description": "Get list of all patients"
+          }
+        },
+        {
+          "name": "Create Patient",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{api_url}}/patients",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "patients"
+              ]
+            },
+            "description": "Create a new patient record",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"firstName\": \"John\",\n  \"lastName\": \"Doe\",\n  \"email\": \"john.doe@example.com\",\n  \"phoneNumber\": \"+1234567890\",\n  \"dateOfBirth\": \"1990-01-01\",\n  \"gender\": \"male\",\n  \"address\": {\n    \"street\": \"123 Main St\",\n    \"city\": \"Anytown\",\n    \"state\": \"CA\",\n    \"zipCode\": \"12345\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Get Patient by ID",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{api_url}}/patients/{patientId}",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "patients",
+                "{patientId}"
+              ]
+            },
+            "description": "Get specific patient details"
+          }
+        },
+        {
+          "name": "Update Patient",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{api_url}}/patients/{patientId}",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "patients",
+                "{patientId}"
+              ]
+            },
+            "description": "Update patient information",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"firstName\": \"John\",\n  \"lastName\": \"Smith\",\n  \"phoneNumber\": \"+1987654321\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Search Patients",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{api_url}}/patients/search?q=John&limit=10",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "patients",
+                "search?q=John&limit=10"
+              ]
+            },
+            "description": "Search patients by name or other criteria"
+          }
+        },
+        {
+          "name": "Delete Patient",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{api_url}}/patients/{patientId}",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "patients",
+                "{patientId}"
+              ]
+            },
+            "description": "Delete patient record"
+          }
+        }
+      ]
+    },
+    {
+      "name": "📅 Appointments",
+      "description": "Appointment scheduling and management",
+      "item": [
+        {
+          "name": "Get Appointments",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{api_url}}/appointments",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "appointments"
+              ]
+            },
+            "description": "Get list of appointments"
+          }
+        },
+        {
+          "name": "Create Appointment",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{api_url}}/appointments",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "appointments"
+              ]
+            },
+            "description": "Schedule a new appointment",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"patientId\": \"patient-id-123\",\n  \"doctorId\": \"doctor-id-456\",\n  \"date\": \"2025-10-19T01:09:46.430Z\",\n  \"duration\": 30,\n  \"type\": \"consultation\",\n  \"notes\": \"Regular checkup\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Get Appointment by ID",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{api_url}}/appointments/{appointmentId}",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "appointments",
+                "{appointmentId}"
+              ]
+            },
+            "description": "Get specific appointment details"
+          }
+        },
+        {
+          "name": "Update Appointment",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{api_url}}/appointments/{appointmentId}",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "appointments",
+                "{appointmentId}"
+              ]
+            },
+            "description": "Update appointment details",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"date\": \"2025-10-20T01:09:46.430Z\",\n  \"notes\": \"Updated appointment time\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Check Availability",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{api_url}}/appointments/availability?doctorId=123&date=2025-10-18",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "appointments",
+                "availability?doctorId=123&date=2025-10-18"
+              ]
+            },
+            "description": "Check doctor availability for scheduling"
+          }
+        },
+        {
+          "name": "Cancel Appointment",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{api_url}}/appointments/{appointmentId}",
+              "host": [
+                "{{api_url}}"
+              ],
+              "path": [
+                "appointments",
+                "{appointmentId}"
+              ]
+            },
+            "description": "Cancel an appointment"
+          }
+        }
+      ]
+    }
+  ]
+}

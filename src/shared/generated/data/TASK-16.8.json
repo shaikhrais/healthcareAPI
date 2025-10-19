@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-16.8",
+  "taskId": "TASK-16.8",
+  "moduleId": "16",
+  "moduleName": "Integrations",
+  "title": "API usage analytics",
+  "description": "Implements: API usage analytics.",
+  "storyPoints": 8,
+  "estimatedHours": null,
+  "priority": "Medium",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-016",
+  "sprintNumber": 16,
+  "dependencies": [],
+  "tags": ["integrations"],
+  "tech": "",
+  "acceptanceCriteria": "",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-13T05:30:17.671Z",
+  "completedAt": "2025-10-14T02:45:46.308Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:45:46.308Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}

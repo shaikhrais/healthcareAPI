@@ -1,0 +1,28 @@
+{
+  "_id": "TASK-10.7",
+  "taskId": "TASK-10.7",
+  "moduleId": "10",
+  "moduleName": "Billing & Payments",
+  "title": "Charge capture mobile app",
+  "description": "Implements: Charge capture mobile app.",
+  "storyPoints": 8,
+  "estimatedHours": null,
+  "priority": "Medium",
+  "status": "completed",
+  "assignedTo": "",
+  "sprintId": "SPRINT-010",
+  "sprintNumber": 10,
+  "dependencies": [],
+  "tags": ["billing-&-payments"],
+  "tech": "",
+  "acceptanceCriteria": "",
+  "createdAt": "2025-10-11T00:00:00",
+  "updatedAt": "2025-10-11T00:00:00",
+  "lastUpdated": "2025-10-12T18:25:33.448Z",
+  "completedAt": "2025-10-14T02:45:28.903Z",
+  "executionDetails": {
+    "completedAt": "2025-10-14T02:45:28.903Z",
+    "executionAttempts": 1
+  },
+  "executionStatus": "executed"
+}
