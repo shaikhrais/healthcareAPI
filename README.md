@@ -1,3 +1,46 @@
+## 🧩 Managers Layer (Cross-Cutting Concerns)
+
+The `src/shared/managers/` folder centralizes cross-cutting logic for error handling, configuration, caching, and per-request context. This keeps your codebase clean, DRY, and easy to maintain.
+
+### Included Managers
+- **ErrorManager**: Standard error classes, HTTP mapping, and centralized logging
+- **ConfigManager**: Typed access to environment config with defaults and safe public snapshot
+- **CacheManager**: In-memory cache with TTL and pluggable adapter (Redis-ready)
+- **RequestContextManager**: Per-request correlationId/user/tenant context (via AsyncLocalStorage)
+
+### Usage Examples
+```js
+const { ErrorManager, ConfigManager, CacheManager, RequestContextManager } = require('./src/shared/managers');
+
+// Throw a validation error
+throw new ErrorManager.ValidationError('Patient ID is required');
+
+// Access config
+const { mongoUri } = ConfigManager;
+
+// Cache a DB read
+const patient = await CacheManager.remember(`patient:${id}`, 60_000, () => PatientModel.findById(id));
+
+// Access per-request context (in a route/controller)
+const ctx = RequestContextManager.get();
+console.log('Correlation ID:', ctx?.correlationId);
+```
+
+### How It Works
+- The managers are framework-agnostic and can be used anywhere in your codebase
+- The Express app wires in `RequestContextManager.middleware()` for per-request context
+- The global error handler uses `ErrorManager.toHttp()` and `ErrorManager.log()` for consistent error responses and logging
+
+### Extending Managers
+You can add more managers for:
+- Auth (token, MFA, permissions)
+- Audit logging (HIPAA compliance)
+- Notifications (email/SMS/push)
+- File storage (S3/Blob/local)
+- Background jobs (queues)
+- Feature flags, secrets, telemetry, etc.
+
+See `src/shared/managers/README.md` for more details and examples.
 # Healthcare Management API
 
 A comprehensive healthcare practice management system built with Node.js, Express, and MongoDB.

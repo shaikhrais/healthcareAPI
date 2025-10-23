@@ -115,7 +115,17 @@ async function logAccess(req, res, startTime, responseData) {
 
     // Alert on high-risk access
     if (riskScore >= 80) {
-      // TODO: Send alert notification
+      // Send alert notification to admin (or security team)
+      try {
+        const { NotificationManager } = require('../../../managers');
+        await NotificationManager.sendEmail(
+          'admin@healthcare.local',
+          'High-Risk Access Alert',
+          `High-risk access detected for user ${req.user._id} (risk score: ${riskScore}) on endpoint ${req.originalUrl}`
+        );
+      } catch (notifyErr) {
+        console.warn('Failed to send high-risk access alert:', notifyErr.message);
+      }
       console.warn(`High-risk access detected for user ${req.user._id}: Risk score ${riskScore}`);
     }
   } catch (error) {

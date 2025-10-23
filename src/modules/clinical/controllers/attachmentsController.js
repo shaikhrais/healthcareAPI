@@ -4,8 +4,7 @@ const { validationResult } = require('express-validator');
 const ClaimAttachment = require('../models/ClaimAttachment');
 const Claim = require('../models/Claim');
 const { attachmentStorageService } = require('../services/attachmentStorageService');
-const { logger } = require('../utils/logger');
-const { BadRequestError, NotFoundError, ForbiddenError } = require('../utils/errors');
+const ErrorManager = require('../../../shared/managers/ErrorManager');
 
 
 exports.uploadAttachments = async (req, res, next) => {
@@ -35,105 +34,142 @@ exports.uploadAttachments = async (req, res, next) => {
       });
     }
   } catch (error) {
-    next(error);
+    ErrorManager.log(error, { endpoint: 'uploadAttachments' });
+    next(ErrorManager.toHttp(error).body);
   }
 };
 
 exports.getAttachmentMetadata = async (req, res, next) => {
   try {
-    // TODO: Move get metadata logic here
-    res.json({ message: 'Get attachment metadata (controller stub)' });
+    const { attachmentId } = req.params;
+    const result = await attachmentStorageService.getAttachmentMetadata(attachmentId);
+    if (result.success) {
+      res.json(result.metadata);
+    } else {
+      throw new NotFoundError('Attachment', attachmentId);
+    }
   } catch (error) {
-    next(error);
+    ErrorManager.log(error, { endpoint: 'getAttachmentMetadata' });
+    next(ErrorManager.toHttp(error).body);
   }
 };
 
 exports.downloadAttachment = async (req, res, next) => {
   try {
-    // TODO: Move download logic here
-    res.json({ message: 'Download attachment (controller stub)' });
+    const { attachmentId } = req.params;
+    const result = await attachmentStorageService.downloadAttachment(attachmentId);
+    if (result.success) {
+      res.setHeader('Content-Disposition', `attachment; filename="${result.file.filename}"`);
+      res.send(result.file.buffer);
+    } else {
+      throw new NotFoundError('Attachment', attachmentId);
+    }
   } catch (error) {
-    next(error);
+    ErrorManager.log(error, { endpoint: 'downloadAttachment' });
+    next(ErrorManager.toHttp(error).body);
   }
 };
 
 exports.deleteAttachment = async (req, res, next) => {
   try {
-    // TODO: Move delete logic here
-    res.json({ message: 'Delete attachment (controller stub)' });
+    const { attachmentId } = req.params;
+    const result = await attachmentStorageService.deleteAttachment(attachmentId);
+    if (result.success) {
+      res.json({ success: true, deleted: true, id: attachmentId });
+    } else {
+      throw new NotFoundError('Attachment', attachmentId);
+    }
   } catch (error) {
-    next(error);
+    ErrorManager.log(error, { endpoint: 'deleteAttachment' });
+    next(ErrorManager.toHttp(error).body);
   }
 };
 
 exports.listClaimAttachments = async (req, res, next) => {
   try {
-    // TODO: Move list logic here
-    res.json({ message: 'List claim attachments (controller stub)' });
+    const { claimId } = req.params;
+    const result = await attachmentStorageService.listClaimAttachments(claimId);
+    res.json(result.attachments);
   } catch (error) {
-    next(error);
+    ErrorManager.log(error, { endpoint: 'listClaimAttachments' });
+    next(ErrorManager.toHttp(error).body);
   }
 };
 
 exports.validateAttachment = async (req, res, next) => {
   try {
-    // TODO: Move validate logic here
-    res.json({ message: 'Validate attachment (controller stub)' });
+    const { attachmentId } = req.params;
+    const result = await attachmentStorageService.validateAttachment(attachmentId);
+    res.json({ valid: result.valid, id: attachmentId });
   } catch (error) {
-    next(error);
+    ErrorManager.log(error, { endpoint: 'validateAttachment' });
+    next(ErrorManager.toHttp(error).body);
   }
 };
 
 exports.submitAttachment = async (req, res, next) => {
   try {
-    // TODO: Move submit logic here
-    res.json({ message: 'Submit attachment (controller stub)' });
+    const { attachmentId } = req.params;
+    const result = await attachmentStorageService.submitAttachment(attachmentId);
+    res.json({ submitted: result.submitted, id: attachmentId });
   } catch (error) {
-    next(error);
+    ErrorManager.log(error, { endpoint: 'submitAttachment' });
+    next(ErrorManager.toHttp(error).body);
   }
 };
 
 exports.archiveAttachment = async (req, res, next) => {
   try {
-    // TODO: Move archive logic here
-    res.json({ message: 'Archive attachment (controller stub)' });
+    const { attachmentId } = req.params;
+    const result = await attachmentStorageService.archiveAttachment(attachmentId);
+    res.json({ archived: result.archived, id: attachmentId });
   } catch (error) {
-    next(error);
+    ErrorManager.log(error, { endpoint: 'archiveAttachment' });
+    next(ErrorManager.toHttp(error).body);
   }
 };
 
 exports.getAttachmentStats = async (req, res, next) => {
   try {
-    // TODO: Move stats logic here
-    res.json({ message: 'Get attachment stats (controller stub)' });
+    const { claimId } = req.params;
+    const result = await attachmentStorageService.getAttachmentStats(claimId);
+    res.json(result.stats);
   } catch (error) {
-    next(error);
+    ErrorManager.log(error, { endpoint: 'getAttachmentStats' });
+    next(ErrorManager.toHttp(error).body);
   }
 };
 
 exports.getPendingSubmissions = async (req, res, next) => {
   try {
-    // TODO: Move pending submissions logic here
-    res.json({ message: 'Get pending submissions (controller stub)' });
+    const { userId } = req.params;
+    const result = await attachmentStorageService.getPendingSubmissions(userId);
+    res.json(result.pending);
   } catch (error) {
-    next(error);
+    ErrorManager.log(error, { endpoint: 'getPendingSubmissions' });
+    next(ErrorManager.toHttp(error).body);
   }
 };
 
 exports.batchValidateAttachments = async (req, res, next) => {
   try {
-    // TODO: Move batch validate logic here
-    res.json({ message: 'Batch validate attachments (controller stub)' });
+    const { attachmentIds } = req.body;
+    const result = await attachmentStorageService.batchValidateAttachments(attachmentIds);
+    res.json(result.results);
   } catch (error) {
-    next(error);
+    ErrorManager.log(error, { endpoint: 'batchValidateAttachments' });
+    next(ErrorManager.toHttp(error).body);
   }
 };
 
 exports.updateAttachment = async (req, res, next) => {
   try {
-    // TODO: Move update logic here
-    res.json({ message: 'Update attachment (controller stub)' });
+    const { attachmentId } = req.params;
+    const updateData = req.body;
+    const result = await attachmentStorageService.updateAttachment(attachmentId, updateData);
+    res.json({ updated: result.updated, id: attachmentId, data: result.data });
   } catch (error) {
-    next(error);
+    ErrorManager.log(error, { endpoint: 'updateAttachment' });
+    next(ErrorManager.toHttp(error).body);
   }
 };

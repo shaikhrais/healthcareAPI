@@ -52,6 +52,20 @@ const connectDB = async () => {
   }
 };
 
+
+// Check required resources before starting
+const ResourceManager = require('./src/shared/managers/resource/ResourceManager');
+
+// Generate and verify resource list, record in DB
+ResourceManager.verifyAndRecordResources()
+  .then(() => ResourceManager.logResourceStatus())
+  .catch(err => console.error('Resource verification error:', err));
+
+
+// Register resource inventory API
+const resourceRoutes = require('./src/modules/resource/resource.routes');
+app.use('/api/resource', resourceRoutes);
+
 // Connect to database
 connectDB();
 
@@ -148,11 +162,15 @@ const swaggerSpec = swaggerJsdoc(swaggerOptions);
 const { basicSecurityHeaders, apiSecurityHeaders } = require('./src/shared/middleware/securityHeaders');
 app.use(basicSecurityHeaders);
 
+
 // Middleware
 app.use(cors(config.cors));
-
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
+
+// Per-request context (correlationId, user, tenant)
+const { RequestContextManager } = require('./src/shared/managers');
+app.use(RequestContextManager.middleware());
 
 // Favicon route (explicit handling)
 app.get('/favicon.ico', (req, res) => {
@@ -469,25 +487,19 @@ app.get('/', (req, res) => {
   });
 });
 
-// 404 handler
+// 404 and error handler using ErrorManager
+const ErrorManager = require('./src/shared/managers/error/ErrorManager');
 app.use((req, res) => {
-  console.log(`❌ 404 - ${req.path}`);
-  res.status(404).json({
-    error: 'Endpoint not found',
-    path: req.path,
-    message: 'Check /api-docs for available endpoints',
-    suggestion: 'Visit /api/status for module information'
-  });
+  const err = new ErrorManager.NotFoundError(`Endpoint not found: ${req.path}`);
+  ErrorManager.log(err, { route: req.path, method: req.method });
+  const { status, body } = ErrorManager.toHttp(err, { includeStack: process.env.NODE_ENV !== 'production' });
+  res.status(status).json({ ...body, timestamp: new Date().toISOString(), suggestion: 'Check /api-docs for available endpoints' });
 });
 
-// Error handler
 app.use((err, req, res, next) => {
-  console.error('❌ Server error:', err.message);
-  res.status(500).json({
-    error: 'Internal server error',
-    message: err.message,
-    timestamp: new Date().toISOString()
-  });
+  ErrorManager.log(err, { route: req.originalUrl, method: req.method });
+  const { status, body } = ErrorManager.toHttp(err, { includeStack: process.env.NODE_ENV !== 'production' });
+  res.status(status).json({ ...body, timestamp: new Date().toISOString() });
 });
 
 // ===== SSL/HTTPS CONFIGURATION =====

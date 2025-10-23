@@ -1,30 +1,55 @@
 // controllers/enhancedHealthController.js
 // Handles business logic for enhanced health endpoints
 
+const mongoose = require('mongoose');
+
 exports.getDatabaseHealth = async (req, res, next) => {
   try {
-    // TODO: Move database health logic here
-    res.json({ message: 'Database health (controller stub)' });
+    const state = mongoose.connection.readyState;
+    const states = ['disconnected', 'connected', 'connecting', 'disconnecting'];
+    res.json({
+      status: states[state] || 'unknown',
+      host: mongoose.connection.host,
+      db: mongoose.connection.name,
+      ok: state === 1,
+    });
   } catch (error) {
-    next(error);
+    const ErrorManager = require('../../../shared/managers/ErrorManager');
+    ErrorManager.log(error, { endpoint: 'getDatabaseHealth' });
+    next(ErrorManager.toHttp(error).body);
   }
 };
 
 exports.getMemoryHealth = async (req, res, next) => {
   try {
-    // TODO: Move memory health logic here
-    res.json({ message: 'Memory health (controller stub)' });
+    const mem = process.memoryUsage();
+    res.json({
+      rss: mem.rss,
+      heapTotal: mem.heapTotal,
+      heapUsed: mem.heapUsed,
+      external: mem.external,
+      arrayBuffers: mem.arrayBuffers,
+      ok: mem.heapUsed / mem.heapTotal < 0.8,
+    });
   } catch (error) {
-    next(error);
+    const ErrorManager = require('../../../shared/managers/ErrorManager');
+    ErrorManager.log(error, { endpoint: 'getMemoryHealth' });
+    next(ErrorManager.toHttp(error).body);
   }
 };
 
 exports.getWebSocketHealth = async (req, res, next) => {
   try {
-    // TODO: Move websocket health logic here
-    res.json({ message: 'WebSocket health (controller stub)' });
+    // Stub: In production, check actual WebSocket server status
+    res.json({
+      status: 'ok',
+      activeConnections: 0, // Replace with real value if available
+      ok: true,
+    });
   } catch (error) {
-    next(error);
+    const ErrorManager = require('../../../shared/managers/ErrorManager');
+    ErrorManager.log(error, { endpoint: 'getWebSocketHealth' });
+    next(ErrorManager.toHttp(error).body);
   }
 };
 

@@ -1,21 +1,40 @@
 // controllers/drugSafetyController.js
 // Handles business logic for drug safety endpoints
 
+const DrugInteraction = require('../models/DrugInteraction');
+const Patient = require('../../patients/models/Patient');
+const ErrorManager = require('../../../shared/managers/ErrorManager');
+
 exports.checkInteraction = async (req, res, next) => {
   try {
-    // TODO: Move check interaction logic here
-    res.json({ message: 'Check drug interaction (controller stub)' });
+    const { medications } = req.body;
+    if (!Array.isArray(medications) || medications.length < 2) {
+      throw new ValidationError('At least two medications are required');
+    }
+    const interactions = await DrugInteraction.checkInteractions(medications);
+    res.json({ interactions });
   } catch (error) {
-    next(error);
+    ErrorManager.log(error, { endpoint: 'checkInteraction' });
+    next(ErrorManager.toHttp(error).body);
   }
 };
 
 exports.checkAllergies = async (req, res, next) => {
   try {
-    // TODO: Move check allergies logic here
-    res.json({ message: 'Check allergies (controller stub)' });
+    const { patientId, medication } = req.body;
+    if (!patientId || !medication) {
+      throw new ValidationError('patientId and medication are required');
+    }
+    const patient = await Patient.findById(patientId);
+    if (!patient) {
+      throw new ValidationError('Patient not found');
+    }
+    const allergies = patient.medicalHistory?.allergies || [];
+    const allergic = allergies.some(a => a.toLowerCase() === medication.toLowerCase());
+    res.json({ allergic, allergies });
   } catch (error) {
-    next(error);
+    ErrorManager.log(error, { endpoint: 'checkAllergies' });
+    next(ErrorManager.toHttp(error).body);
   }
 };
 

@@ -1,12 +1,21 @@
 // controllers/documentsController.js
 // Handles business logic for documents (camera & OCR)
 
+const Document = require('../models/Document');
+const ErrorManager = require('../../../shared/managers/ErrorManager');
+
 exports.createDocument = async (req, res, next) => {
   try {
-    // TODO: Move create document logic here
-    res.status(201).json({ message: 'Create document (controller stub)' });
+    const data = req.body;
+    if (!data.title || !data.documentType || !data.organization) {
+      throw new ValidationError('Missing required fields: title, documentType, organization');
+    }
+    const doc = new Document(data);
+    await doc.save();
+    res.status(201).json(doc);
   } catch (error) {
-    next(error);
+    ErrorManager.log(error, { endpoint: 'createDocument' });
+    next(ErrorManager.toHttp(error).body);
   }
 };
 
